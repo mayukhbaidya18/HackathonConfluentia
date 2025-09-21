@@ -15,7 +15,7 @@ How it works:
    - **Recommendation** → “Recommended” or “Avoid”  
    - **Reason** → An explanation of why (e.g., glycemic index for diabetes, sodium for hypertension, etc.).  
 
-This ensures fast, private, and AI-powered insights without sending sensitive data to external servers.  
+This ensures fast, private, offline and AI-powered insights without sending sensitive data to external servers.  
 
 ## Tech Stack  
 - Frontend: SwiftUI (iOS 26 Foundation Models support)  
@@ -23,8 +23,7 @@ This ensures fast, private, and AI-powered insights without sending sensitive da
 - Data Source: Apple’s built-in on device intelligence and prompt engineering  
 
 ## Repo Structure  
-- **SmartFoodApp** → SwiftUI project code  
-- **screenshots** → Screenshots of the main user flow (disease input, food input, result)  
+- **SmartFoodApp** → SwiftUI project code   
 - **README.md** → Documentation  
 
 ## How to Run  
@@ -32,9 +31,8 @@ This ensures fast, private, and AI-powered insights without sending sensitive da
 2. Open the **SmartFoodApp.xcodeproj** in Xcode 26+ (with iOS 26 SDK).  
 3. Build and run on the iOS simulator or a physical iPhone running iOS 26+.  
 
-## Demo  
-- Screenshots are available in the `/screenshots` folder.  
-- It shows the:  
+## Demo   
+- The screenshots show the:  
   - Disease input screen  
   - Food input screen  
   - Output with “Recommended/Avoid” + explanation  
@@ -48,9 +46,15 @@ This ensures fast, private, and AI-powered insights without sending sensitive da
   - Optimized for Apple devices  
 
 ## Next Steps  
-- Expand the system to provide **meal planning** instead of just single-food queries.  
-- Support multiple simultaneous conditions (e.g., diabetes + hypertension).  
+- Expand the system to provide **meal planning** instead of just single-food queries.   
 - Integrate with **HealthKit** to suggest foods based on a user’s biomarker data.  
 - Add support for multiple languages.
 
-  
+<img width="591" height="1280" alt="image" src="https://github.com/user-attachments/assets/41c2b270-1890-4582-b1a1-b13780495440" />
+<img width="591" height="1280" alt="image" src="https://github.com/user-attachments/assets/6a33aa1e-2a16-47b2-95d3-dfe096715465" />
+<img width="591" height="1280" alt="image" src="https://github.com/user-attachments/assets/6e5d10ad-bfe4-4512-9fe0-891dd0f1bb4e" />
+<img width="591" height="1280" alt="image" src="https://github.com/user-attachments/assets/1df2b6ed-8d56-4be7-a0c9-8c6adc3e45a9" />
+<img width="591" height="1280" alt="image" src="https://github.com/user-attachments/assets/3d803821-6780-4e3d-90bd-e364aa5655e7" />
+
+
+

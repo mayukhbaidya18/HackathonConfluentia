@@ -23,12 +23,12 @@ This ensures fast, private, offline and AI-powered insights without sending sens
 - Data Source: Apple’s built-in on device intelligence and prompt engineering  
 
 ## Repo Structure  
-- **SmartFoodApp** → SwiftUI project code   
+- **HackathonConfluentia** → SwiftUI project code   
 - **README.md** → Documentation  
 
 ## How to Run  
 1. Clone or download the repository.  
-2. Open the **SmartFoodApp.xcodeproj** in Xcode 26+ (with iOS 26 SDK).  
+2. Open the **HackathonConfluentia.xcodeproj** in Xcode 26+ (with iOS 26 SDK).  
 3. Build and run on the iOS simulator or a physical iPhone running iOS 18/iOS 26.  
 
 ## Demo   

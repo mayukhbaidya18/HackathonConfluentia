@@ -13,7 +13,8 @@ How it works:
 3. The query is passed to Apple’s on-device Foundation Model.  
 4. The app returns:  
    - **Recommendation** → “Recommended” or “Avoid”  
-   - **Reason** → An explanation of why (e.g., glycemic index for diabetes, sodium for hypertension, etc.).  
+   - **Reason** → An explanation of why (e.g., glycemic index for diabetes, sodium for hypertension, etc.).
+5. Provides personalized nutrition insights, barcode-based food analysis, and dynamically generates custom meal plans based on user-specific health metrics too.
 
 This ensures fast, private, offline and AI-powered insights without sending sensitive data to external servers.  
 

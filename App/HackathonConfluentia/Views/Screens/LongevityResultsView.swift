@@ -3,8 +3,9 @@ import SwiftUI
 struct LongevityResultsView: View {
     let profile: UserProfile
     let quizAnswers: [UUID: Int]
+    let onRetakeAssessment: (() -> Void)?
     @Environment(\.dismiss) private var dismiss
-    
+
     // Calculated State
     @State private var result: LongevityResult?
     @State private var animateCharts = false
@@ -67,22 +68,25 @@ struct LongevityResultsView: View {
         Group {
             // Main Score Circle
             mainScoreSection(result)
-            
+
             // Age Cards
             ageCardsSection(result)
-            
+
             // Insights List
             insightsSection(result)
-            
+
             // CTA Button
             ctaButton
-            
+
             // Score Row
             scoreRowSection(result)
-            
+
             // Did You Know
             tipCard
-            
+
+            // Step 9: Personalized Recommendations
+            recommendationsSection
+
             // Health Metrics & Radar Chart
             metricsSection(result)
         }
@@ -167,7 +171,11 @@ struct LongevityResultsView: View {
     }
     
     private func ageCardsSection(_ result: LongevityResult) -> some View {
-        HStack(spacing: 16) {
+        // Calculate percentiles based on mental and physical scores
+        let brainPercentile = calculatePercentile(score: result.mentalScore)
+        let bodyPercentile = calculatePercentile(score: result.physicalScore)
+
+        return HStack(spacing: 16) {
             // Brain Age Card
             AgeCard(
                 icon: "brain.head.profile",
@@ -175,10 +183,10 @@ struct LongevityResultsView: View {
                 title: "Brain Age",
                 age: result.brainAge,
                 difference: result.brainAgeDifference,
-                percentile: 60,
+                percentile: brainPercentile,
                 percentileColor: .purple
             )
-            
+
             // Body Age Card
             AgeCard(
                 icon: "heart.fill",
@@ -186,7 +194,7 @@ struct LongevityResultsView: View {
                 title: "Body Age",
                 age: result.bodyAge,
                 difference: result.bodyAgeDifference,
-                percentile: 40,
+                percentile: bodyPercentile,
                 percentileColor: .blue
             )
         }
@@ -224,10 +232,12 @@ struct LongevityResultsView: View {
     }
     
     private var ctaButton: some View {
-        Button(action: {}) {
+        Button(action: {
+            onRetakeAssessment?()
+        }) {
             HStack {
-                Image(systemName: "play.fill")
-                Text("Start My 7-Day Care Plan")
+                Image(systemName: "arrow.clockwise")
+                Text("Retake Assessment")
                 Image(systemName: "arrow.right")
             }
             .font(.headline)
@@ -242,11 +252,75 @@ struct LongevityResultsView: View {
     
     private func scoreRowSection(_ result: LongevityResult) -> some View {
         HStack(spacing: 12) {
-            ScoreCard(icon: "clock", score: 83, title: "Lifestyle\nBalance", color: .blue)
-            ScoreCard(icon: "waveform.path.ecg", score: 88, title: "Physical\nWellbeing", color: .orange)
-            ScoreCard(icon: "shield", score: 93, title: "Mental\nResilience", color: .green)
+            ScoreCard(icon: "clock", score: result.lifestyleScore, title: "Lifestyle\nBalance", color: .blue)
+            ScoreCard(icon: "waveform.path.ecg", score: result.physicalScore, title: "Physical\nWellbeing", color: .orange)
+            ScoreCard(icon: "shield", score: result.mentalScore, title: "Mental\nResilience", color: .green)
         }
         .padding(.horizontal)
+    }
+
+    // Step 9: Add personalized recommendations based on lowest scores
+    private var recommendationsSection: some View {
+        VStack(spacing: 16) {
+            Text("Personalized Recommendations")
+                .font(.headline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            if let result = result {
+                ForEach(generateRecommendations(result: result), id: \.self) { recommendation in
+                    HStack(spacing: 12) {
+                        Image(systemName: "lightbulb.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(.orange)
+                            .frame(width: 32)
+
+                        Text(recommendation)
+                            .font(.subheadline)
+                            .foregroundColor(.primary)
+
+                        Spacer()
+                    }
+                    .padding()
+                    .background(Color.orange.opacity(0.1))
+                    .cornerRadius(12)
+                }
+            }
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(20)
+        .padding(.horizontal)
+    }
+
+    // Step 9: Generate actionable recommendations based on weakest metrics
+    private func generateRecommendations(result: LongevityResult) -> [String] {
+        // Sort metrics by score (lowest first)
+        let weakestMetrics = result.metrics.sorted { $0.score < $1.score }.prefix(3)
+
+        return weakestMetrics.map { metric in
+            switch metric.name {
+            case "Sleep Quality":
+                return "Aim for 7-8 hours of sleep. Maintain a consistent bedtime and avoid screens before sleep for better rest."
+            case "Nutrition":
+                return "Increase your vegetable intake to 5+ servings daily. Include colorful fruits and vegetables for better nutrition."
+            case "Physical Activity":
+                return "Target 150 minutes of moderate exercise per week. Even 30 minutes of daily walking can significantly improve your health."
+            case "Stress Management":
+                return "Practice stress-reduction techniques like deep breathing, meditation, or yoga. Even 5 minutes daily can help."
+            case "Hydration":
+                return "Drink at least 8 glasses of water daily. Carry a water bottle and set reminders to stay hydrated throughout the day."
+            case "Substance Use":
+                return "Consider reducing or eliminating smoking and alcohol. These substances accelerate aging and reduce life expectancy."
+            case "Social Health":
+                return "Strengthen social connections by scheduling regular time with friends and family. Join clubs or groups to meet new people."
+            case "Sedentary Behavior":
+                return "Reduce sitting time by taking breaks every hour. Consider a standing desk or walking meetings to stay active."
+            case "Mental Wellbeing":
+                return "Practice gratitude journaling or mindfulness. Engage in activities that bring you joy and purpose daily."
+            default:
+                return "Focus on improving \(metric.name.lowercased()) for better overall health and longevity."
+            }
+        }
     }
     
     private var tipCard: some View {
@@ -304,46 +378,328 @@ struct LongevityResultsView: View {
     }
     
     // MARK: - Logic
-    
+
     private func calculateResults() {
-        // Simple Logic:
-        // Base score starts at 50
-        // Each "good" answer adds points
-        // Good answers are usually index 2, 3, 4 (Average, Optimal, etc.)
-        
-        var scoreAccumulator = 0
-        var totalPossible = 0
-        
-        for (_, answerIndex) in quizAnswers {
-            // Assuming options 3 and 4 (indices 2, 3, 4) are better
-            // 0: Bad, 1: Poor, 2: Okay, 3: Good, 4: Excellent
-            scoreAccumulator += answerIndex * 25 // 0 to 100 per question
-            totalPossible += 100
+        // Step 3: Calculate metrics with actual answer descriptions
+        var metricScores: [HealthMetricType: [Int]] = [:]
+        var metricAnswers: [HealthMetricType: [(answer: String, score: Int)]] = [:]
+        var totalScore = 0
+        var questionCount = 0
+
+        // Get question IDs in order
+        let questions = AssessmentData.questions
+        let scoringConfigs = AssessmentData.scoringConfigurations
+
+        for (questionIndex, question) in questions.enumerated() {
+            guard let answerIndex = quizAnswers[question.id] else { continue }
+
+            // Find the scoring configuration for this question
+            let config = scoringConfigs[questionIndex]
+            let selectedAnswer = question.options[answerIndex]
+
+            // Calculate score based on weights
+            let score: Int
+            if config.isReverseScored {
+                // For reverse scored: index 0 = best (100), index 4 = worst (0)
+                score = config.weights[(4 - answerIndex)]
+            } else {
+                // For normal scored: index 0 = worst (0), index 4 = best (100)
+                score = config.weights[answerIndex]
+            }
+
+            // Add score to the appropriate metric
+            metricScores[config.metric, default: []].append(score)
+            metricAnswers[config.metric, default: []].append((selectedAnswer, score))
+
+            // Add to total
+            totalScore += score
+            questionCount += 1
         }
-        
-        let avgScore = quizAnswers.isEmpty ? 70 : (scoreAccumulator / quizAnswers.count)
+
+        // Calculate overall average score
+        let avgScore = questionCount > 0 ? (totalScore / questionCount) : 70
         let age = profile.age ?? 30
-        
-        // Dummy offsets
-        let brainOffset = (100 - avgScore) / 10 // Lower score = higher age
-        let bodyOffset = (100 - avgScore) / 5
-        
-        let calculatedMetrics = [
-            HealthMetric(name: "Sleep Quality", icon: "clock.fill", color: .green, score: 100, description: "Based on Optimal - 7-8 hours (Perfect!) hours of sleep", rating: "Excellent"),
-            HealthMetric(name: "Physical Activity", icon: "waveform.path.ecg", color: .orange, score: 60, description: "Exercising <30 minutes per session, Frequently", rating: "Good"),
-            HealthMetric(name: "Nutrition", icon: "apple.logo", color: .yellow, score: 70, description: "Consuming 8+ servings of fruits/vegetables", rating: "Good"),
-            HealthMetric(name: "Stress Level", icon: "bolt.fill", color: .green, score: 90, description: "Managing stress levels effectively", rating: "Excellent"),
-            HealthMetric(name: "Social Health", icon: "person.2.fill", color: .blue, score: 85, description: "Strong social connections maintained", rating: "Excellent"),
-            HealthMetric(name: "Mental Fitness", icon: "brain", color: .purple, score: 95, description: "Regular mental stimulation", rating: "Excellent")
-        ]
-        
+
+        // Calculate individual metric scores with personalized descriptions
+        var calculatedMetrics: [HealthMetric] = []
+
+        // Process each metric type
+        for (metricType, answers) in metricAnswers {
+            let scores = answers.map { $0.score }
+            let avgMetricScore = scores.reduce(0, +) / scores.count
+
+            // Build personalized description from actual answers
+            let description = buildDescriptionForMetric(metricType, answers: answers)
+
+            let metric = HealthMetric(
+                name: metricType.displayName,
+                icon: metricType.icon,
+                color: metricType.color,
+                score: avgMetricScore,
+                description: description,
+                rating: getRating(score: avgMetricScore)
+            )
+
+            calculatedMetrics.append(metric)
+        }
+
+        // Sort metrics by score for better visualization
+        calculatedMetrics.sort { $0.score > $1.score }
+
+        // Step 4: Calculate category scores from actual metrics
+        let categoryScores = calculateCategoryScores(metricScores: metricScores)
+
+        // Step 5: Calculate scientifically-informed brain and body age
+        let ageCalculations = calculateBiologicalAge(
+            baseAge: age,
+            metricScores: metricScores
+        )
+
         self.result = LongevityResult(
             overallScore: avgScore,
             chronologicalAge: age,
-            brainAge: age + brainOffset,
-            bodyAge: age + bodyOffset,
-            metrics: calculatedMetrics
+            brainAge: ageCalculations.brainAge,
+            bodyAge: ageCalculations.bodyAge,
+            metrics: calculatedMetrics,
+            lifestyleScore: categoryScores.lifestyle,
+            physicalScore: categoryScores.physical,
+            mentalScore: categoryScores.mental
         )
+    }
+
+    // Step 5: Calculate biological age based on risk factors
+    private func calculateBiologicalAge(baseAge: Int, metricScores: [HealthMetricType: [Int]]) -> (brainAge: Int, bodyAge: Int) {
+        var brainAgeOffset = 0
+        var bodyAgeOffset = 0
+
+        // Helper to get score for a metric
+        func getScore(_ metric: HealthMetricType) -> Int {
+            guard let scores = metricScores[metric], !scores.isEmpty else {
+                return 70 // Default if not answered
+            }
+            return scores.reduce(0, +) / scores.count
+        }
+
+        // Get individual metric scores
+        let sleepScore = getScore(.sleep)
+        let exerciseScore = getScore(.physicalActivity)
+        let nutritionScore = getScore(.nutrition)
+        let stressScore = getScore(.stress)
+        let substanceScore = getScore(.substanceUse)
+        let sedentaryScore = getScore(.sedentaryBehavior)
+        let socialScore = getScore(.socialHealth)
+
+        // ===== RISK FACTORS (Add years) =====
+
+        // Smoking: Major impact on both brain and body
+        if substanceScore < 25 {
+            // Smokes frequently
+            brainAgeOffset += 8
+            bodyAgeOffset += 12
+        } else if substanceScore < 50 {
+            // Smokes occasionally or quit recently
+            brainAgeOffset += 4
+            bodyAgeOffset += 6
+        } else if substanceScore < 75 {
+            // Quit long ago
+            brainAgeOffset += 1
+            bodyAgeOffset += 2
+        }
+
+        // Poor Sleep: Affects brain function and body health
+        if sleepScore < 40 {
+            // Very poor sleep
+            brainAgeOffset += 5
+            bodyAgeOffset += 4
+        } else if sleepScore < 60 {
+            // Below average sleep
+            brainAgeOffset += 3
+            bodyAgeOffset += 2
+        }
+
+        // High Stress: Damages brain and accelerates aging
+        if stressScore < 40 {
+            // Very high stress
+            brainAgeOffset += 5
+            bodyAgeOffset += 3
+        } else if stressScore < 60 {
+            // Moderate stress
+            brainAgeOffset += 2
+            bodyAgeOffset += 1
+        }
+
+        // Sedentary Behavior: Hurts physical health
+        if sedentaryScore < 40 {
+            // Very sedentary
+            bodyAgeOffset += 5
+        } else if sedentaryScore < 60 {
+            // Below average activity
+            bodyAgeOffset += 3
+        }
+
+        // Poor Nutrition: Affects overall health
+        if nutritionScore < 40 {
+            bodyAgeOffset += 4
+        } else if nutritionScore < 60 {
+            bodyAgeOffset += 2
+        }
+
+        // ===== PROTECTIVE FACTORS (Subtract years) =====
+
+        // Regular Exercise: Strong protective effect
+        if exerciseScore >= 90 {
+            // Very active/athlete
+            brainAgeOffset -= 3
+            bodyAgeOffset -= 6
+        } else if exerciseScore >= 75 {
+            // Active
+            brainAgeOffset -= 2
+            bodyAgeOffset -= 4
+        } else if exerciseScore >= 60 {
+            // Moderate exercise
+            brainAgeOffset -= 1
+            bodyAgeOffset -= 2
+        }
+
+        // Good Sleep: Restorative and protective
+        if sleepScore >= 90 {
+            // Optimal sleep
+            brainAgeOffset -= 3
+            bodyAgeOffset -= 2
+        } else if sleepScore >= 75 {
+            // Good sleep
+            brainAgeOffset -= 1
+            bodyAgeOffset -= 1
+        }
+
+        // Excellent Nutrition: Supports brain and body health
+        if nutritionScore >= 90 {
+            brainAgeOffset -= 2
+            bodyAgeOffset -= 4
+        } else if nutritionScore >= 75 {
+            brainAgeOffset -= 1
+            bodyAgeOffset -= 2
+        }
+
+        // Low Stress: Preserves cognitive function
+        if stressScore >= 90 {
+            brainAgeOffset -= 3
+            bodyAgeOffset -= 2
+        } else if stressScore >= 75 {
+            brainAgeOffset -= 1
+            bodyAgeOffset -= 1
+        }
+
+        // Strong Social Connections: Protective for brain
+        if socialScore >= 90 {
+            brainAgeOffset -= 3
+        } else if socialScore >= 75 {
+            brainAgeOffset -= 1
+        }
+
+        // Not Sedentary: Maintains physical health
+        if sedentaryScore >= 75 {
+            bodyAgeOffset -= 2
+        }
+
+        // Clean Living (no smoking/drinking): Significant benefit
+        if substanceScore >= 90 {
+            brainAgeOffset -= 2
+            bodyAgeOffset -= 3
+        }
+
+        // Ensure offsets stay within realistic bounds
+        brainAgeOffset = max(-10, min(20, brainAgeOffset))
+        bodyAgeOffset = max(-10, min(25, bodyAgeOffset))
+
+        let brainAge = baseAge + brainAgeOffset
+        let bodyAge = baseAge + bodyAgeOffset
+
+        return (brainAge, bodyAge)
+    }
+
+    // Step 4: Calculate the three category scores
+    private func calculateCategoryScores(metricScores: [HealthMetricType: [Int]]) -> (lifestyle: Int, physical: Int, mental: Int) {
+        // Lifestyle Balance: Average of (Sleep + Nutrition + Hydration + Substance Use)
+        let lifestyleMetrics: [HealthMetricType] = [.sleep, .nutrition, .hydration, .substanceUse]
+        let lifestyleValues = lifestyleMetrics.compactMap { metricScores[$0] }.flatMap { $0 }
+        let lifestyleScore = lifestyleValues.isEmpty ? 70 : (lifestyleValues.reduce(0, +) / lifestyleValues.count)
+
+        // Physical Wellbeing: Average of (Physical Activity + Sedentary Behavior)
+        let physicalMetrics: [HealthMetricType] = [.physicalActivity, .sedentaryBehavior]
+        let physicalValues = physicalMetrics.compactMap { metricScores[$0] }.flatMap { $0 }
+        let physicalScore = physicalValues.isEmpty ? 70 : (physicalValues.reduce(0, +) / physicalValues.count)
+
+        // Mental Resilience: Average of (Stress + Social Health + Mental Wellbeing)
+        let mentalMetrics: [HealthMetricType] = [.stress, .socialHealth, .mentalWellbeing]
+        let mentalValues = mentalMetrics.compactMap { metricScores[$0] }.flatMap { $0 }
+        let mentalScore = mentalValues.isEmpty ? 70 : (mentalValues.reduce(0, +) / mentalValues.count)
+
+        return (lifestyleScore, physicalScore, mentalScore)
+    }
+
+    // Step 3: Build personalized description based on actual user answers
+    private func buildDescriptionForMetric(_ metricType: HealthMetricType, answers: [(answer: String, score: Int)]) -> String {
+        // Extract the answer text (before the dash)
+        let answerTexts = answers.map { answer -> String in
+            // Split by " - " and take the first part (the category)
+            let components = answer.answer.components(separatedBy: " - ")
+            return components.first ?? answer.answer
+        }
+
+        let score = answers.map { $0.score }.reduce(0, +) / answers.count
+
+        // Generate contextual description based on metric type
+        switch metricType {
+        case .sleep:
+            return "Sleep pattern: \(answerTexts.joined(separator: ", "))"
+        case .nutrition:
+            return "Vegetable intake: \(answerTexts.joined(separator: ", "))"
+        case .physicalActivity:
+            return "Exercise frequency: \(answerTexts.joined(separator: ", "))"
+        case .stress:
+            return "Stress level: \(answerTexts.joined(separator: ", "))"
+        case .hydration:
+            return "Water intake: \(answerTexts.joined(separator: ", "))"
+        case .substanceUse:
+            // Special handling for substance use (combines smoking + alcohol)
+            if answerTexts.count > 1 {
+                return "Habits: \(answerTexts.joined(separator: ", "))"
+            } else {
+                return "Substance use: \(answerTexts.first ?? "")"
+            }
+        case .socialHealth:
+            return "Social activity: \(answerTexts.joined(separator: ", "))"
+        case .sedentaryBehavior:
+            return "Daily sitting time: \(answerTexts.joined(separator: ", "))"
+        case .mentalWellbeing:
+            return "Happiness level: \(answerTexts.joined(separator: ", "))"
+        }
+    }
+
+    // Helper: Get rating based on score
+    private func getRating(score: Int) -> String {
+        switch score {
+        case 90...100: return "Excellent"
+        case 75..<90: return "Very Good"
+        case 60..<75: return "Good"
+        case 40..<60: return "Fair"
+        default: return "Needs Improvement"
+        }
+    }
+
+    // Step 9: Calculate percentile based on score
+    private func calculatePercentile(score: Int) -> Int {
+        switch score {
+        case 98...100: return 99
+        case 95..<98: return 98
+        case 90..<95: return 95
+        case 85..<90: return 85
+        case 75..<85: return 75
+        case 60..<75: return 60
+        case 40..<60: return 40
+        default: return 20
+        }
     }
 }
 
@@ -708,7 +1064,12 @@ struct LongevityResult {
     let brainAge: Int
     let bodyAge: Int
     let metrics: [HealthMetric]
-    
+
+    // Step 4: Category scores calculated from actual metrics
+    let lifestyleScore: Int
+    let physicalScore: Int
+    let mentalScore: Int
+
     var brainAgeDifference: Int { brainAge - chronologicalAge }
     var bodyAgeDifference: Int { bodyAge - chronologicalAge }
 }

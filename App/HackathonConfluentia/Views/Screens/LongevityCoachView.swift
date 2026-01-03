@@ -59,8 +59,12 @@ struct LongevityCoachView: View {
                         .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
                     } else {
                         // Results Screen
-                        LongevityResultsView(profile: profile, quizAnswers: quizAnswers)
-                            .transition(.opacity)
+                        LongevityResultsView(
+                            profile: profile,
+                            quizAnswers: quizAnswers,
+                            onRetakeAssessment: retakeAssessment
+                        )
+                        .transition(.opacity)
                     }
                 }
                 .animation(.spring(response: 0.5, dampingFraction: 0.8), value: currentStep)
@@ -74,11 +78,18 @@ struct LongevityCoachView: View {
             currentStep += 1
         }
     }
-    
+
     private func prevStep() {
         if currentStep > 0 {
             currentStep -= 1
         }
+    }
+
+    private func retakeAssessment() {
+        // Reset all state to start the quiz from the beginning
+        currentStep = 0
+        profile = UserProfile()
+        quizAnswers.removeAll()
     }
 }
 

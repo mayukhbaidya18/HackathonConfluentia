@@ -3,31 +3,7 @@ import SwiftUI
 struct TopicDetailView: View {
     let topic: Topic
     @Environment(\.dismiss) private var dismiss
-    
-    // Placeholder data for the detail view
-    let placeholderText = """
-    Hypertension, or high blood pressure, is a condition where the force of blood against artery walls is consistently too high. It can lead to serious health issues like heart disease and stroke. Regular monitoring and management are essential. For personalized advice, consult Dr. Jivi, our in-house health assistant.
-    """
-    
-    let causes = [
-        "Genetics: Family history can play a significant role in the development of hypertension.",
-        "Obesity: Being overweight or obese can increase the risk of developing hypertension.",
-        "Physical Inactivity: A sedentary lifestyle can contribute to the development of hypertension.",
-        "Sodium Intake: Consuming high amounts of sodium can increase blood pressure.",
-        "Stress: Chronic stress can contribute to the development of hypertension.",
-        "Sleep Apnea: This condition can increase the risk of developing hypertension.",
-        "Kidney Disease: Certain kidney diseases can cause hypertension.",
-        "Adrenal Gland Tumors: Tumors on the adrenal gland can cause hypertension."
-    ]
-    
-    let symptoms = [
-        "Headaches: Frequent or severe headaches can be a symptom of hypertension.",
-        "Dizziness: Dizziness or lightheadedness can occur due to high blood pressure.",
-        "Nosebleeds: Frequent nosebleeds can be a symptom of hypertension.",
-        "Fatigue: Feeling tired or weak can be a symptom of hypertension.",
-        "Vision Changes: Blurred vision or double vision can occur due to high blood pressure."
-    ]
-    
+
     var body: some View {
         VStack(spacing: 0) {
             // Custom Navigation Bar
@@ -42,16 +18,16 @@ struct TopicDetailView: View {
                         .background(Color(UIColor.systemGray6))
                         .clipShape(Circle())
                 }
-                
+
                 Spacer()
-                
-                Text(topic.name) // Use topic name but content is placeholder
+
+                Text(topic.name)
                     .font(.headline)
                     .fontWeight(.bold)
                     .foregroundColor(.black)
-                
+
                 Spacer()
-                
+
                 // Invisible button to balance the header
                 Color.clear
                     .frame(width: 40, height: 40)
@@ -59,87 +35,143 @@ struct TopicDetailView: View {
             .padding(.horizontal)
             .padding(.vertical, 8)
             .background(Color.white)
-            
+
             ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
-                    
-                    // Images Section (Placeholder)
-                    HStack(spacing: 12) {
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.gray.opacity(0.2))
-                            .frame(height: 180)
-                            .overlay(Text("Image 1").foregroundColor(.gray))
-                        
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.gray.opacity(0.2))
-                            .frame(height: 180)
-                            .overlay(Text("Image 2").foregroundColor(.gray))
-                    }
-                    
-                    Text(placeholderText)
-                        .font(.body)
-                        .foregroundColor(.primary)
-                        .lineSpacing(4)
-                    
-                    // Content Section
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("Content")
-                            .font(.headline)
-                            .foregroundColor(.orange)
-                        
-                        Text("Causes of Hypertension")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundColor(.primary)
-                        
-                        Text("Hypertension, also known as high blood pressure, can be caused by a variety of factors. These include:")
-                            .font(.body)
-                            .foregroundColor(.primary)
-                        
-                        VStack(alignment: .leading, spacing: 12) {
-                            ForEach(causes, id: \.self) { cause in
-                                BulletPointText(text: cause)
+                if let content = topic.content {
+                    VStack(alignment: .leading, spacing: 24) {
+
+                        // Images Section (Placeholder)
+                        HStack(spacing: 12) {
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.gray.opacity(0.2))
+                                .frame(height: 180)
+                                .overlay(Text("Image 1").foregroundColor(.gray))
+
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.gray.opacity(0.2))
+                                .frame(height: 180)
+                                .overlay(Text("Image 2").foregroundColor(.gray))
+                        }
+
+                        // Overview Section
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Content")
+                                .font(.headline)
+                                .foregroundColor(.orange)
+
+                            Text(content.overview)
+                                .font(.body)
+                                .foregroundColor(.primary)
+                                .lineSpacing(4)
+                        }
+
+                        // Causes Section
+                        if !content.causes.isEmpty {
+                            VStack(alignment: .leading, spacing: 16) {
+                                Text("Causes of \(topic.name)")
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.primary)
+
+                                Text(content.causesIntro)
+                                    .font(.body)
+                                    .foregroundColor(.primary)
+                                    .lineSpacing(4)
+
+                                VStack(alignment: .leading, spacing: 12) {
+                                    ForEach(content.causes, id: \.self) { cause in
+                                        BulletPointText(text: cause)
+                                    }
+                                }
                             }
                         }
-                    }
-                    
-                    // Symptoms Section
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("Symptoms of Hypertension")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundColor(.primary)
-                        
-                        Text("Hypertension often does not exhibit noticeable symptoms, but some people may experience:")
-                            .font(.body)
-                            .foregroundColor(.primary)
-                        
-                        VStack(alignment: .leading, spacing: 12) {
-                            ForEach(symptoms, id: \.self) { symptom in
-                                BulletPointText(text: symptom)
+
+                        // Symptoms Section
+                        if !content.symptoms.isEmpty {
+                            VStack(alignment: .leading, spacing: 16) {
+                                Text("Symptoms of \(topic.name)")
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.primary)
+
+                                Text(content.symptomsIntro)
+                                    .font(.body)
+                                    .foregroundColor(.primary)
+                                    .lineSpacing(4)
+
+                                VStack(alignment: .leading, spacing: 12) {
+                                    ForEach(content.symptoms, id: \.self) { symptom in
+                                        BulletPointText(text: symptom)
+                                    }
+                                }
                             }
                         }
+
+                        // Diagnosis Section
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Diagnosis of \(topic.name)")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .foregroundColor(.primary)
+
+                            Text(content.diagnosis)
+                                .font(.body)
+                                .foregroundColor(.primary)
+                                .lineSpacing(4)
+                        }
+
+                        // Complications Section
+                        if let complications = content.complications, !complications.isEmpty {
+                            VStack(alignment: .leading, spacing: 16) {
+                                Text("Complications")
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.primary)
+
+                                if let complicationsIntro = content.complicationsIntro {
+                                    Text(complicationsIntro)
+                                        .font(.body)
+                                        .foregroundColor(.primary)
+                                        .lineSpacing(4)
+                                }
+
+                                VStack(alignment: .leading, spacing: 12) {
+                                    ForEach(complications, id: \.self) { complication in
+                                        BulletPointText(text: complication)
+                                    }
+                                }
+                            }
+                        }
+
+                        Spacer(minLength: 40)
                     }
-                    
-                     // Diagnosis Section (Partial placeholder matching screenshot)
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("Diagnosis of Hypertension")
-                             .font(.title3)
-                             .fontWeight(.bold)
-                             .foregroundColor(.primary)
-                        
-                        Text("Hypertension is typically diagnosed using a blood pressure test. The test measures the pressure in the arteries as the heart beats. A blood pressure reading of 140/90 mmHg or higher is considered hypertensive.")
+                    .padding()
+                } else {
+                    // Empty state when no content is available
+                    VStack(spacing: 16) {
+                        Spacer()
+                        Image(systemName: "doc.text")
+                            .font(.system(size: 60))
+                            .foregroundColor(.gray.opacity(0.3))
+
+                        Text("Content Coming Soon")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.gray)
+
+                        Text("Detailed information about \(topic.name) will be available soon.")
                             .font(.body)
-                            .foregroundColor(.primary)
-                            .lineSpacing(4)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 32)
+
+                        Spacer()
                     }
-                    
-                    Spacer(minLength: 40)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .padding()
             }
         }
-        .background(Color.white) // Match background
+        .background(Color.white)
         .navigationBarHidden(true)
     }
 }
@@ -173,6 +205,6 @@ struct BulletPointText: View {
 }
 
 #Preview {
-    TopicDetailView(topic: Topic(name: "Hypertension", iconName: "heart.fill"))
+    TopicDetailView(topic: Topic(name: "Hypertension", iconName: "heart.fill", content: nil))
 }
 

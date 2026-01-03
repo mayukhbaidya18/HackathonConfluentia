@@ -4,7 +4,12 @@ struct BasicInfoView: View {
     @Binding var profile: UserProfile
     let onContinue: () -> Void
     let onBack: () -> Void
-    
+    @FocusState private var focusedField: Field?
+
+    enum Field {
+        case name, age
+    }
+
     var body: some View {
         VStack(spacing: 24) {
             // Header
@@ -31,6 +36,7 @@ struct BasicInfoView: View {
                             .foregroundColor(.gray)
                         TextField("Your Name", text: $profile.name)
                             .font(.system(size: 18))
+                            .focused($focusedField, equals: .name)
                     }
                     .padding()
                     .background(Color.white)
@@ -54,6 +60,7 @@ struct BasicInfoView: View {
                         TextField("Age", value: $profile.age, format: .number)
                             .keyboardType(.numberPad)
                             .font(.system(size: 18))
+                            .focused($focusedField, equals: .age)
                     }
                     .padding()
                     .background(Color.white)
@@ -101,22 +108,9 @@ struct BasicInfoView: View {
             }
             
             Spacer()
-            
+
             // Navigation Buttons
             HStack(spacing: 16) {
-                Button(action: onBack) {
-                    HStack {
-                        Image(systemName: "arrow.left")
-                        Text("Back")
-                    }
-                    .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.secondary)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(16)
-                }
-                
                 Button(action: onContinue) {
                     HStack {
                         Text("Continue")
@@ -136,6 +130,10 @@ struct BasicInfoView: View {
         }
         .padding(.horizontal, 24)
         .background(Color(.systemBackground))
+        .contentShape(Rectangle())
+        .onTapGesture {
+            focusedField = nil
+        }
     }
     
     private var isValid: Bool {

@@ -22,8 +22,8 @@ struct ConditionPickerView: View {
                         VStack(spacing: 8) {
                             Image(systemName: "heart.text.square.fill")
                                 .font(.system(size: 32))
-                                .foregroundColor(.pink)
-                            
+                                .foregroundColor(.orange)
+
                             Text("Update Your Health Profile")
                                 .font(.system(size: 20, weight: .semibold, design: .rounded))
                         }
@@ -57,7 +57,7 @@ struct ConditionPickerView: View {
                     Button("Cancel") {
                         dismiss()
                     }
-                    .foregroundColor(.blue)
+                    .foregroundColor(.orange)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
@@ -68,7 +68,7 @@ struct ConditionPickerView: View {
                             .fontWeight(.semibold)
                     }
                     .disabled(selectedConditions.isEmpty)
-                    .foregroundColor(selectedConditions.isEmpty ? .gray : .blue)
+                    .foregroundColor(selectedConditions.isEmpty ? .gray : .orange)
                 }
             }
         }

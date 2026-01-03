@@ -5,17 +5,9 @@ struct OnboardingView: View {
     
     var body: some View {
         ZStack {
-            // Gradient background
-            LinearGradient(
-                colors: [
-                    Color(.systemBackground),
-                    Color.green.opacity(0.05),
-                    Color.blue.opacity(0.05)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
+            // Solid background
+            Color(.systemBackground)
+                .ignoresSafeArea()
             
             ScrollView {
                 VStack(spacing: 32) {
@@ -23,39 +15,21 @@ struct OnboardingView: View {
                     VStack(spacing: 20) {
                         ZStack {
                             Circle()
-                                .fill(
-                                    LinearGradient(
-                                        colors: [.green.opacity(0.2), .blue.opacity(0.2)],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
-                                )
+                                .fill(Color.orange.opacity(0.15))
                                 .frame(width: 120, height: 120)
-                            
-                            Image(systemName: "leaf.circle.fill")
+
+                            Image(systemName: "waveform.path.ecg")
                                 .font(.system(size: 60, weight: .light))
-                                .foregroundStyle(
-                                    LinearGradient(
-                                        colors: [.green, .mint],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
-                                )
+                                .foregroundColor(.orange)
                         }
-                        .shadow(color: .green.opacity(0.3), radius: 20, x: 0, y: 10)
+                        .shadow(color: .orange.opacity(0.3), radius: 20, x: 0, y: 10)
                         
                         VStack(spacing: 12) {
                             Text("Smart Food Advisor")
                                 .font(.system(size: 32, weight: .bold, design: .rounded))
                                 .multilineTextAlignment(.center)
-                                .foregroundStyle(
-                                    LinearGradient(
-                                        colors: [.primary, .secondary],
-                                        startPoint: .leading,
-                                        endPoint: .trailing
-                                    )
-                                )
-                            
+                                .foregroundColor(.primary)
+
                             Text("Get personalized nutrition recommendations tailored to your unique health profile")
                                 .font(.system(size: 18, weight: .regular, design: .rounded))
                                 .foregroundColor(.secondary)
@@ -69,9 +43,9 @@ struct OnboardingView: View {
                     VStack(alignment: .leading, spacing: 20) {
                         HStack {
                             Image(systemName: "heart.text.square.fill")
-                                .foregroundColor(.pink)
+                                .foregroundColor(.orange)
                                 .font(.title2)
-                            
+
                             Text("Select Your Health Conditions")
                                 .font(.system(size: 24, weight: .semibold, design: .rounded))
                         }
@@ -119,13 +93,13 @@ struct OnboardingView: View {
                                 if viewModel.selectedConditions.isEmpty {
                                     Color.gray
                                 } else {
-                                    LinearGradient(colors: [.green, .mint], startPoint: .leading, endPoint: .trailing)
+                                    Color.orange
                                 }
                             }
                         )
                         .cornerRadius(28)
                         .shadow(
-                            color: viewModel.selectedConditions.isEmpty ? .clear : .green.opacity(0.4),
+                            color: viewModel.selectedConditions.isEmpty ? .clear : Color.orange.opacity(0.4),
                             radius: 15,
                             x: 0,
                             y: 8

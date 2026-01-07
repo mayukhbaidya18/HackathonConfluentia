@@ -228,12 +228,22 @@ struct ActiveChatView: View {
     private func sendMessage() {
         let trimmedText = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedText.isEmpty else { return }
-        
+
+        // Stop recording if currently active
+        if voiceManager.isRecording {
+            voiceManager.stopRecording()
+        }
+
         withAnimation {
             chatManager.sendMessage(trimmedText)
         }
+
+        // Clear text immediately
         inputText = ""
         voiceManager.recognizedText = "" // Clear voice buffer
+
+        // Dismiss keyboard
+        isInputFocused = false
     }
 }
 

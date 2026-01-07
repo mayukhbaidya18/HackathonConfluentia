@@ -5,7 +5,8 @@ import FoundationModels
 struct FoodAdvisorView: View {
     @State private var viewModel = FoodAdvisorViewModel()
     @FocusState private var isInputFocused: Bool
-    
+    @State private var voiceManager = VoiceInputManager()
+
     var body: some View {
         NavigationStack {
             switch viewModel.modelAvailability {
@@ -78,6 +79,11 @@ struct FoodAdvisorView: View {
             ConditionPickerView(selectedConditions: $viewModel.selectedConditions) {
                 viewModel.initializeSession()
                 viewModel.addConditionUpdateMessage()
+            }
+        }
+        .onChange(of: voiceManager.recognizedText) { newText in
+            if !newText.isEmpty {
+                viewModel.inputText = newText
             }
         }
     }
@@ -198,23 +204,22 @@ struct FoodAdvisorView: View {
             }
             
             HStack(spacing: 12) {
-                // Microphone button placeholder (inactive as not in VM yet, or remove)
-                // Keeping consistent layout with Isabella
-                Button(action: {
-                   // Placeholder or implement voice
-                }) {
-                    Image(systemName: "mic.circle.fill")
+                // Microphone button with voice input
+                Button(action: toggleRecording) {
+                    Image(systemName: voiceManager.isRecording ? "stop.circle.fill" : "mic.circle.fill")
                         .font(.system(size: 40))
-                        .foregroundColor(.orange)
+                        .foregroundColor(voiceManager.isRecording ? .red : .orange)
                         .shadow(color: .orange.opacity(0.3), radius: 5, x: 0, y: 2)
+                        .scaleEffect(voiceManager.isRecording ? 1.1 : 1.0)
+                        .animation(.easeInOut(duration: 0.2), value: voiceManager.isRecording)
                 }
                 
                 HStack {
                     TextField("Ask Dr. Jivi about food...", text: $viewModel.inputText, axis: .vertical)
                         .focused($isInputFocused)
                         .lineLimit(1...5)
-                    
-                    Button(action: viewModel.sendMessage) {
+
+                    Button(action: sendMessageWithVoiceCheck) {
                         Image(systemName: "paperplane.fill")
                             .font(.system(size: 20))
                             .foregroundColor(viewModel.inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? .gray.opacity(0.5) : .white)
@@ -287,4 +292,36 @@ struct FoodAdvisorView: View {
 // MARK: - Preview
 #Preview {
     FoodAdvisorView()
+}
+
+// MARK: - Voice Input Functions
+extension FoodAdvisorView {
+    private func toggleRecording() {
+        if voiceManager.isRecording {
+            voiceManager.stopRecording()
+        } else {
+            do {
+                try voiceManager.startRecording()
+            } catch {
+                print("Error starting recording: \(error)")
+            }
+        }
+    }
+
+    private func sendMessageWithVoiceCheck() {
+        // Stop recording if currently active
+        if voiceManager.isRecording {
+            voiceManager.stopRecording()
+        }
+
+        // Send the message
+        viewModel.sendMessage()
+
+        // Clear text immediately
+        voiceManager.recognizedText = "" // Clear voice buffer
+        viewModel.inputText = "" // Explicitly clear input text
+
+        // Dismiss keyboard
+        isInputFocused = false
+    }
 }

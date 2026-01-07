@@ -1,195 +1,178 @@
 import SwiftUI
+import Combine
+
+class DashboardViewModel: ObservableObject {
+    @Published var placeholderIndex = 0
+    @Published var offset: CGFloat = 50
+    private var animationTimer: Timer?
+
+    let placeholderTexts = [
+        "Stomach ache",
+        "Hypertension",
+        "Frequent headaches"
+    ]
+
+    func startAnimation() {
+        stopAnimation() // Reset
+
+        withAnimation(.spring(response: 0.6, dampingFraction: 0.7)) {
+            offset = 0
+        }
+
+        animationTimer = Timer.scheduledTimer(withTimeInterval: 2.6, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+
+            withAnimation(.spring(response: 0.6, dampingFraction: 0.7)) {
+                self.offset = -50
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.placeholderIndex = (self.placeholderIndex + 1) % self.placeholderTexts.count
+                self.offset = 50
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.31) {
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.7)) {
+                    self.offset = 0
+                }
+            }
+        }
+    }
+
+    func stopAnimation() {
+        animationTimer?.invalidate()
+        animationTimer = nil
+    }
+}
 
 struct DashboardView: View {
     @Binding var selectedTab: Int
+    @StateObject private var viewModel = DashboardViewModel()
 
     init(selectedTab: Binding<Int>) {
         self._selectedTab = selectedTab
     }
 
     var body: some View {
-        ZStack {
-            Color(.systemBackground).ignoresSafeArea()
-            
-            VStack(spacing: 0) {
-                // Top Bar
-                HStack {
-                    // Logo Button
-                    Button(action: {}) {
-                        Image(systemName: "plus")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.white)
-                            .frame(width: 40, height: 40)
-                            .background(Color.orange)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
-                    }
-                    
-                    Spacer()
-                    
-                    // Right Icons
-                    HStack(spacing: 16) {
-                        Button(action: {}) {
-                            Image(systemName: "magnifyingglass")
-                                .font(.system(size: 20))
-                                .foregroundColor(.primary)
-                        }
-                        
-                        Button(action: {}) {
-                            Image(systemName: "bell")
-                                .font(.system(size: 20))
-                                .foregroundColor(.primary)
-                        }
-                        
-                        Button(action: {}) {
-                            HStack(spacing: 4) {
-                                Image(systemName: "wallet.pass")
-                                Text("0.00")
-                                    .font(.system(size: 14, weight: .medium))
-                            }
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(Color(.systemGray6))
-                            .cornerRadius(8)
-                            .foregroundColor(.primary)
-                        }
-                        
-                        Button(action: {}) {
-                            Image(systemName: "person")
-                                .font(.system(size: 20))
-                                .foregroundColor(.primary)
-                        }
-                    }
-                }
-                .padding(.horizontal)
-                .padding(.top, 8)
-                
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 24) {
-                        // Greeting
-                        VStack(spacing: 8) {
-                            Text("Hello there!")
-                                .font(.system(size: 20, weight: .medium))
-                                .foregroundColor(.orange)
-                            
-                            Text("How are you feeling today?")
-                                .font(.system(size: 24, weight: .bold))
-                                .foregroundColor(.primary)
-                        }
-                        .padding(.top, 20)
-                        
-                        // Central Circle
-                        ZStack {
-                            Circle()
-                                .fill(
-                                    RadialGradient(
-                                        gradient: Gradient(colors: [Color.orange.opacity(0.1), Color.orange.opacity(0.01)]),
-                                        center: .center,
-                                        startRadius: 20,
-                                        endRadius: 100
-                                    )
-                                )
-                                .frame(width: 200, height: 200)
-                            
-                            Circle()
-                                .fill(
-                                    RadialGradient(
-                                        gradient: Gradient(colors: [Color.orange.opacity(0.2), Color.clear]),
-                                        center: .center,
-                                        startRadius: 0,
-                                        endRadius: 80
-                                    )
-                                )
-                                .frame(width: 160, height: 160)
-                        }
-                        .padding(.vertical, 10)
-                        
-                        // Search Bar
-                        HStack {
-                            TextField("Stomach ache", text: .constant(""))
-                                .padding(.leading, 20)
-                            
-                            Button(action: {}) {
-                                Image(systemName: "mic.fill")
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
-                                    .frame(width: 44, height: 44)
-                                    .background(Color.orange)
-                                    .clipShape(Circle())
-                                    .padding(6)
-                            }
-                        }
-                        .background(Color.white)
-                        .cornerRadius(30)
-                        .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
-                        .padding(.horizontal)
-                        
-                        // Health Suite Section
-                        VStack(spacing: 16) {
-                            HStack {
-                                Rectangle()
-                                    .fill(Color.orange.opacity(0.3))
-                                    .frame(width: 40, height: 2)
+        // FIX 1: Use NavigationStack instead of NavigationView
+        // NavigationStack behaves consistently as a full-screen stack on iPad.
+        NavigationStack {
+            ZStack {
+                Color(.systemBackground).ignoresSafeArea()
+
+                VStack(spacing: 0) {
+                    ScrollView(showsIndicators: false) {
+                        VStack(spacing: 24) {
+                            // Greeting
+                            VStack(spacing: 8) {
+                                Text("Hello there!")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundColor(.orange)
                                 
-                                Text("Meet Your Personal Health Suite")
-                                    .font(.system(size: 16, weight: .semibold))
+                                Text("How are you feeling today?")
+                                    .font(.system(size: 24, weight: .bold))
                                     .foregroundColor(.primary)
-                                
-                                Rectangle()
-                                    .fill(Color.orange.opacity(0.3))
-                                    .frame(width: 40, height: 2)
                             }
+                            .padding(.top, 20)
                             
-                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                                // Card 1: Doctor Jivi
-                                Button(action: { selectedTab = 1 }) {
-                                    DashboardCard(
-                                        title: "Doctor Jivi",
-                                        subtitle: "Quick, Accurate Diagnosis",
-                                        icon: "stethoscope",
-                                        iconColor: .orange
-                                    )
-                                }
+                            // MARK: - Isolated Ripple View
+                            CenteredGradientRippleView()
+                                .padding(.vertical, 10)
+                            
+                            // Search Bar
+                            NavigationLink(destination: JiviAssistantView(selectedTab: $selectedTab)) {
+                                HStack {
+                                    HStack {
+                                        Text(viewModel.placeholderTexts[viewModel.placeholderIndex])
+                                            .foregroundColor(.secondary)
+                                            .font(.system(size: 16))
+                                            .offset(y: viewModel.offset)
+                                            .opacity(viewModel.offset == 0 ? 1 : 0)
+                                        Spacer()
+                                    }
+                                    .padding(.leading, 20)
+                                    .clipped()
 
-                                // Card 2: Mind Coach
-                                Button(action: { selectedTab = 3 }) {
-                                    DashboardCard(
-                                        title: "Mind Coach",
-                                        subtitle: "Your Mind Matters",
-                                        icon: "brain.head.profile",
-                                        iconColor: .orange,
-                                        isNew: true
-                                    )
+                                    Image(systemName: "arrow.right")
+                                        .font(.system(size: 16, weight: .semibold))
+                                        .foregroundColor(.white)
+                                        .frame(width: 44, height: 44)
+                                        .background(Color.orange)
+                                        .clipShape(Circle())
+                                        .padding(6)
                                 }
-
-                                // Card 3: Specialists
-                                Button(action: { selectedTab = 4 }) {
-                                    DashboardCard(
-                                        title: "Specialists",
-                                        subtitle: "Personal Health Coach",
-                                        icon: "person.text.rectangle",
-                                        iconColor: .orange,
-                                        isNew: true
-                                    )
-                                }
-
-                                // Card 4: Care Plans
-                                Button(action: { selectedTab = 2 }) {
-                                    DashboardCard(
-                                        title: "Care Plans",
-                                        subtitle: "Health Start Here",
-                                        icon: "list.clipboard",
-                                        iconColor: .orange,
-                                        isNew: true
-                                    )
-                                }
+                                .background(Color.white)
+                                .cornerRadius(30)
+                                .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
                             }
+                            .buttonStyle(PlainButtonStyle())
                             .padding(.horizontal)
+                            
+                            // Health Suite Section
+                            VStack(spacing: 16) {
+                                HStack {
+                                    Rectangle().fill(Color.orange.opacity(0.3)).frame(width: 40, height: 2)
+                                    Text("Meet Your Personal Health Suite").font(.system(size: 16, weight: .semibold)).foregroundColor(.primary)
+                                    Rectangle().fill(Color.orange.opacity(0.3)).frame(width: 40, height: 2)
+                                }
+                                
+                                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                                    DashboardCard(title: "Doctor Jivi", subtitle: "Quick, Accurate Diagnosis", icon: "stethoscope", iconColor: .orange)
+                                        .onTapGesture { selectedTab = 1 }
+                                    
+                                    DashboardCard(title: "Mind Coach", subtitle: "Your Mind Matters", icon: "brain.head.profile", iconColor: .orange)
+                                        .onTapGesture { selectedTab = 3 }
+                                    
+                                    DashboardCard(title: "Specialists", subtitle: "Personal Health Coach", icon: "person.text.rectangle", iconColor: .orange)
+                                        .onTapGesture { selectedTab = 4 }
+                                    
+                                    DashboardCard(title: "Care Plans", subtitle: "Health Start Here", icon: "list.clipboard", iconColor: .orange)
+                                        .onTapGesture { selectedTab = 2 }
+                                }
+                                .padding(.horizontal)
+                            }
                         }
+                        .padding(.bottom, 30)
+                        // FIX 2: Ensure ScrollView content tries to fill width
+                        .frame(maxWidth: .infinity)
                     }
-                    .padding(.bottom, 30)
                 }
+                // FIX 3: Ensure the main container fills the NavigationStack
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
+            .navigationBarHidden(true)
         }
+        .onAppear {
+            viewModel.startAnimation()
+        }
+    }
+}
+
+// MARK: - Ripple Component (Unchanged)
+struct CenteredGradientRippleView: View {
+    @State private var isAnimating = false
+    let breathingAnimation = Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true)
+    
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(RadialGradient(gradient: Gradient(colors: [Color.orange.opacity(0.1), Color.orange.opacity(0.01)]), center: .center, startRadius: 20, endRadius: 100))
+                .frame(width: isAnimating ? 260 : 180, height: isAnimating ? 260 : 180)
+                .animation(breathingAnimation, value: isAnimating)
+
+            Circle()
+                .fill(RadialGradient(gradient: Gradient(colors: [Color.orange.opacity(0.2), Color.clear]), center: .center, startRadius: 0, endRadius: 80))
+                .frame(width: isAnimating ? 200 : 140, height: isAnimating ? 200 : 140)
+                .animation(breathingAnimation, value: isAnimating)
+
+            Circle()
+                .fill(Color.orange.opacity(0.3))
+                .frame(width: 80, height: 80)
+                .scaleEffect(isAnimating ? 1.05 : 0.95)
+                .animation(breathingAnimation, value: isAnimating)
+        }
+        .frame(height: 260)
+        .onAppear { isAnimating = true }
     }
 }
 
@@ -199,16 +182,14 @@ struct DashboardCard: View {
     let icon: String
     let iconColor: Color
     var isNew: Bool = false
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Image(systemName: icon)
                     .font(.system(size: 24))
                     .foregroundColor(iconColor)
-                
                 Spacer()
-                
                 if isNew {
                     Text("New")
                         .font(.system(size: 10, weight: .bold))
@@ -219,27 +200,28 @@ struct DashboardCard: View {
                         .cornerRadius(8)
                 }
             }
-            
+
             Spacer()
-            
-            Text(title)
-                .font(.system(size: 16, weight: .semibold))
-                .foregroundColor(.primary)
-            
-            Text(subtitle)
-                .font(.system(size: 12))
-                .foregroundColor(.secondary)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(.primary)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+
+                Text(subtitle)
+                    .font(.system(size: 12))
+                    .foregroundColor(.secondary)
+                    .lineLimit(3)
+                    .multilineTextAlignment(.leading)
+            }
         }
         .padding(16)
-        .frame(height: 140)
+        .frame(minHeight: 140)
         .background(Color.white)
         .cornerRadius(16)
         .shadow(color: Color.black.opacity(0.03), radius: 8, x: 0, y: 4)
-        .overlay(
-            RoundedRectangle(cornerRadius: 16)
-                .stroke(Color.gray.opacity(0.1), lineWidth: 1)
-        )
+        .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray.opacity(0.1), lineWidth: 1))
     }
 }
-
-

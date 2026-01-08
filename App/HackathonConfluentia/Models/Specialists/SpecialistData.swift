@@ -403,7 +403,7 @@ struct SpecialistData {
                 "Lifestyle and follow-up care: Balanced diet, stress management, and regular testing support long-term control."
             ]
         )),
-        Topic(name: "Osteoporosis", iconName: "bone.fill", content: TopicContent(
+        Topic(name: "Osteoporosis", iconName: "figure.stand", content: TopicContent(
             overview: "Osteoporosis is a condition in which bones become weak, porous, and fragile due to loss of bone density. This increases the risk of fractures, even with minor falls or routine activities.",
             causesIntro: "Osteoporosis develops when bone breakdown occurs faster than bone formation. Hormonal changes, nutritional deficiencies, and lifestyle factors play a major role.",
             causes: [
@@ -1545,35 +1545,164 @@ struct SpecialistData {
             answer: "Treatment depends on the condition and may include medications, rehabilitation therapy, or surgical intervention.")
     ]
 
-    // Oncologist Topics and FAQs
-    static let oncologistTopics = [
-        Topic(name: "Tumors", iconName: "circle.dashed", content: nil),
-        Topic(name: "Chemotherapy", iconName: "cross.case", content: nil),
-        Topic(name: "Radiation", iconName: "circle.fill", content: nil),
-        Topic(name: "Biopsy", iconName: "exclamationmark.circle", content: nil),
-        Topic(name: "Screening", iconName: "staroflife.fill", content: nil)
-    ]
-
-    static let oncologistFAQs = [
-        FAQ(question: "What are common warning signs of cancer?",
-            answer: "Unexplained weight loss, persistent pain, unusual lumps, fatigue, abnormal bleeding, or non-healing wounds."),
-        FAQ(question: "What causes cancer?",
-            answer: "Cancer develops due to genetic mutations caused by lifestyle factors, infections, environmental exposure, or heredity. Smoking, alcohol, poor diet, and radiation increase risk."),
-        FAQ(question: "When should I consult an oncologist?",
-            answer: "If tests suggest cancer, symptoms persist, or you need expert guidance for cancer diagnosis or treatment."),
-        FAQ(question: "How is cancer diagnosed?",
-            answer: "Diagnosis includes imaging tests, blood tests, biopsies, and pathological evaluation."),
-        FAQ(question: "What treatment options are available for cancer?",
-            answer: "Treatment may include surgery, chemotherapy, radiation therapy, immunotherapy, or targeted therapy.")
-    ]
-
     // Ophthalmologist Topics and FAQs
     static let ophthalmologistTopics = [
-        Topic(name: "Vision", iconName: "circle.dashed", content: nil),
-        Topic(name: "Eyes", iconName: "circle.fill", content: nil),
-        Topic(name: "Glasses", iconName: "eyeglasses", content: nil),
-        Topic(name: "Surgery", iconName: "cross.case", content: nil),
-        Topic(name: "Retina", iconName: "eye", content: nil)
+        Topic(name: "Cataracts", iconName: "eye.fill", content: TopicContent(
+            overview: "A cataract is a condition in which the eye's natural lens becomes cloudy, leading to gradual loss of clear vision. It commonly develops with age and can interfere with daily activities if left untreated.",
+            causesIntro: "Cataracts develop due to structural changes in the lens proteins, often influenced by aging and other medical or environmental factors.",
+            causes: [
+                "Aging: Natural aging causes lens proteins to clump together, leading to gradual clouding.",
+                "Diabetes: Elevated blood sugar alters lens metabolism, accelerating cataract formation.",
+                "Excessive sun exposure: Long-term ultraviolet exposure damages lens proteins and promotes clouding.",
+                "Eye injury or trauma: Injury disrupts lens structure, causing early cataract development.",
+                "Long-term steroid use: Prolonged corticosteroid therapy interferes with normal lens clarity.",
+                "Smoking: Tobacco increases oxidative stress, speeding up lens degeneration.",
+                "Genetic factors: Family history increases susceptibility to early cataract formation.",
+                "Congenital causes: Infections or genetic issues during pregnancy can cause cataracts at birth."
+            ],
+            symptomsIntro: "Symptoms usually progress slowly and worsen over time, affecting visual clarity and comfort.",
+            symptoms: [
+                "Blurred or cloudy vision: Objects appear hazy or less sharp than normal.",
+                "Increased glare: Bright lights cause discomfort and reduced visibility, especially at night.",
+                "Poor night vision: Difficulty seeing in dim lighting or while driving at night.",
+                "Faded or yellowed colors: Colors lose brightness and appear dull.",
+                "Frequent change in glasses: Vision keeps changing as cataracts progress."
+            ],
+            diagnosis: "Cataracts are diagnosed through a detailed eye examination by an ophthalmologist. Tests include visual acuity test to measure the sharpness of vision for near and distance tasks, slit-lamp examination to allow detailed assessment of lens clouding and cataract type, dilated eye examination to enable thorough evaluation of the lens and retina, and retinal examination to rule out other eye diseases contributing to vision loss.",
+            complicationsIntro: "If untreated, cataracts can significantly impact quality of life and lead to vision impairment. Early detection and treatment can restore vision.",
+            complications: [
+                "Vision loss: Progressive clouding leads to significant visual impairment.",
+                "Increased fall risk: Poor vision increases risk of accidents, especially in elderly.",
+                "Driving difficulties: Glare and blurred vision make driving dangerous.",
+                "Surgical complications: Cataract surgery carries small risk of infection or retinal detachment.",
+                "Posterior capsule opacity: Clouding may return after surgery, requiring laser treatment."
+            ]
+        )),
+        Topic(name: "Glaucoma", iconName: "eye.circle.fill", content: TopicContent(
+            overview: "Glaucoma is a group of eye conditions that damage the optic nerve, usually due to increased pressure inside the eye. If left untreated, it can lead to progressive and irreversible vision loss.",
+            causesIntro: "Glaucoma occurs when the fluid (aqueous humor) inside the eye does not drain properly, leading to increased intraocular pressure and optic nerve damage.",
+            causes: [
+                "Increased eye pressure: Poor drainage of eye fluid raises pressure, damaging the optic nerve over time.",
+                "Blocked drainage channels: Obstruction in the eye's drainage angle prevents normal fluid outflow.",
+                "Genetic predisposition: Family history significantly increases the risk of developing glaucoma.",
+                "Age-related changes: Risk increases with advancing age due to reduced drainage efficiency.",
+                "Eye injuries: Trauma can disrupt fluid flow and increase eye pressure.",
+                "Long-term steroid use: Prolonged steroid use raises intraocular pressure in some individuals.",
+                "Medical conditions: Diabetes, hypertension, and heart disease increase glaucoma risk.",
+                "Thin cornea: Structural eye variations may predispose to optic nerve damage."
+            ],
+            symptomsIntro: "Symptoms depend on the type of glaucoma and often go unnoticed in early stages, earning it the nickname 'silent thief of sight'.",
+            symptoms: [
+                "Gradual vision loss: Peripheral (side) vision is affected first in open-angle glaucoma.",
+                "Tunnel vision: Advanced disease narrows the visual field significantly.",
+                "Eye pain: Sudden severe pain occurs in angle-closure glaucoma.",
+                "Blurred vision: Pressure changes affect visual clarity.",
+                "Halos around lights: Especially noticeable in low-light conditions.",
+                "Nausea and vomiting: Associated with acute angle-closure glaucoma."
+            ],
+            diagnosis: "Early diagnosis is critical, as vision loss from glaucoma is irreversible. Tests include intraocular pressure measurement using tonometry to measure pressure inside the eye, optic nerve examination using ophthalmoscopy to assess nerve damage, visual field testing to detect peripheral vision loss, gonioscopy to examine the drainage angle of the eye, and optical coherence tomography (OCT) to measure optic nerve fiber thickness.",
+            complicationsIntro: "Glaucoma is a leading cause of irreversible blindness worldwide. Without treatment, it progressively damages the optic nerve and leads to permanent vision loss.",
+            complications: [
+                "Permanent vision loss: Optic nerve damage cannot be reversed.",
+                "Blindness: Advanced glaucoma can cause complete loss of vision.",
+                "Reduced quality of life: Vision impairment affects independence and daily activities.",
+                "Side effects of treatment: Eye drops may cause redness, irritation, or systemic side effects.",
+                "Surgical complications: Glaucoma surgery carries risk of infection, bleeding, or vision loss."
+            ]
+        )),
+        Topic(name: "Macular Degeneration", iconName: "eye.circle", content: TopicContent(
+            overview: "Macular degeneration is an eye disease that affects the macula, the central part of the retina responsible for sharp, detailed vision. It leads to gradual loss of central vision, making tasks like reading and recognizing faces difficult.",
+            causesIntro: "Macular degeneration occurs due to damage or degeneration of retinal cells in the macula. Aging and vascular changes play a major role.",
+            causes: [
+                "Age-related changes: Aging leads to gradual breakdown of macular cells and supporting tissues.",
+                "Reduced blood supply: Poor circulation deprives the macula of oxygen and nutrients.",
+                "Oxidative stress: Free radical damage accelerates retinal cell degeneration.",
+                "Genetic predisposition: Family history increases the risk of developing the condition.",
+                "Smoking: Tobacco use significantly accelerates macular damage.",
+                "Poor nutrition: Low intake of antioxidants affects retinal health.",
+                "Cardiovascular disease: Hypertension and cholesterol affect retinal blood vessels.",
+                "Excessive sun exposure: UV and blue light damage retinal cells over time."
+            ],
+            symptomsIntro: "Symptoms usually develop gradually and primarily affect central vision, which is crucial for detailed visual tasks.",
+            symptoms: [
+                "Blurred central vision: Difficulty seeing fine details clearly.",
+                "Distorted vision: Straight lines may appear wavy or bent.",
+                "Dark or empty spots: Blind spots develop in the center of vision.",
+                "Difficulty reading: Trouble recognizing words or small print.",
+                "Poor color perception: Colors appear dull or less vibrant."
+            ],
+            diagnosis: "Diagnosis involves detailed retinal examination and imaging tests to assess macular health. Tests include visual acuity test to measure sharpness of central vision, dilated eye examination to allow detailed view of the macula and retina, Amsler grid test to detect visual distortion and blind spots, optical coherence tomography (OCT) to provide cross-sectional images of the retina, and fluorescein angiography to identify abnormal blood vessel leakage in wet AMD.",
+            complicationsIntro: "Macular degeneration is a leading cause of central vision loss in older adults. The wet form can progress rapidly and cause severe vision impairment.",
+            complications: [
+                "Central vision loss: Inability to see fine details, read, or recognize faces.",
+                "Legal blindness: Advanced AMD can meet criteria for legal blindness.",
+                "Depression: Vision loss significantly impacts mental health and independence.",
+                "Falls and injuries: Poor central vision increases accident risk.",
+                "Treatment side effects: Anti-VEGF injections may cause eye pain or rare serious complications."
+            ]
+        )),
+        Topic(name: "Refractive Errors", iconName: "eyeglasses", content: TopicContent(
+            overview: "Refractive errors are vision problems that occur when the eye cannot properly focus light onto the retina. This results in blurred vision and difficulty seeing clearly at near, far, or both distances.",
+            causesIntro: "Refractive errors occur due to abnormalities in the shape of the eye or changes in the lens' focusing ability.",
+            causes: [
+                "Abnormal eye length: An eye that is too long or too short affects how light focuses on the retina.",
+                "Irregular corneal shape: Uneven curvature of the cornea causes distorted vision.",
+                "Lens flexibility changes: Aging reduces the lens's ability to focus on near objects.",
+                "Genetic factors: Family history increases the likelihood of refractive errors.",
+                "Excessive near work: Prolonged screen use may contribute to eye strain and myopia progression.",
+                "Poor lighting conditions: Straining eyes in low light may worsen symptoms.",
+                "Eye injury or surgery: Structural changes can alter focusing ability.",
+                "Systemic conditions: Diabetes can temporarily change refractive power."
+            ],
+            symptomsIntro: "Symptoms vary depending on the type and severity of refractive error and may worsen with eye strain or prolonged visual tasks.",
+            symptoms: [
+                "Blurred vision: Difficulty seeing clearly at near, far, or both distances.",
+                "Eye strain: Discomfort or fatigue after prolonged visual tasks.",
+                "Headaches: Common after reading or screen use.",
+                "Squinting: Attempt to improve focus temporarily.",
+                "Difficulty night driving: Reduced clarity and increased glare."
+            ],
+            diagnosis: "Diagnosis is done through a comprehensive eye examination by an ophthalmologist or optometrist. Tests include visual acuity test to measure clarity of vision at different distances, refraction test to determine exact lens power needed for correction, retinoscopy to assess how light reflects from the retina, and eye health examination to rule out other eye diseases affecting vision.",
+            complicationsIntro: "Uncorrected refractive errors can significantly impact daily activities, academic performance in children, and work productivity. Proper correction is essential for optimal vision.",
+            complications: [
+                "Academic difficulties: Poor vision in children affects learning and school performance.",
+                "Reduced productivity: Blurred vision impairs work efficiency and safety.",
+                "Eye strain: Prolonged uncorrected vision causes chronic discomfort and fatigue.",
+                "Headaches: Straining to see causes tension headaches and migraines.",
+                "Surgical risks: LASIK and refractive surgery carry small risk of complications or dissatisfaction."
+            ]
+        )),
+        Topic(name: "Eye Infections", iconName: "eye.slash.fill", content: TopicContent(
+            overview: "Eye infections occur when bacteria, viruses, fungi, or parasites infect different parts of the eye such as the conjunctiva, cornea, eyelids, or inner eye structures. They can range from mild irritation to severe vision-threatening conditions if not treated promptly.",
+            causesIntro: "Eye infections develop when harmful microorganisms enter the eye and overcome its natural defense mechanisms.",
+            causes: [
+                "Bacterial infection: Common bacteria cause redness, discharge, and swelling of the eye.",
+                "Viral infection: Viruses like adenovirus spread easily and cause contagious eye infections.",
+                "Fungal infection: Fungi infect the eye after trauma or improper contact lens use.",
+                "Parasitic infection: Rare parasites can cause severe inflammation and vision loss.",
+                "Poor hygiene: Touching eyes with dirty hands introduces germs.",
+                "Contact lens misuse: Improper cleaning or overuse increases infection risk.",
+                "Eye injury: Cuts or scratches allow microorganisms to enter the eye.",
+                "Weakened immunity: Diabetes or immune disorders increase susceptibility."
+            ],
+            symptomsIntro: "Symptoms may vary depending on the type and severity of infection, ranging from mild discomfort to severe pain and vision loss.",
+            symptoms: [
+                "Redness: Inflammation causes visible redness of the eye.",
+                "Discharge: Pus or watery discharge may stick eyelids together.",
+                "Pain or irritation: Ranges from mild discomfort to severe eye pain.",
+                "Blurred vision: Infection interferes with clear vision.",
+                "Sensitivity to light: Inflamed eyes become sensitive to bright light."
+            ],
+            diagnosis: "Accurate diagnosis helps determine the cause and appropriate treatment. Tests include clinical eye examination where ophthalmologist inspects eye structures for infection signs, slit-lamp examination to provide detailed view of cornea and inner eye, discharge testing where samples may be tested to identify the organism, and vision assessment to check impact of infection on eyesight.",
+            complicationsIntro: "Eye infections, if untreated or improperly treated, can lead to serious complications including vision loss and spread of infection to other parts of the eye.",
+            complications: [
+                "Corneal ulcer: Infection can cause open sores on the cornea leading to scarring.",
+                "Vision loss: Severe infections may permanently damage the cornea or inner eye.",
+                "Spread of infection: Infection can spread from one eye to the other or to deeper eye structures.",
+                "Chronic inflammation: Recurrent infections cause persistent eye problems.",
+                "Contact lens complications: Infections in contact lens wearers may cause more severe disease."
+            ]
+        ))
     ]
 
     static let ophthalmologistFAQs = [
@@ -1591,11 +1720,186 @@ struct SpecialistData {
 
     // Orthopedist Topics and FAQs
     static let orthopedistTopics = [
-        Topic(name: "Bones", iconName: "circle.dashed", content: nil),
-        Topic(name: "Joints", iconName: "circle.fill", content: nil),
-        Topic(name: "Muscles", iconName: "oval", content: nil),
-        Topic(name: "Sports Injury", iconName: "exclamationmark.circle", content: nil),
-        Topic(name: "Arthritis", iconName: "figure.walk", content: nil)
+        Topic(name: "Osteoarthritis", iconName: "figure.walk", content: TopicContent(
+            overview: "Osteoarthritis is a degenerative joint disease that occurs when the protective cartilage cushioning the ends of bones wears down over time. It most commonly affects the knees, hips, hands, and spine, causing pain, stiffness, and reduced joint mobility.",
+            causesIntro: "Osteoarthritis develops due to a combination of mechanical, genetic, and lifestyle factors that gradually damage joint cartilage.",
+            causes: [
+                "Aging: Cartilage naturally degenerates with age, losing its ability to repair itself.",
+                "Joint injury: Previous fractures, ligament tears, or meniscus damage increase risk.",
+                "Obesity: Excess body weight places added stress on weight-bearing joints like knees and hips.",
+                "Overuse: Repetitive movements or occupations involving heavy lifting strain joints.",
+                "Genetics: Family history increases susceptibility to osteoarthritis.",
+                "Bone deformities: Irregular joint alignment or structure accelerates wear.",
+                "Poor posture: Improper body mechanics contribute to joint stress.",
+                "Metabolic disorders: Diabetes or excess iron can affect joint health."
+            ],
+            symptomsIntro: "Symptoms usually develop gradually and worsen over time, particularly with joint use.",
+            symptoms: [
+                "Joint pain: Aching pain during or after movement.",
+                "Stiffness: Joint stiffness, especially in the morning or after inactivity.",
+                "Tenderness: Joints feel tender when light pressure is applied.",
+                "Loss of flexibility: Reduced range of motion in affected joints.",
+                "Grating sensation: Feeling or hearing grinding when using the joint.",
+                "Bone spurs: Hard lumps forming around the affected joint.",
+                "Swelling: Inflammation around the joint area."
+            ],
+            diagnosis: "Diagnosis involves a physical examination to check for tenderness, swelling, and range of motion. X-rays reveal cartilage loss, bone spurs, and joint space narrowing. MRI provides detailed images of soft tissues. Arthrocentesis (joint fluid analysis) rules out other conditions like gout or infection.",
+            complicationsIntro: "If untreated, osteoarthritis can progressively worsen and lead to chronic disability.",
+            complications: [
+                "Chronic pain: Persistent pain affecting daily activities and sleep.",
+                "Joint deformity: Progressive damage can alter joint shape and function.",
+                "Reduced mobility: Severe stiffness limits walking, climbing stairs, or grasping objects.",
+                "Disability: Advanced disease may require joint replacement surgery.",
+                "Fall risk: Knee or hip osteoarthritis increases risk of falls and fractures.",
+                "Muscle weakness: Joint pain leads to reduced activity and muscle wasting."
+            ]
+        )),
+        Topic(name: "Rheumatoid Arthritis", iconName: "figure.stand", content: TopicContent(
+            overview: "Rheumatoid arthritis is an autoimmune disorder where the immune system mistakenly attacks the synovial lining of joints, causing inflammation, pain, and swelling. Unlike osteoarthritis, it often affects joints symmetrically and can involve multiple joints simultaneously.",
+            causesIntro: "Rheumatoid arthritis occurs when the immune system targets the body's own joint tissues, though the exact trigger is not fully understood.",
+            causes: [
+                "Genetics: Certain genes (HLA-DRB1) increase susceptibility to RA.",
+                "Gender: Women are more likely to develop RA than men.",
+                "Age: Onset commonly occurs between 40 and 60 years.",
+                "Smoking: Tobacco use significantly increases risk, especially in genetically predisposed individuals.",
+                "Family history: Having relatives with RA raises personal risk.",
+                "Obesity: Excess weight may increase risk and worsen symptoms.",
+                "Hormonal factors: Changes in hormone levels may trigger RA.",
+                "Environmental triggers: Exposure to certain bacteria, viruses, or silica dust may contribute."
+            ],
+            symptomsIntro: "Symptoms often begin in small joints and may vary in severity, with periods of flare-ups alternating with remission.",
+            symptoms: [
+                "Joint pain: Tender, warm, and swollen joints commonly in hands, wrists, and feet.",
+                "Morning stiffness: Prolonged stiffness lasting more than 30 minutes.",
+                "Fatigue: Persistent tiredness and lack of energy.",
+                "Fever: Low-grade fever during flare-ups.",
+                "Symmetrical symptoms: Both sides of the body are affected similarly.",
+                "Nodules: Firm lumps under the skin (rheumatoid nodules).",
+                "Weight loss: Unintentional weight loss due to chronic inflammation.",
+                "Dry eyes and mouth: Associated with Sjögren's syndrome."
+            ],
+            diagnosis: "Diagnosis includes blood tests detecting rheumatoid factor (RF) and anti-CCP antibodies. Erythrocyte sedimentation rate (ESR) and C-reactive protein (CRP) indicate inflammation. X-rays, ultrasound, or MRI assess joint damage and synovitis. Clinical examination of joint patterns helps differentiate RA from other arthritides.",
+            complicationsIntro: "Rheumatoid arthritis is a systemic disease that can affect organs and structures beyond joints.",
+            complications: [
+                "Joint damage: Progressive cartilage and bone erosion leads to deformity.",
+                "Carpal tunnel syndrome: Wrist inflammation compresses median nerve.",
+                "Lung disease: RA can cause scarring (fibrosis) or inflammation of lung lining.",
+                "Heart problems: Increased risk of heart disease and pericarditis.",
+                "Osteoporosis: RA and corticosteroid use weaken bones.",
+                "Eye complications: Scleritis or dry eyes causing vision problems.",
+                "Cervical spine instability: Joint damage can affect neck vertebrae."
+            ]
+        )),
+        Topic(name: "Sports Injuries", iconName: "figure.run", content: TopicContent(
+            overview: "Sports injuries are musculoskeletal injuries that occur during physical activity, exercise, or sports participation. They commonly affect muscles, tendons, ligaments, bones, and joints, ranging from minor sprains to severe fractures.",
+            causesIntro: "Sports injuries result from acute trauma, overuse, or improper technique during athletic activities.",
+            causes: [
+                "Overuse: Repetitive motions cause stress fractures, tendonitis, or bursitis.",
+                "Poor conditioning: Inadequate fitness or flexibility increases injury risk.",
+                "Improper technique: Incorrect form during activities strains joints and muscles.",
+                "Inadequate warm-up: Cold muscles and joints are more prone to injury.",
+                "Equipment issues: Worn or ill-fitting shoes, protective gear fail to absorb shock.",
+                "Collision or contact: Direct impact causes contusions, fractures, or dislocations.",
+                "Sudden movements: Rapid pivoting, jumping, or changing direction tears ligaments.",
+                "Fatigue: Tired muscles reduce coordination and reaction time."
+            ],
+            symptomsIntro: "Symptoms depend on the type and severity of injury but typically involve pain and functional impairment.",
+            symptoms: [
+                "Sudden pain: Sharp pain at the time of injury in acute trauma.",
+                "Swelling: Inflammation around the injured area develops quickly.",
+                "Bruising: Discoloration due to bleeding under the skin.",
+                "Limited movement: Difficulty moving the affected limb or joint.",
+                "Weakness: Reduced strength in the injured area.",
+                "Instability: Joint feels loose or unable to bear weight.",
+                "Popping sound: Audible snap or tear at injury time.",
+                "Inability to continue: Immediate need to stop activity."
+            ],
+            diagnosis: "Diagnosis begins with a detailed history of how the injury occurred. Physical examination assesses tenderness, swelling, range of motion, and stability. X-rays identify fractures or dislocations. MRI, CT, or ultrasound provide detailed images of soft tissue injuries like ligament tears or muscle strains. Arthroscopy may be used for direct joint visualization.",
+            complicationsIntro: "Untreated or improperly managed sports injuries can lead to chronic problems and recurrent damage.",
+            complications: [
+                "Chronic pain: Persistent pain lasting months or years after injury.",
+                "Joint instability: Repeated sprains lead to loose, unstable joints.",
+                "Early arthritis: Injured joints are at higher risk for osteoarthritis.",
+                "Recurrent injuries: Incomplete healing predisposes to repeated damage.",
+                "Muscle imbalances: Compensatory movements cause weakness or tightness.",
+                "Reduced performance: Permanent decline in athletic ability.",
+                "Psychological impact: Fear of re-injury affects confidence and participation."
+            ]
+        )),
+        Topic(name: "Fractures", iconName: "figure.stand", content: TopicContent(
+            overview: "A fracture is a break or crack in a bone, ranging from hairline fractures to complete breaks. Fractures can occur from trauma, overuse, or underlying bone weakness, and require prompt medical attention to ensure proper healing.",
+            causesIntro: "Fractures occur when bone cannot withstand the force applied to it, or when disease has weakened bone structure.",
+            causes: [
+                "Trauma: Falls, car accidents, or sports collisions cause most fractures.",
+                "Osteoporosis: Bone density loss makes bones fragile and prone to breaking.",
+                "Overuse: Repetitive stress causes stress fractures, common in athletes.",
+                "Pathology: Underlying conditions like cancer or infection weaken bones.",
+                "Aging: Bones become more brittle with age.",
+                "Poor nutrition: Calcium and vitamin D deficiency weaken bone structure.",
+                "Medications: Long-term corticosteroid use reduces bone density.",
+                "Genetics: Inherited bone disorders increase fracture risk."
+            ],
+            symptomsIntro: "Symptoms vary depending on fracture location and severity but typically involve immediate pain and loss of function.",
+            symptoms: [
+                "Severe pain: Intense pain at the fracture site, worsening with movement.",
+                "Swelling: Rapid swelling around the injured area.",
+                "Bruising: Discoloration appears hours after injury.",
+                "Deformity: Affected limb may look crooked or out of place.",
+                "Inability to move: Loss of function in the injured area.",
+                "Tenderness: Extreme sensitivity to touch.",
+                "Grating: Bone fragments rubbing against each other.",
+                "Bleeding: Open fractures break through skin, causing bleeding."
+            ],
+            diagnosis: "Diagnosis involves physical examination assessing deformity, tenderness, and neurovascular status. X-rays confirm fracture type, location, and alignment. CT scans provide detailed images for complex fractures. MRI detects hidden fractures or soft tissue damage. Bone scans identify stress fractures not visible on X-rays.",
+            complicationsIntro: "Fracture complications can be immediate or delayed, sometimes leading to permanent disability.",
+            complications: [
+                "Nonunion: Fracture fails to heal properly.",
+                "Malunion: Bone heals in incorrect alignment.",
+                "Infection: Open fractures are at risk for osteomyelitis.",
+                "Nerve damage: Broken bone fragments may injure nearby nerves.",
+                "Blood vessel injury: Fractures can damage arteries or veins.",
+                "Compartment syndrome: Swelling increases pressure, risking tissue death.",
+                "Joint stiffness: Immobilization leads to reduced range of motion.",
+                "Deep vein thrombosis: Immobility increases blood clot risk."
+            ]
+        )),
+        Topic(name: "Back Pain", iconName: "figure.stand", content: TopicContent(
+            overview: "Back pain is a common condition affecting the lower, middle, or upper back. It can result from problems with muscles, ligaments, nerves, discs, or vertebrae. While most back pain improves with self-care, some cases require medical intervention.",
+            causesIntro: "Back pain develops from structural, mechanical, or degenerative issues affecting the spine and supporting structures.",
+            causes: [
+                "Muscle strain: Heavy lifting, awkward movements, or overexertion strain back muscles.",
+                "Bulging or ruptured discs: Disc material presses on nerves, causing pain.",
+                "Arthritis: Osteoarthritis narrows spinal canal and affects facet joints.",
+                "Skeletal irregularities: Scoliosis or kyphosis cause uneven stress on spine.",
+                "Osteoporosis: Compression fractures occur when vertebrae become brittle.",
+                "Poor posture: Slouching or improper ergonomics strain back structures.",
+                "Sedentary lifestyle: Weak core muscles fail to support the spine properly.",
+                "Obesity: Excess weight places added stress on the back."
+            ],
+            symptomsIntro: "Symptoms may range from a dull, constant ache to sudden, sharp pain that limits movement.",
+            symptoms: [
+                "Aching pain: Dull pain in the lower or upper back.",
+                "Stiffness: Reduced flexibility and difficulty moving.",
+                "Muscle spasms: Sudden, involuntary contractions cause intense pain.",
+                "Radiating pain: Pain travels down the leg (sciatica).",
+                "Numbness: Tingling or loss of sensation in legs or feet.",
+                "Weakness: Difficulty standing straight or walking normally.",
+                "Worse with movement: Pain increases with bending, lifting, or twisting.",
+                "Better with rest: Pain may improve when lying down."
+            ],
+            diagnosis: "Diagnosis includes physical examination checking range of motion, reflexes, and strength. X-rays reveal fractures, arthritis, or alignment issues. MRI or CT scans provide detailed images of discs, nerves, and soft tissues. Bone scans detect infections or tumors. Electromyography (EMG) evaluates nerve function if radiating symptoms are present.",
+            complicationsIntro: "Chronic back pain can significantly impact quality of life and lead to physical and emotional consequences.",
+            complications: [
+                "Chronic pain: Pain persists beyond 12 weeks, affecting daily activities.",
+                "Reduced mobility: Stiffness limits bending, lifting, or walking.",
+                "Nerve compression: Herniated discs cause sciatica or cauda equina syndrome.",
+                "Depression: Chronic pain often leads to mood disorders.",
+                "Sleep disturbances: Pain disrupts rest, affecting overall health.",
+                "Weight gain: Reduced activity may lead to unwanted weight gain.",
+                "Medication dependence: Long-term use of pain relievers risks addiction.",
+                "Disability: Severe cases prevent work or normal activities."
+            ]
+        ))
     ]
 
     static let orthopedistFAQs = [
@@ -1613,11 +1917,191 @@ struct SpecialistData {
 
     // Pediatrician Topics and FAQs
     static let pediatricianTopics = [
-        Topic(name: "Growth", iconName: "circle.dashed", content: nil),
-        Topic(name: "Vaccines", iconName: "cross.case", content: nil),
-        Topic(name: "Nutrition", iconName: "circle.fill", content: nil),
-        Topic(name: "Development", iconName: "figure.child", content: nil),
-        Topic(name: "Health", iconName: "heart.fill", content: nil)
+        Topic(name: "Child Development", iconName: "figure.child", content: TopicContent(
+            overview: "Child development refers to the progressive physical, cognitive, emotional, social, and language changes that occur from birth through adolescence. These changes are interconnected and influenced by genetics, environment, nutrition, health, and early life experiences.",
+            causesIntro: "Child development is shaped by multiple biological and environmental factors that interact to determine developmental outcomes.",
+            causes: [
+                "Genetics: Inherited traits influence physical growth, intelligence, temperament, and developmental potential.",
+                "Nutrition: Adequate intake of nutrients supports brain development, immunity, and physical growth.",
+                "Environment: A safe, stable, and stimulating environment promotes learning and emotional security.",
+                "Parenting and caregiving: Responsive and nurturing caregiving supports healthy emotional and social development.",
+                "Health and medical conditions: Chronic illness, sensory impairment, or neurological conditions can affect milestones.",
+                "Early life experiences: Positive stimulation enhances brain connections, while neglect or stress may cause delays.",
+                "Socioeconomic factors: Access to resources and educational opportunities affects development.",
+                "Cultural influences: Different cultural practices shape developmental expectations and behaviors."
+            ],
+            symptomsIntro: "Developmental milestones are age-related skills that help track a child's progress through key domains.",
+            symptoms: [
+                "Motor milestones: Include sitting, crawling, walking, running, and fine hand movements.",
+                "Language milestones: Progress from babbling to words, sentences, and meaningful conversation.",
+                "Social milestones: Include smiling, sharing, cooperative play, and forming friendships.",
+                "Cognitive milestones: Involve memory development, problem-solving, and understanding cause and effect.",
+                "Emotional milestones: Include emotional regulation, self-awareness, and empathy toward others.",
+                "Growth patterns: Steady increases in height, weight, and head circumference.",
+                "Behavioral changes: Development of independence, curiosity, and self-control.",
+                "Learning abilities: Acquisition of academic skills and knowledge retention."
+            ],
+            diagnosis: "Developmental monitoring involves regular assessment using standardized screening tools to evaluate milestone achievement. Growth measurements track height, weight, and head circumference. Clinical neurological and physical examinations identify developmental concerns. Parental observations provide critical insights into daily functioning. Specialist referral is recommended when delays or disorders are suspected for comprehensive evaluation.",
+            complicationsIntro: "Developmental delays, if left unaddressed, can lead to significant challenges that affect a child's overall functioning and future potential.",
+            complications: [
+                "Learning disabilities: Difficulties with reading, writing, mathematics, or information processing.",
+                "Speech and language delays: Problems with communication, articulation, or language comprehension.",
+                "Motor skill deficits: Poor coordination affecting daily activities and physical participation.",
+                "Social difficulties: Challenges in forming relationships, understanding social cues, or interacting with peers.",
+                "Behavioral disorders: ADHD, autism spectrum disorder, or conduct issues requiring intervention.",
+                "Emotional problems: Anxiety, depression, or poor emotional regulation affecting well-being.",
+                "Academic struggles: Poor performance in school due to cognitive or attentional issues.",
+                "Low self-esteem: Negative self-perception resulting from developmental challenges."
+            ]
+        )),
+        Topic(name: "Vaccination", iconName: "cross.case", content: TopicContent(
+            overview: "Vaccination is a preventive medical practice that stimulates a child's immune system to develop protection against specific infectious diseases. It helps the body recognize and fight harmful germs without causing the actual illness.",
+            causesIntro: "Vaccines work by training the immune system to respond quickly and effectively to infections through controlled exposure.",
+            causes: [
+                "Immune system stimulation: Vaccines introduce weakened or inactive components of germs.",
+                "Antibody production: The body produces antibodies that recognize and neutralize pathogens.",
+                "Immune memory formation: The immune system remembers the germ for faster future response.",
+                "Herd immunity effect: High vaccination coverage limits disease outbreaks in the community.",
+                "Pathogen exposure risk: Unvaccinated children face higher risk of serious infections.",
+                "Waning immunity: Some vaccines require booster doses to maintain protection.",
+                "Emerging variants: New pathogen strains may require updated vaccines.",
+                "Vaccine hesitancy: Misinformation and lack of awareness reduce vaccination rates."
+            ],
+            symptomsIntro: "Most vaccines cause mild, temporary side effects indicating the immune system is responding appropriately.",
+            symptoms: [
+                "Mild fever: Common response as the immune system builds protection.",
+                "Pain at injection site: Soreness, redness, or swelling where the vaccine was given.",
+                "Fussiness: Irritability or crying in infants and young children.",
+                "Fatigue: Feeling tired or lethargic for a day or two after vaccination.",
+                "Poor appetite: Temporary reduction in food intake.",
+                "Mild rash: Some vaccines may cause a localized or generalized rash.",
+                "Headache: Occurs in older children after certain vaccines.",
+                "Muscle aches: Mild body discomfort as immune response activates."
+            ],
+            diagnosis: "Vaccination status is assessed through review of medical records and immunization history. Pediatricians evaluate vaccine schedules, missed doses, and timing. Contra-indications are identified, such as severe allergies or immunocompromised status. Serological testing may confirm immunity in certain cases. Vaccination needs are individualized based on health status, age, and risk factors.",
+            complicationsIntro: "While vaccines are generally safe, serious complications can rarely occur, and vaccine-preventable diseases pose significant risks.",
+            complications: [
+                "Severe allergic reaction: Anaphylaxis is rare but requires immediate medical attention.",
+                "Vaccine-preventable diseases: Skipping vaccines increases risk of serious infections like measles or polio.",
+                "Outbreak potential: Low vaccination rates can lead to disease outbreaks in communities.",
+                "Herd immunity loss: When too few children are vaccinated, protection for vulnerable populations decreases.",
+                "Complications from disease: Actual infections can cause severe disability or death.",
+                "Long-term effects: Some diseases can cause chronic health problems if contracted.",
+                "Community spread: Unvaccinated children can transmit infections to others.",
+                "Missed school: Vaccine-preventable illnesses result in significant educational disruption."
+            ]
+        )),
+        Topic(name: "Common Childhood Illnesses", iconName: "cross.case", content: TopicContent(
+            overview: "Common childhood illnesses are health conditions frequently seen in infants and young children due to their developing immune systems. While most are mild and self-limiting, timely recognition and care are essential to prevent complications.",
+            causesIntro: "Children are more susceptible to illnesses because their immune defenses are still maturing and they have frequent close contact with peers.",
+            causes: [
+                "Immature immune system: Young children have not yet developed full immunity against many viruses and bacteria.",
+                "Close contact in group settings: Schools and daycare centers increase exposure to infectious agents.",
+                "Poor hygiene habits: Children often touch their face, mouth, or nose with unwashed hands.",
+                "First-time exposure to germs: Initial exposure to common pathogens leads to frequent infections.",
+                "Incomplete vaccination: Missed or delayed vaccines increase vulnerability to preventable diseases.",
+                "Seasonal variations: Certain illnesses peak during specific times of the year.",
+                "Environmental factors: Pollution, allergens, and weather changes affect susceptibility.",
+                "Malnutrition: Poor diet weakens immune system and increases infection risk."
+            ],
+            symptomsIntro: "Childhood illnesses present with various symptoms depending on the type of infection and affected body systems.",
+            symptoms: [
+                "Fever: Elevated temperature indicating immune response to infection.",
+                "Cough and congestion: Respiratory symptoms common in viral infections.",
+                "Runny nose: Nasal discharge accompanying colds and allergies.",
+                "Vomiting and diarrhea: Gastrointestinal symptoms affecting hydration.",
+                "Rash: Skin eruptions from viral illnesses like chickenpox or measles.",
+                "Ear pain: Common symptom of otitis media or ear infections.",
+                "Sore throat: Painful swallowing due to throat infections.",
+                "Irritability: Behavioral change indicating discomfort or illness."
+            ],
+            diagnosis: "Diagnosis is mainly clinical, based on medical history and physical examination. Details of symptoms, duration, and exposure help identify the cause. Pediatricians assess vital signs and examine affected systems. Laboratory tests including blood, urine, or stool analysis confirm infection when required. Imaging studies like chest X-ray or ultrasound are used if complications are suspected. Follow-up assessment ensures proper recovery and treatment response.",
+            complicationsIntro: "Most childhood illnesses resolve without complications, but some can lead to serious health issues if left untreated.",
+            complications: [
+                "Dehydration: Fluid loss from vomiting, diarrhea, or fever requires prompt treatment.",
+                "Secondary bacterial infection: Viral illness may be followed by bacterial complications.",
+                "Respiratory distress: Severe infections can cause breathing difficulties.",
+                "Febrile seizures: High fever may trigger seizures in young children.",
+                "Hospitalization: Severe illness or complications may require inpatient care.",
+                "Chronic lung damage: Conditions like severe pneumonia can cause long-term effects.",
+                "Hearing loss: Recurrent or untreated ear infections may affect hearing.",
+                "Growth delays: Frequent illnesses can affect nutrition and development."
+            ]
+        )),
+        Topic(name: "Nutrition and Feeding", iconName: "circle.fill", content: TopicContent(
+            overview: "Nutrition and feeding refer to providing age-appropriate, balanced food and feeding practices that support a child's growth, brain development, immunity, and overall health. Proper nutrition from infancy through adolescence is essential for optimal physical and cognitive development.",
+            causesIntro: "Proper nutrition is influenced by feeding practices, food availability, cultural habits, and parental awareness of nutritional needs.",
+            causes: [
+                "Poor feeding practices: Inadequate breastfeeding or inappropriate complementary foods.",
+                "Limited dietary variety: Lack of diversity in food groups leads to nutrient deficiencies.",
+                "Food insecurity: Economic constraints limit access to nutritious foods.",
+                "Cultural beliefs: Traditional practices may affect feeding patterns and food choices.",
+                "Parental knowledge gaps: Lack of awareness about age-appropriate nutrition.",
+                "Picky eating: Child's refusal of certain foods causes nutritional imbalances.",
+                "Marketing influences: Exposure to unhealthy food advertisements affects preferences.",
+                "Medical conditions: Allergies, reflux, or chronic illnesses affect feeding and absorption."
+            ],
+            symptomsIntro: "Nutritional problems manifest through physical signs, behavioral changes, and growth patterns.",
+            symptoms: [
+                "Poor weight gain: Inadequate calorie or nutrient intake affects growth.",
+                "Delayed growth: Height and developmental milestones may be affected.",
+                "Frequent infections: Weak immunity due to inadequate nutrition.",
+                "Fatigue and weakness: Common in iron or vitamin deficiencies.",
+                "Poor concentration: Nutrient deficiencies affect cognitive function.",
+                "Dental problems: Excessive sugar intake causes tooth decay.",
+                "Digestive issues: Constipation or diarrhea related to diet quality.",
+                "Behavioral changes: Irritability or poor concentration may occur."
+            ],
+            diagnosis: "Nutritional assessment involves regular growth monitoring tracking weight, height, and head circumference. Dietary history evaluates meal patterns, food variety, and feeding practices. Physical examination identifies signs of malnutrition or specific deficiencies. Laboratory tests including blood counts assess anemia or vitamin levels when needed. Parental counseling guides appropriate feeding practices. Growth charts track progress over time compared to standards.",
+            complicationsIntro: "Poor nutrition in childhood can lead to serious immediate and long-term health consequences.",
+            complications: [
+                "Stunted growth: Chronic malnutrition permanently affects height and development.",
+                "Micronutrient deficiencies: Lack of vitamins and minerals causes specific health problems.",
+                "Weakened immunity: Poor nutrition increases susceptibility to infections.",
+                "Cognitive impairment: Malnutrition affects brain development and learning ability.",
+                "Obesity: Unhealthy eating habits lead to excessive weight gain.",
+                "Type 2 diabetes: Poor diet increases risk of metabolic disorders.",
+                "Eating disorders: Unhealthy relationships with food develop in childhood.",
+                "Chronic disease risk: Early nutrition influences adult health outcomes."
+            ]
+        )),
+        Topic(name: "Sleep Habits", iconName: "moon.zzz.fill", content: TopicContent(
+            overview: "Sleep habits refer to a child's sleep duration, timing, routine, and quality of sleep from infancy through adolescence. Healthy sleep habits are essential for physical growth, brain development, emotional regulation, and overall well-being.",
+            causesIntro: "Sleep problems in children can result from behavioral, environmental, medical, or developmental factors.",
+            causes: [
+                "Irregular sleep schedules: Inconsistent bedtime disrupts circadian rhythm.",
+                "Excessive screen time: Blue light suppresses melatonin and delays sleep onset.",
+                "Caffeine intake: Tea, coffee, or sugary drinks interfere with sleep quality.",
+                "Stress or anxiety: Emotional concerns affect ability to fall or stay asleep.",
+                "Medical conditions: Asthma, reflux, or sleep apnea disturb normal sleep.",
+                "Poor sleep environment: Noise, light, or uncomfortable bedding affect rest.",
+                "Overstimulation: Exciting activities before bedtime prevent relaxation.",
+                "Developmental changes: Sleep regressions occur during growth phases."
+            ],
+            symptomsIntro: "Sleep deprivation in children manifests through behavioral, emotional, and physical changes.",
+            symptoms: [
+                "Irritability and mood swings: Poor sleep affects emotional regulation.",
+                "Poor concentration: Reduced attention span impacts learning and behavior.",
+                "Hyperactivity: Sleep deprivation may mimic attention deficit symptoms.",
+                "Frequent illness: Weakened immunity increases infection risk.",
+                "Academic difficulties: Learning and memory are impaired by lack of sleep.",
+                "Daytime fatigue: Excessive tiredness despite adequate night sleep time.",
+                "Morning grogginess: Difficulty waking up and starting the day.",
+                "Behavioral problems: Increased tantrums, defiance, or emotional outbursts."
+            ],
+            diagnosis: "Sleep assessment begins with detailed sleep history reviewing bedtime routine, duration, and night awakenings. Sleep diaries track patterns over several days. Parental observations provide insight into night behaviors and routines. Physical examination identifies medical causes affecting sleep like enlarged tonsils. Specialist evaluation with sleep studies may be required for suspected sleep disorders. Growth and development assessment evaluate sleep impact on overall health.",
+            complicationsIntro: "Chronic sleep problems can significantly affect a child's health, development, and quality of life.",
+            complications: [
+                "Growth impairment: Reduced growth hormone release affects physical development.",
+                "Cognitive deficits: Poor sleep affects learning, memory, and academic performance.",
+                "Behavioral disorders: Sleep problems contribute to ADHD-like symptoms.",
+                "Emotional disturbances: Increased risk of anxiety and mood disorders.",
+                "Obesity risk: Sleep deprivation affects hormones regulating appetite.",
+                "Weakened immunity: Poor sleep reduces ability to fight infections.",
+                "Safety concerns: Fatigue increases risk of accidents and injuries.",
+                "Family stress: Child's sleep problems affect parental well-being."
+            ]
+        ))
     ]
 
     static let pediatricianFAQs = [
@@ -1635,11 +2119,191 @@ struct SpecialistData {
 
     // Psychiatrist Topics and FAQs
     static let psychiatristTopics = [
-        Topic(name: "Mental Health", iconName: "circle.dashed", content: nil),
-        Topic(name: "Anxiety", iconName: "circle.fill", content: nil),
-        Topic(name: "Depression", iconName: "exclamationmark.circle", content: nil),
-        Topic(name: "Therapy", iconName: "cross.case", content: nil),
-        Topic(name: "Stress", iconName: "brain.head.profile", content: nil)
+        Topic(name: "Depression", iconName: "exclamationmark.circle", content: TopicContent(
+            overview: "Depression is a common mental health disorder marked by persistent sadness, loss of interest in daily activities, and reduced emotional and physical functioning. It affects how a person thinks, feels, behaves, and manages everyday responsibilities, and requires clinical attention when symptoms persist.",
+            causesIntro: "Depression develops from a complex interaction of biological, psychological, and environmental factors.",
+            causes: [
+                "Genetic predisposition: Family history of depression increases risk.",
+                "Brain chemistry imbalance: Neurotransmitter dysregulation affects mood regulation.",
+                "Hormonal changes: Thyroid problems, menopause, or postpartum changes trigger symptoms.",
+                "Chronic stress: Prolonged stress overwhelms coping mechanisms.",
+                "Trauma or abuse: Past emotional or physical trauma increases vulnerability.",
+                "Chronic illness: Long-term medical conditions affect emotional health.",
+                "Substance use: Alcohol or drugs can trigger or worsen depression.",
+                "Social isolation: Loneliness and lack of support contribute to symptoms."
+            ],
+            symptomsIntro: "Depression symptoms vary in severity and duration, significantly affecting daily life.",
+            symptoms: [
+                "Persistent sadness: Empty, hopeless, or tearful mood most of the time.",
+                "Loss of interest: Reduced pleasure in activities once enjoyed.",
+                "Sleep changes: Insomnia or excessive sleeping.",
+                "Appetite changes: Significant weight loss or gain.",
+                "Fatigue: Lack of energy and feeling constantly tired.",
+                "Difficulty concentrating: Trouble focusing or making decisions.",
+                "Feelings of worthlessness: Excessive guilt or self-criticism.",
+                "Physical symptoms: Unexplained aches or pains."
+            ],
+            diagnosis: "Depression diagnosis involves comprehensive clinical evaluation. Mental health professionals conduct detailed interviews about symptoms, duration, and impact. Structured questionnaires like PHQ-9 assess severity. Medical evaluation rules out physical causes like thyroid problems. Psychiatric assessment considers family history and life stressors. Diagnosis requires symptoms persisting for at least two weeks and causing functional impairment.",
+            complicationsIntro: "Untreated depression can lead to severe consequences affecting all aspects of life.",
+            complications: [
+                "Chronic illness: Depression worsens conditions like heart disease or diabetes.",
+                "Substance abuse: Self-medication with drugs or alcohol.",
+                "Relationship problems: Strain on family and social connections.",
+                "Work difficulties: Reduced productivity and job loss.",
+                "Social isolation: Withdrawal from support networks.",
+                "Self-harm risk: Increased risk of suicide attempts.",
+                "Physical health decline: Neglect of health and self-care.",
+                "Cognitive impairment: Long-term effects on memory and thinking."
+            ]
+        )),
+        Topic(name: "Anxiety Disorders", iconName: "brain.head.profile", content: TopicContent(
+            overview: "Anxiety disorders are a group of mental health conditions marked by excessive fear, worry, or nervousness that persists over time. These feelings are often disproportionate to actual situations and interfere with daily functioning, relationships, and quality of life.",
+            causesIntro: "Anxiety disorders develop from a complex interaction of biological, psychological, and environmental factors.",
+            causes: [
+                "Genetic predisposition: Family history of anxiety increases susceptibility.",
+                "Brain chemistry imbalance: Neurotransmitter dysregulation affects emotional regulation.",
+                "Stressful life events: Trauma, abuse, chronic stress, or major life changes trigger symptoms.",
+                "Personality traits: Highly sensitive or perfectionistic individuals are at higher risk.",
+                "Chronic medical conditions: Long-term illnesses or hormonal imbalances contribute.",
+                "Childhood experiences: Early adversity or overprotective parenting shapes anxiety responses.",
+                "Substance use: Caffeine, alcohol, or drugs can induce or worsen anxiety.",
+                "Learned behavior: Observing anxious responses in caregivers."
+            ],
+            symptomsIntro: "Anxiety symptoms can affect emotional state, physical health, and behavior.",
+            symptoms: [
+                "Excessive worry: Persistent and uncontrollable concern about future events.",
+                "Restlessness: Feeling constantly on edge or unable to relax.",
+                "Palpitations: Rapid heartbeat or chest discomfort during anxiety episodes.",
+                "Shortness of breath: Sensation of not getting enough air.",
+                "Sleep disturbances: Difficulty falling or staying asleep.",
+                "Muscle tension: Physical tightness and body aches.",
+                "Sweating: Excessive perspiration without physical exertion.",
+                "Avoidance behavior: Avoiding anxiety-triggering situations."
+            ],
+            diagnosis: "Anxiety diagnosis begins with comprehensive clinical assessment. Mental health professionals conduct detailed interviews about worry patterns, physical symptoms, and avoidance behaviors. Standardized tools like GAD-7 measure severity. Medical evaluation excludes physical conditions like hyperthyroidism. Psychological assessment differentiates anxiety from depression or other disorders. Diagnosis requires symptoms persisting for six months and causing significant functional impairment.",
+            complicationsIntro: "Untreated anxiety disorders can progressively worsen and affect multiple life areas.",
+            complications: [
+                "Depression development: Chronic anxiety often leads to secondary depression.",
+                "Substance abuse: Alcohol or drugs used to self-medicate.",
+                "Physical health problems: Chronic stress affects cardiovascular and immune systems.",
+                "Work impairment: Reduced performance and absenteeism.",
+                "Social isolation: Withdrawal from relationships and activities.",
+                "Sleep disorders: Chronic insomnia affecting overall health.",
+                "Suicide risk: Severe anxiety increases suicidal ideation.",
+                "Quality of life decline: Persistent limitation of daily activities."
+            ]
+        )),
+        Topic(name: "Bipolar Disorder", iconName: "circle.dashed", content: TopicContent(
+            overview: "Bipolar disorder is a chronic mental health condition characterized by extreme mood swings that include episodes of elevated mood (mania or hypomania) and episodes of depression. These mood changes affect energy levels, thinking, behavior, and daily functioning.",
+            causesIntro: "Bipolar disorder develops due to a combination of biological and environmental factors.",
+            causes: [
+                "Genetic predisposition: Family history significantly increases risk.",
+                "Neurochemical imbalance: Dysregulation of neurotransmitters affects mood stability.",
+                "Brain structure changes: Differences in emotion regulation regions.",
+                "Stressful life events: Trauma, loss, or major stress trigger mood episodes.",
+                "Substance use: Alcohol or drugs worsen symptoms or precipitate episodes.",
+                "Sleep disruption: Irregular sleep patterns trigger mood changes.",
+                "Circadian rhythm abnormalities: Biological clock dysfunction contributes.",
+                "Hormonal influences: Endocrine system changes affect mood regulation."
+            ],
+            symptomsIntro: "Bipolar disorder involves alternating episodes of mania/hypomania and depression.",
+            symptoms: [
+                "Elevated mood: Unusually high energy, excitement, or irritability.",
+                "Increased activity: Excessive goal-directed behavior or restlessness.",
+                "Reduced sleep need: Feeling rested after very little sleep.",
+                "Racing thoughts: Rapid thinking and difficulty focusing.",
+                "Impulsive behavior: Risky decisions involving spending, sex, or substances.",
+                "Inflated self-esteem: Unrealistic confidence or grandiose beliefs.",
+                "Depressive episodes: Persistent low mood, loss of interest, fatigue.",
+                "Suicidal thoughts: Thoughts of death during depressive phases."
+            ],
+            diagnosis: "Bipolar disorder diagnosis requires comprehensive psychiatric evaluation. Mood disorder assessment includes detailed history of mood episodes, sleep patterns, and behavior. Mood questionnaires like MDQ help identify symptoms. Collateral history from family provides crucial behavioral observations. Medical evaluation excludes substance-induced or medical causes. Longitudinal observation confirms diagnosis through symptom patterns over time, often requiring several months of monitoring.",
+            complicationsIntro: "Untreated bipolar disorder can lead to severe life disruption and health risks.",
+            complications: [
+                "Suicide risk: High mortality rate especially during depressive episodes.",
+                "Substance abuse: High rates of alcohol and drug misuse.",
+                "Relationship breakdown: Impulsive behavior strains connections.",
+                "Financial problems: Excessive spending during manic episodes.",
+                "Occupational instability: Mood episodes affect job performance.",
+                "Legal issues: Risky behaviors may lead to legal consequences.",
+                "Physical health decline: Poor self-care during mood episodes.",
+                "Social stigma: Misunderstanding leads to isolation."
+            ]
+        )),
+        Topic(name: "Schizophrenia", iconName: "cross.case", content: TopicContent(
+            overview: "Schizophrenia is a chronic and severe mental health disorder that affects how a person thinks, feels, perceives reality, and behaves. It often leads to difficulty distinguishing reality from hallucinations or delusions and significantly impacts daily functioning.",
+            causesIntro: "Schizophrenia develops due to a complex interaction of genetic, biological, and environmental factors.",
+            causes: [
+                "Genetic vulnerability: Family history significantly increases risk.",
+                "Neurochemical imbalance: Abnormal dopamine and glutamate activity affects perception.",
+                "Brain structure differences: Alterations in cognition and emotion regulation regions.",
+                "Prenatal factors: Infections, malnutrition, or stress during pregnancy increase risk.",
+                "Psychosocial stress: Trauma, social isolation, or major stressors trigger onset.",
+                "Drug use: Certain substances particularly cannabis may precipitate psychosis.",
+                "Neurodevelopmental abnormalities: Early brain development disruptions.",
+                "Immune system dysfunction: Autoimmune factors may contribute."
+            ],
+            symptomsIntro: "Schizophrenia symptoms are categorized into positive, negative, and cognitive symptoms.",
+            symptoms: [
+                "Hallucinations: Seeing or hearing things that are not present.",
+                "Delusions: Strong false beliefs despite contrary evidence.",
+                "Disorganized speech: Incoherent or illogical speech patterns.",
+                "Emotional flatness: Reduced emotional expression and reactions.",
+                "Social withdrawal: Loss of interest in relationships.",
+                "Reduced motivation: Difficulty initiating activities.",
+                "Impaired concentration: Trouble focusing or maintaining attention.",
+                "Memory problems: Difficulty remembering information."
+            ],
+            diagnosis: "Schizophrenia diagnosis involves comprehensive psychiatric assessment. Clinical interviews explore symptoms, duration, and functional impairment in detail. Mental status examination assesses thought processes, perception, and insight. Collateral history from family identifies behavioral changes. Medical evaluation including neuroimaging excludes neurological causes. Long-term observation confirms diagnosis through symptom persistence, typically requiring six months of psychotic symptoms for definitive diagnosis.",
+            complicationsIntro: "Schizophrenia, if untreated, leads to profound impairment in multiple life domains.",
+            complications: [
+                "Social isolation: Withdrawal from family and community.",
+                "Unemployment: Difficulty maintaining competitive employment.",
+                "Homelessness: Loss of support systems and financial stability.",
+                "Substance abuse: High rates of alcohol and drug misuse.",
+                "Physical health decline: Poor nutrition and self-care neglect.",
+                "Self-harm risk: Increased suicide and self-injury rates.",
+                "Cognitive decline: Progressive impairment in thinking abilities.",
+                "Victimization: Vulnerability to exploitation and abuse."
+            ]
+        )),
+        Topic(name: "Post-Traumatic Stress Disorder", iconName: "exclamationmark.triangle.fill", content: TopicContent(
+            overview: "Post-Traumatic Stress Disorder (PTSD) is a mental health condition that develops after exposure to a traumatic or life-threatening event. It causes persistent psychological distress, intrusive memories, emotional changes, and functional impairment long after the event has passed.",
+            causesIntro: "PTSD develops after exposure to severe trauma, with various factors influencing risk.",
+            causes: [
+                "Physical or sexual assault: Violence overwhelms coping mechanisms.",
+                "Accidents or disasters: Sudden psychological shock from events.",
+                "War or combat: Military or conflict-related trauma carries high risk.",
+                "Childhood abuse: Early trauma disrupts neurological development.",
+                "Medical trauma: Life-threatening illness or procedures.",
+                "Severity of trauma: Intense or prolonged trauma increases risk.",
+                "Lack of social support: Absence of emotional support worsens outcomes.",
+                "Previous mental health issues: Pre-existing anxiety or depression increases vulnerability."
+            ],
+            symptomsIntro: "PTSD symptoms are grouped into four major clusters affecting daily life.",
+            symptoms: [
+                "Flashbacks: Feeling as if trauma is happening again.",
+                "Distressing memories: Unwanted recurrent memories interfere with life.",
+                "Nightmares: Trauma-related dreams disrupt sleep.",
+                "Avoiding reminders: Avoiding trauma-linked people, places, or situations.",
+                "Emotional avoidance: Suppressing trauma-related thoughts and feelings.",
+                "Negative beliefs: Persistent guilt, shame, or self-blame.",
+                "Hypervigilance: Constant feeling of being in danger.",
+                "Irritability: Increased anger outbursts and aggression."
+            ],
+            diagnosis: "PTSD diagnosis requires detailed trauma history and symptom assessment. Clinical interviews explore trauma exposure, symptom duration, and functional impact. Standardized tools like PCL-5 measure symptom severity. Mental status examination evaluates emotional state and thought processes. Collateral information from family provides behavioral observations. Medical evaluation excludes neurological or substance-related causes. Diagnosis requires symptoms lasting more than one month after trauma and causing significant impairment.",
+            complicationsIntro: "Untreated PTSD can severely disrupt all aspects of life and health.",
+            complications: [
+                "Chronic depression: Trauma-related mood disorders develop.",
+                "Substance abuse: Drugs or alcohol used to cope with symptoms.",
+                "Relationship problems: Emotional numbness strains connections.",
+                "Employment difficulties: Symptoms affect work performance.",
+                "Physical health decline: Chronic stress affects body systems.",
+                "Social isolation: Withdrawal from support networks.",
+                "Suicide risk: Increased risk of self-harm behaviors.",
+                "Secondary traumatization: Family members affected by symptoms."
+            ]
+        ))
     ]
 
     static let psychiatristFAQs = [
@@ -1655,13 +2319,364 @@ struct SpecialistData {
             answer: "Treatment may include medications, psychotherapy, lifestyle changes, and ongoing monitoring.")
     ]
 
+    // Oncologist Topics and FAQs
+    static let oncologistTopics = [
+        Topic(name: "Breast Cancer", iconName: "heart.fill", content: TopicContent(
+            overview: "Breast cancer is a malignant condition in which abnormal cells in the breast tissue grow uncontrollably and form a tumor. It most commonly develops in the milk ducts or lobules and can spread to nearby lymph nodes or distant organs if untreated.",
+            causesIntro: "Breast cancer develops due to genetic mutations that cause abnormal cell growth in breast tissue. Multiple factors contribute to these genetic changes and cancer development.",
+            causes: [
+                "Female gender: Women are at significantly higher risk than men.",
+                "Increasing age: Risk rises significantly after 40 years of age.",
+                "Family history: BRCA1 and BRCA2 gene mutations increase risk.",
+                "Hormonal exposure: Early menstruation or late menopause increases estrogen exposure.",
+                "Obesity: Excess body fat increases estrogen levels after menopause.",
+                "Alcohol consumption: Regular intake raises breast cancer risk.",
+                "Radiation exposure: Chest radiation at a young age increases risk.",
+                "Sedentary lifestyle: Lack of physical activity contributes to risk."
+            ],
+            symptomsIntro: "Symptoms may vary depending on the stage and type of breast cancer. Early stages may be asymptomatic, highlighting the importance of screening.",
+            symptoms: [
+                "Breast lump: A painless, hard lump with irregular edges is the most common sign.",
+                "Change in breast shape or size: One breast may appear larger or differently shaped.",
+                "Skin changes: Dimpling, redness, or thickening of the breast skin.",
+                "Nipple changes: Nipple inversion, discharge, or crusting.",
+                "Pain or discomfort: Persistent pain in the breast or armpit."
+            ],
+            diagnosis: "Diagnosis involves clinical evaluation and imaging followed by tissue confirmation. Tests include clinical breast examination to detect lumps or abnormalities, mammography as the primary screening and diagnostic imaging tool, breast ultrasound or MRI to further evaluate suspicious areas, and biopsy to confirm cancer type and receptor status.",
+            complicationsIntro: "If untreated, breast cancer can spread to other parts of the body and cause serious complications. Early detection significantly improves outcomes.",
+            complications: [
+                "Metastasis: Cancer can spread to lymph nodes, bones, lungs, liver, or brain.",
+                "Lymphedema: Swelling in arms due to lymph node removal or damage.",
+                "Recurrence: Cancer may return in the same breast or other parts of the body.",
+                "Side effects of treatment: Chemotherapy and radiation cause fatigue, nausea, and hair loss.",
+                "Psychological impact: Diagnosis and treatment cause significant emotional distress."
+            ]
+        )),
+        Topic(name: "Lung Cancer", iconName: "lungs.fill", content: TopicContent(
+            overview: "Lung cancer is a malignant disease in which abnormal cells grow uncontrollably in the lung tissue, interfering with normal breathing and oxygen exchange. It is one of the leading causes of cancer-related deaths worldwide, often diagnosed at an advanced stage.",
+            causesIntro: "Lung cancer develops when genetic mutations cause normal lung cells to grow uncontrollably. These mutations are often triggered by exposure to carcinogens, particularly tobacco smoke.",
+            causes: [
+                "Smoking: Primary risk factor responsible for most lung cancer cases.",
+                "Secondhand smoke exposure: Increases risk even in non-smokers.",
+                "Air pollution: Long-term exposure damages lung tissue.",
+                "Occupational hazards: Asbestos, radon, and chemical fumes increase risk.",
+                "Family history: Genetic susceptibility plays a role.",
+                "Previous lung disease: Conditions like COPD or pulmonary fibrosis increase risk.",
+                "Radiation exposure: Prior chest radiation raises cancer risk."
+            ],
+            symptomsIntro: "Symptoms may develop gradually and are often mistaken for common respiratory conditions in early stages. Many symptoms only appear when the disease is advanced.",
+            symptoms: [
+                "Persistent cough: A long-lasting or worsening cough is a common early sign.",
+                "Chest pain: Pain may worsen with coughing, breathing, or laughing.",
+                "Shortness of breath: Tumor growth limits normal lung expansion.",
+                "Coughing up blood: Blood-stained sputum indicates airway involvement.",
+                "Unexplained weight loss: Cancer-related metabolic changes cause weight loss.",
+                "Fatigue: Persistent tiredness due to reduced oxygen levels and cancer burden."
+            ],
+            diagnosis: "Diagnosis aims to confirm cancer presence and determine its type and spread. Tests include chest X-ray as initial imaging to detect lung abnormalities, CT scan to provide detailed view of tumor size and location, bronchoscopy to allow direct visualization and biopsy of lung tissue, biopsy to confirm cancer type through tissue examination, and molecular testing to identify genetic mutations for targeted therapy.",
+            complicationsIntro: "Lung cancer complications can be severe and life-threatening, especially when diagnosed at advanced stages. Early detection significantly improves prognosis.",
+            complications: [
+                "Metastasis: Cancer commonly spreads to brain, bones, liver, and adrenal glands.",
+                "Respiratory failure: Tumors block airways or cause fluid accumulation around lungs.",
+                "Hemoptysis: Severe coughing up of blood can be life-threatening.",
+                "Superior vena cava syndrome: Tumor compresses the large vein returning blood to the heart.",
+                "Treatment side effects: Chemotherapy and radiation cause significant toxicity."
+            ]
+        )),
+        Topic(name: "Prostate Cancer", iconName: "circle.fill", content: TopicContent(
+            overview: "Prostate cancer is a malignant growth that develops in the prostate gland, a small gland in men that produces seminal fluid. It often grows slowly but can become aggressive and spread to other parts of the body if not detected early.",
+            causesIntro: "Prostate cancer begins when cells in the prostate gland develop mutations in their DNA. These mutated cells grow and divide more rapidly than normal cells and continue living when other cells would die.",
+            causes: [
+                "Age: Risk increases significantly after the age of 50.",
+                "Family history: Having a close relative with prostate cancer increases risk.",
+                "Genetic mutations: BRCA1 and BRCA2 mutations elevate risk.",
+                "Ethnicity: Higher incidence seen in African ancestry populations.",
+                "Diet: High-fat diets may contribute to increased risk.",
+                "Hormonal factors: Androgens play a role in prostate cancer growth.",
+                "Obesity: Linked to aggressive forms of prostate cancer."
+            ],
+            symptomsIntro: "Early-stage prostate cancer may not cause noticeable symptoms. Symptoms usually appear as the disease progresses and the gland enlarges.",
+            symptoms: [
+                "Difficulty urinating: Weak urine stream or trouble starting and stopping urination.",
+                "Frequent urination: Increased need to urinate, especially at night.",
+                "Blood in urine or semen: Indicates prostate or urinary tract involvement.",
+                "Pelvic or lower back pain: Suggests advanced or spreading disease.",
+                "Erectile dysfunction: Difficulty achieving or maintaining erection."
+            ],
+            diagnosis: "Diagnosis focuses on early detection and confirmation through imaging and biopsy. Tests include prostate-specific antigen (PSA) test to measure PSA levels in blood, digital rectal examination (DRE) to detect prostate abnormalities, prostate biopsy to confirm cancer diagnosis and grade, and imaging studies like MRI, CT, or bone scan to assess spread.",
+            complicationsIntro: "If untreated or advanced, prostate cancer can spread to other parts of the body and cause significant complications. Early detection provides the best chance for successful treatment.",
+            complications: [
+                "Metastasis: Cancer commonly spreads to bones, lymph nodes, and other organs.",
+                "Urinary incontinence: Treatment can affect bladder control.",
+                "Erectile dysfunction: Surgery or radiation affects sexual function.",
+                "Bone complications: Bone metastases can cause pain and fractures.",
+                "Emotional impact: Diagnosis and treatment effects affect mental health and relationships."
+            ]
+        )),
+        Topic(name: "Colorectal Cancer", iconName: "circle.circle.fill", content: TopicContent(
+            overview: "Colorectal cancer is a malignant condition that develops in the colon or rectum, parts of the large intestine. It usually begins as a benign polyp that gradually transforms into cancer over time if not detected early.",
+            causesIntro: "Colorectal cancer develops when cells in the colon or rectum develop genetic mutations that cause them to grow uncontrollably. These mutations accumulate over time due to various risk factors.",
+            causes: [
+                "Increasing age: Risk rises significantly after age 50.",
+                "Family history: Colorectal cancer or polyps in close relatives increase risk.",
+                "Genetic syndromes: Conditions like Lynch syndrome or FAP increase risk.",
+                "Diet: High intake of red or processed meats increases risk.",
+                "Sedentary lifestyle: Physical inactivity contributes to cancer development.",
+                "Obesity: Excess body weight is linked to higher risk.",
+                "Smoking and alcohol: Both increase colorectal cancer risk.",
+                "Inflammatory bowel disease: Long-standing ulcerative colitis or Crohn's disease raises risk."
+            ],
+            symptomsIntro: "Symptoms may be mild or absent in early stages and become more noticeable as the disease progresses. Many symptoms relate to changes in bowel habits.",
+            symptoms: [
+                "Change in bowel habits: Persistent diarrhea, constipation, or change in stool consistency.",
+                "Blood in stool: Bright red or dark-colored blood due to tumor bleeding.",
+                "Abdominal pain or cramping: Ongoing discomfort or bloating.",
+                "Unexplained weight loss: Cancer-related metabolic changes cause weight loss.",
+                "Fatigue and weakness: Often due to chronic blood loss and anemia.",
+                "Feeling of incomplete bowel emptying: Persistent urge after passing stool."
+            ],
+            diagnosis: "Diagnosis focuses on detecting cancer early and confirming it through tissue analysis. Tests include colonoscopy as the gold standard test to detect tumors and remove polyps, biopsy to confirm cancer through tissue examination, stool tests to detect occult blood or abnormal DNA, and imaging studies like CT or MRI scans to assess tumor spread.",
+            complicationsIntro: "Colorectal cancer can cause serious complications if not detected early or if it spreads to other organs. Regular screening is highly effective at prevention.",
+            complications: [
+                "Intestinal obstruction: Tumor blocks normal passage of stool.",
+                "Metastasis: Cancer commonly spreads to liver and lungs.",
+                "Perforation: Tumor growth can cause bowel wall perforation.",
+                "Anemia: Chronic blood loss leads to severe iron deficiency.",
+                "Treatment effects: Surgery may require colostomy, affecting quality of life."
+            ]
+        )),
+        Topic(name: "Leukemia", iconName: "drop.fill", content: TopicContent(
+            overview: "Leukemia is a type of cancer that affects the blood and bone marrow, where blood cells are produced. It causes abnormal white blood cells to grow uncontrollably, interfering with the production of healthy blood cells.",
+            causesIntro: "Leukemia develops when genetic mutations occur in the DNA of blood cells, particularly white blood cells. These mutations cause the cells to grow and divide abnormally while failing to die when they should.",
+            causes: [
+                "Genetic disorders: Conditions like Down syndrome increase risk.",
+                "Radiation exposure: High-dose radiation damages bone marrow cells.",
+                "Chemical exposure: Benzene exposure is strongly linked to leukemia.",
+                "Previous cancer treatment: Chemotherapy or radiation can cause secondary leukemia.",
+                "Family history: Rarely increases susceptibility.",
+                "Smoking: Raises risk, especially for acute myeloid leukemia."
+            ],
+            symptomsIntro: "Symptoms may develop gradually or suddenly and often result from low levels of normal blood cells. Different types of leukemia may cause different symptom patterns.",
+            symptoms: [
+                "Persistent fatigue: Caused by anemia due to reduced red blood cells.",
+                "Frequent infections: Abnormal white cells weaken immune defense.",
+                "Easy bruising or bleeding: Low platelet count leads to nosebleeds or bleeding gums.",
+                "Fever and night sweats: Result from cancer-related inflammation.",
+                "Bone or joint pain: Due to bone marrow expansion.",
+                "Unexplained weight loss: Increased metabolic demand of cancer cells."
+            ],
+            diagnosis: "Diagnosis confirms abnormal blood cell production and identifies leukemia type. Tests include complete blood count (CBC) to show abnormal white cells and low normal cells, bone marrow biopsy to confirm leukemia and determine subtype, cytogenetic and molecular tests to identify genetic mutations guiding treatment, and imaging studies to detect organ enlargement or disease spread.",
+            complicationsIntro: "Leukemia and its treatment can lead to serious complications affecting multiple body systems. Modern treatments have significantly improved outcomes for many patients.",
+            complications: [
+                "Severe infections: Weakened immune system increases infection risk.",
+                "Anemia and bleeding: Low red cells and platelets cause fatigue and bleeding risk.",
+                "Organ damage: Leukemia cells infiltrate liver, spleen, and lymph nodes.",
+                "Treatment toxicity: Chemotherapy causes nausea, hair loss, and organ damage.",
+                "Graft-versus-host disease: Stem cell transplant complication where donor cells attack host tissue."
+            ]
+        ))
+    ]
+
+    static let oncologistFAQs = [
+        FAQ(question: "What are the warning signs of cancer?",
+            answer: "Unexplained weight loss, fatigue, persistent pain, lumps, changes in bowel or bladder habits, or unusual bleeding should be evaluated."),
+        FAQ(question: "What causes cancer?",
+            answer: "Cancer is caused by genetic mutations that may be inherited or acquired due to tobacco, radiation, chemicals, inflammation, viruses, or hormones."),
+        FAQ(question: "When should I consult an oncologist?",
+            answer: "If diagnosed with cancer or if screening tests suggest possible malignancy. Early specialist consultation improves outcomes."),
+        FAQ(question: "How is cancer diagnosed?",
+            answer: "Diagnosis involves imaging scans, biopsy, blood tests, and molecular studies to confirm cancer type and stage."),
+        FAQ(question: "What are the treatment options for cancer?",
+            answer: "Treatment may include surgery, chemotherapy, radiation therapy, immunotherapy, targeted therapy, or hormone therapy depending on cancer type and stage.")
+    ]
+
     // Ayurveda Specialist Topics and FAQs
     static let ayurvedaTopics = [
-        Topic(name: "Doshas", iconName: "circle.dashed", content: nil),
-        Topic(name: "Herbs", iconName: "leaf.fill", content: nil),
-        Topic(name: "Lifestyle", iconName: "figure.walk", content: nil),
-        Topic(name: "Wellness", iconName: "heart.fill", content: nil),
-        Topic(name: "Balance", iconName: "staroflife.fill", content: nil)
+        Topic(name: "Doshas", iconName: "circle.dashed", content: TopicContent(
+            overview: "Doshas are the three fundamental energies or bio-forces in Ayurveda that govern all physical and mental processes. Known as Vata (air and space), Pitta (fire and water), and Kapha (earth and water), they determine an individual's physical constitution, temperament, and susceptibility to diseases. Health is maintained when these doshas are in balance, while illness arises from their imbalance.",
+            causesIntro: "Dosha imbalance occurs due to various lifestyle, dietary, and environmental factors that disturb the natural equilibrium of the three energies.",
+            causes: [
+                "Improper diet: Eating foods that aggravate your dominant dosha creates imbalance.",
+                "Seasonal changes: Different seasons influence specific doshas—Vata in autumn, Pitta in summer, Kapha in spring.",
+                "Stress and anxiety: Mental stress particularly aggravates Vata dosha.",
+                "Irregular sleep: Disrupted sleep patterns disturb all three doshas.",
+                "Sedentary lifestyle: Lack of movement increases Kapha dosha.",
+                "Excessive activity: Overexertion and multitasking increase Vata dosha.",
+                "Emotional suppression: Repressed emotions particularly disturb Pitta dosha.",
+                "Environmental toxins: Pollutants and chemicals can aggravate Pitta dosha."
+            ],
+            symptomsIntro: "Dosha imbalance manifests through various physical, mental, and emotional symptoms depending on which dosha is aggravated.",
+            symptoms: [
+                "Vata imbalance: Dry skin, constipation, bloating, anxiety, insomnia, and joint pain.",
+                "Pitta imbalance: Acid reflux, skin rashes, excessive body heat, anger, and inflammation.",
+                "Kapha imbalance: Weight gain, lethargy, congestion, depression, and fluid retention.",
+                "Digestive issues: Weak digestion, gas, and irregular appetite.",
+                "Sleep disturbances: Difficulty sleeping or excessive sleeping.",
+                "Mood changes: Irritability, anxiety, or emotional instability.",
+                "Fatigue: Persistent tiredness and lack of energy.",
+                "Mental fog: Difficulty concentrating and memory problems."
+            ],
+            diagnosis: "Ayurvedic diagnosis involves comprehensive assessment of dosha imbalance through traditional methods. Pulse diagnosis (Nadi Pariksha) evaluates the qualities of pulse at the radial artery. Tongue examination reveals digestive health and dosha status. Physical assessment includes body structure, skin characteristics, and voice quality. Questionnaires assess prakriti (natural constitution) and vikriti (current imbalance). Lifestyle and dietary history help identify causative factors. Overall, the practitioner determines which dosha is aggravated and the degree of imbalance.",
+            complicationsIntro: "Chronic dosha imbalance, if left unaddressed, can lead to various health complications and progressive deterioration of well-being.",
+            complications: [
+                "Chronic diseases: Long-term imbalance may lead to arthritis, diabetes, or hypertension.",
+                "Digestive disorders: Imbalanced digestion causes IBS, ulcers, or metabolic issues.",
+                "Mental health issues: Anxiety, depression, or cognitive decline may develop.",
+                "Autoimmune conditions: Severe Pitta imbalance may trigger autoimmune responses.",
+                "Hormonal disturbances: Dosha imbalance affects endocrine function.",
+                "Weakened immunity: Ongoing imbalance reduces ojas (vital energy) and immunity.",
+                "Skin disorders: Eczema, psoriasis, or acne from specific dosha aggravation.",
+                "Quality of life decline: Progressive imbalance affects physical and mental well-being."
+            ]
+        )),
+        Topic(name: "Herbs", iconName: "leaf.fill", content: TopicContent(
+            overview: "Ayurvedic herbs are natural medicinal plants used for thousands of years to promote health, prevent disease, and treat various conditions. These herbs work by balancing the doshas, strengthening digestion (agni), and eliminating toxins (ama) from the body. Popular herbs include Ashwagandha for stress, Tulsi for immunity, Triphala for digestion, and Brahmi for cognitive function.",
+            causesIntro: "Herbal remedies are used to address health issues caused by dosha imbalance, weak digestion, toxin accumulation, and diminished vitality.",
+            causes: [
+                "Vata aggravation: Ashwagandha, Bala, and Shatavari ground and nourish.",
+                "Pitta aggravation: Amalaki, Guduchi, and Neem cool and detoxify.",
+                "Kapha aggravation: Trikatu, Pippali, and Punarnava stimulate and reduce excess.",
+                "Weak digestion: Ginger, Triphala, and Hing enhance digestive fire.",
+                "Toxin accumulation: Guduchi, Neem, and Turmeric purify the blood.",
+                "Stress and anxiety: Ashwagandha, Brahmi, and Jatamansi calm the nervous system.",
+                "Low immunity: Tulsi, Amalaki, and Guduchi strengthen immune response.",
+                "Inflammation: Turmeric, Boswellia, and Guggulu reduce inflammatory conditions."
+            ],
+            symptomsIntro: "Herbal treatments are indicated for a wide range of symptoms and health conditions affecting various body systems.",
+            symptoms: [
+                "Digestive issues: Indigestion, bloating, constipation, or acidity.",
+                "Respiratory problems: Cough, cold, congestion, or breathing difficulties.",
+                "Stress-related symptoms: Fatigue, insomnia, anxiety, or burnout.",
+                "Joint pain: Arthritis, muscle pain, or inflammatory conditions.",
+                "Skin disorders: Acne, eczema, psoriasis, or premature aging.",
+                "Low energy: Chronic fatigue, weakness, or lack of vitality.",
+                "Hormonal imbalance: Menstrual issues, low libido, or thyroid problems.",
+                "Cognitive decline: Poor memory, concentration, or learning difficulties."
+            ],
+            diagnosis: "Ayurvedic herb selection is based on careful assessment of dosha imbalance and specific health concerns. Practitioners evaluate the individual's constitution (prakriti) and current imbalance (vikriti). Pulse and tongue diagnosis reveal underlying dosha disturbance. Symptoms are analyzed in terms of dosha involvement. Digestive capacity (agni) and toxin level (ama) are assessed. Existing conditions and medications are reviewed to avoid herb-drug interactions. The practitioner then prescribes single herbs or polyherbal formulations tailored to restore balance.",
+            complicationsIntro: "While Ayurvedic herbs are generally safe when used correctly, improper use can lead to complications and adverse effects.",
+            complications: [
+                "Allergic reactions: Some individuals may be sensitive to specific herbs.",
+                "Digestive upset: Certain herbs may cause nausea or stomach discomfort.",
+                "Drug interactions: Herbs may interfere with conventional medications.",
+                "Heavy metal contamination: Improperly prepared herbs may contain toxic metals.",
+                "Dosha aggravation: Wrong herb choice can worsen existing imbalance.",
+                "Pregnancy risks: Some herbs are contraindicated during pregnancy.",
+                "Kidney or liver stress: Excessive or prolonged use may affect organ function.",
+                "Misdiagnosis delay: Relying solely on herbs may delay needed medical treatment."
+            ]
+        )),
+        Topic(name: "Lifestyle", iconName: "figure.walk", content: TopicContent(
+            overview: "Ayurvedic lifestyle (Dinacharya) focuses on daily and seasonal routines that align with natural rhythms to maintain health and prevent disease. It includes practices such as oil massage (abhyanga), tongue scraping, nasal cleansing (nasya), and mindful eating. These practices help balance the doshas, strengthen digestion, eliminate toxins, and promote overall well-being.",
+            causesIntro: "Lifestyle-related diseases develop from disregarding natural rhythms, improper daily routines, and habits that disturb dosha balance.",
+            causes: [
+                "Irregular daily routine: Inconsistent sleep and meal times disturb all doshas.",
+                "Improper sleep: Late nights, poor sleep quality, or excessive sleep create imbalance.",
+                "Poor eating habits: Irregular meals, overeating, or incompatible food combinations.",
+                "Sedentary lifestyle: Lack of physical activity increases Kapha and reduces digestion.",
+                "Excessive screen time: Overstimulation aggravates Vata and Pitta doshas.",
+                "Stressful work: High-pressure environments disturb all three doshas.",
+                "Seasonal disregard: Not adjusting lifestyle according to seasonal changes.",
+                "Suppression of natural urges: Ignoring urges for hunger, thirst, sleep, or elimination."
+            ],
+            symptomsIntro: "Poor lifestyle habits manifest through various physical and mental symptoms indicating dosha imbalance.",
+            symptoms: [
+                "Low energy: Fatigue, lethargy, or lack of vitality.",
+                "Poor digestion: Gas, bloating, indigestion, or irregular appetite.",
+                "Sleep problems: Insomnia, difficulty waking, or unrefreshing sleep.",
+                "Mental stress: Anxiety, irritability, or difficulty concentrating.",
+                "Physical discomfort: Muscle stiffness, joint pain, or body aches.",
+                "Weakened immunity: Frequent illnesses or slow recovery.",
+                "Skin issues: Dull skin, acne, or premature aging.",
+                "Weight imbalance: Unintended weight gain or difficulty maintaining weight."
+            ],
+            diagnosis: "Ayurvedic lifestyle assessment evaluates daily routines, habits, and their impact on dosha balance. Practitioners review sleep patterns, meal timing, and work schedule. Physical assessment examines signs of imbalance such as pulse, tongue, and skin condition. Questionnaires assess current lifestyle practices and stress levels. Digestive capacity and bowel habits are evaluated. The practitioner identifies which dosha is disturbed and which lifestyle factors are contributing. Personalized recommendations are then provided to restore balance through routine modifications.",
+            complicationsIntro: "Neglecting proper lifestyle practices can lead to chronic health issues and progressive deterioration of well-being.",
+            complications: [
+                "Chronic fatigue: Long-term poor routines deplete energy reserves.",
+                "Metabolic disorders: Poor lifestyle leads to diabetes, obesity, or thyroid issues.",
+                "Digestive diseases: IBS, ulcers, or inflammatory conditions may develop.",
+                "Mental health disorders: Anxiety, depression, or burnout from chronic stress.",
+                "Cardiovascular problems: Hypertension and heart disease from poor habits.",
+                "Autoimmune conditions: Chronic inflammation may trigger immune dysfunction.",
+                "Premature aging: Accelerated aging from toxin accumulation and stress.",
+                "Reduced quality of life: Overall health deterioration affecting daily functioning."
+            ]
+        )),
+        Topic(name: "Wellness", iconName: "heart.fill", content: TopicContent(
+            overview: "Ayurvedic wellness is a holistic approach to health that focuses on prevention and promotion of well-being through personalized practices. It emphasizes maintaining harmony between body, mind, and spirit through proper diet, lifestyle, herbs, yoga, meditation, and detoxification. The goal is to preserve health, prevent disease, and achieve optimal vitality and longevity.",
+            causesIntro: "Wellness disorders arise from neglecting self-care, ignoring body signals, and living in disharmony with natural rhythms and individual constitution.",
+            causes: [
+                "Poor self-care: Neglecting daily practices that maintain health.",
+                "Ignoring body signals: Disregarding early warning signs of imbalance.",
+                "Improper diet: Eating foods unsuitable for your constitution or season.",
+                "Lack of preventive care: Waiting for illness before addressing health.",
+                "Mental-emotional neglect: Ignoring mental health and emotional needs.",
+                "Environmental disharmony: Living in ways that conflict with natural rhythms.",
+                "Social imbalance: Unhealthy relationships and social stress affect well-being.",
+                "Spiritual disconnection: Lack of purpose or meaning in daily life."
+            ],
+            symptomsIntro: "Reduced wellness manifests through subtle signs of imbalance that, if addressed early, can prevent more serious conditions.",
+            symptoms: [
+                "Low vitality: Feeling generally unwell or lacking enthusiasm.",
+                "Poor sleep: Not feeling rested despite adequate sleep hours.",
+                "Mild digestive issues: Occasional bloating or irregular digestion.",
+                "Mood fluctuations: Minor emotional instability or irritability.",
+                "Reduced resilience: Taking longer to recover from stress or illness.",
+                "Skin changes: Dull complexion or minor skin issues.",
+                "Minor aches: Occasional headaches or body discomfort.",
+                "Cognitive fog: Slight difficulty with focus or memory."
+            ],
+            diagnosis: "Ayurvedic wellness assessment evaluates overall health status and identifies early signs of imbalance. Comprehensive consultation reviews physical, mental, and emotional well-being. Pulse and tongue diagnosis detect subtle dosha disturbances. Questionnaires assess current lifestyle, diet, stress levels, and sleep patterns. Digestive capacity and elimination are evaluated. Mental and emotional state is assessed through conversation. The practitioner identifies areas of weakness and provides personalized recommendations for diet, lifestyle, herbs, and practices to restore and maintain optimal wellness.",
+            complicationsIntro: "Ignoring wellness needs can lead to gradual health decline and increased susceptibility to chronic diseases.",
+            complications: [
+                "Progressive imbalance: Minor issues develop into more serious conditions.",
+                "Chronic diseases: Diabetes, hypertension, or arthritis may emerge.",
+                "Mental health disorders: Anxiety, depression, or cognitive decline.",
+                "Autoimmune conditions: Systemic inflammation may trigger immune dysfunction.",
+                "Hormonal disorders: Endocrine system disruption from chronic stress.",
+                "Reduced longevity: Accelerated aging and shortened lifespan.",
+                "Poor quality of life: Gradual deterioration affects daily functioning.",
+                "Increased healthcare costs: Preventable conditions require expensive treatment."
+            ]
+        )),
+        Topic(name: "Balance", iconName: "staroflife.fill", content: TopicContent(
+            overview: "Balance in Ayurveda refers to the harmonious state of the three doshas (Vata, Pitta, Kapha), proper digestion (agni), healthy tissues (dhatus), and proper elimination (malas). When these elements are balanced, the individual experiences health, vitality, and clarity. Ayurveda provides personalized guidelines for diet, lifestyle, and seasonal routines to maintain this unique equilibrium for each person.",
+            causesIntro: "Imbalance develops from living contrary to one's constitution, improper diet, inappropriate lifestyle, seasonal changes, and environmental factors.",
+            causes: [
+                "Constitutional disregard: Living in ways that oppose your natural dosha type.",
+                "Incompatible diet: Eating foods that disturb your specific dosha balance.",
+                "Improper routines: Daily activities that don't align with natural cycles.",
+                "Seasonal variation: Changes in weather affect different doshas.",
+                "Age-related changes: Life stages naturally shift dosha predominance.",
+                "Emotional factors: Stress, grief, or trauma disturb dosha equilibrium.",
+                "Environmental influences: Climate, pollution, and geography affect balance.",
+                "Relationship dynamics: Unhealthy connections create mental and emotional imbalance."
+            ],
+            symptomsIntro: "Loss of balance manifests through various physical and mental symptoms depending on which dosha is primarily affected.",
+            symptoms: [
+                "Vata imbalance: Anxiety, dryness, constipation, bloating, and irregular appetite.",
+                "Pitta imbalance: Anger, inflammation, acid reflux, skin rashes, and excessive hunger.",
+                "Kapha imbalance: Lethargy, weight gain, congestion, depression, and sluggish digestion.",
+                "Sleep disruption: Insomnia, disturbed sleep, or excessive sleeping.",
+                "Emotional instability: Mood swings, irritability, or emotional numbness.",
+                "Physical discomfort: Pain, stiffness, or general malaise.",
+                "Cognitive issues: Poor focus, memory problems, or mental fog.",
+                "Energy fluctuations: Hyperactivity or fatigue at inappropriate times."
+            ],
+            diagnosis: "Ayurvedic balance assessment determines which doshas are aggravated or deficient. Comprehensive evaluation includes pulse diagnosis to assess dosha states. Tongue examination reveals digestive health and toxin accumulation. Physical assessment includes body structure, skin quality, and energy levels. Questionnaires evaluate current symptoms relative to constitution. Lifestyle and diet history identify causative factors. Seasonal influences and age-related changes are considered. The practitioner then prescribes personalized diet, lifestyle, herbs, and treatments to restore balance.",
+            complicationsIntro: "Prolonged imbalance, if not corrected, can lead to serious health consequences and chronic disease development.",
+            complications: [
+                "Chronic diseases: Long-term imbalance may cause diabetes, arthritis, or autoimmune disorders.",
+                "Mental health disorders: Severe anxiety, depression, or cognitive decline.",
+                "Digestive diseases: IBS, ulcers, or inflammatory bowel conditions.",
+                "Hormonal disorders: Endocrine disruption affecting metabolism and reproduction.",
+                "Cardiovascular disease: Hypertension, high cholesterol, or heart disease.",
+                "Respiratory conditions: Asthma, allergies, or chronic bronchitis.",
+                "Severe fatigue: Chronic exhaustion and depleted energy reserves.",
+                "Quality of life decline: Progressive deterioration affecting all life aspects."
+            ]
+        ))
     ]
 
     static let ayurvedaFAQs = [
@@ -1677,13 +2692,193 @@ struct SpecialistData {
             answer: "Ayurveda focuses on balancing doshas through diet, herbs, therapies, and lifestyle modification.")
     ]
 
-    // Default topics and FAQs for other specialists
+    // Default topics and FAQs for other specialists (Dermatologist)
     static let defaultTopics = [
-        Topic(name: "Acne", iconName: "face.dashed", content: nil),
-        Topic(name: "Eczema", iconName: "hand.raised", content: nil),
-        Topic(name: "Psoriasis", iconName: "flame", content: nil),
-        Topic(name: "Skin cancer", iconName: "sun.max.fill", content: nil),
-        Topic(name: "Dermatitis", iconName: "hand.raised.slash", content: nil)
+        Topic(name: "Acne", iconName: "face.dashed", content: TopicContent(
+            overview: "Acne is a common skin condition that occurs when hair follicles become clogged with oil and dead skin cells. It causes whiteheads, blackheads, pimples, and in severe cases, cysts or nodules. Acne most commonly affects teenagers during puberty but can occur at any age, leading to emotional distress and permanent scarring if untreated.",
+            causesIntro: "Acne develops when excess oil production, dead skin cells, and bacteria clog hair follicles, creating an inflammatory response.",
+            causes: [
+                "Excess oil production: Sebaceous glands produce too much sebum due to hormonal changes.",
+                "Dead skin cells: Skin cells don't shed properly and clog hair follicles.",
+                "Bacteria: Propionibacterium acnes bacteria multiply in clogged follicles.",
+                "Hormonal changes: Androgens increase during puberty, pregnancy, or menstrual cycles.",
+                "Genetics: Family history increases susceptibility to acne.",
+                "Diet: High-glycemic foods and dairy may worsen acne in some people.",
+                "Stress: Stress hormones can increase oil production and inflammation.",
+                "Medications: Certain drugs like corticosteroids or lithium can trigger acne."
+            ],
+            symptomsIntro: "Acne symptoms vary in severity and typically appear on the face, forehead, chest, upper back, and shoulders.",
+            symptoms: [
+                "Whiteheads: Closed plugged pores beneath the skin surface.",
+                "Blackheads: Open plugged pores with dark surface appearance.",
+                "Papules: Small red, tender bumps.",
+                "Pustules: Pimples with pus at their tips.",
+                "Nodules: Large, solid, painful lumps beneath the skin.",
+                "Cysts: Painful, pus-filled lumps beneath the skin.",
+                "Oily skin: Excessive oiliness and shiny appearance.",
+                "Scarring: Dark spots or permanent scars from severe acne."
+            ],
+            diagnosis: "Dermatologists diagnose acne through physical examination of the skin. The type and severity of lesions are assessed to determine acne grade. Medical history includes age of onset, previous treatments, and aggravating factors. Women may be asked about menstrual cycles and hormonal influences. Skin conditions are evaluated to rule out similar disorders like rosacea or folliculitis. In severe cases, hormonal blood tests may be conducted. Treatment is tailored based on acne severity and patient characteristics.",
+            complicationsIntro: "Untreated or severe acne can lead to both physical and psychological complications affecting quality of life.",
+            complications: [
+                "Scarring: Deep scars, pockmarks, or raised tissue from severe acne.",
+                "Hyperpigmentation: Dark spots that persist after acne heals.",
+                "Low self-esteem: Acne appearance affects confidence and body image.",
+                "Social anxiety: Embarrassment about skin condition affects social interactions.",
+                "Depression: Severe acne associated with increased depression risk.",
+                "Infection: Picking at acne can introduce bacteria causing secondary infection.",
+                "Emotional distress: Acne significantly impacts mental health and well-being.",
+                "Permanent skin damage: Severe nodulocystic acne causes lasting skin changes."
+            ]
+        )),
+        Topic(name: "Eczema", iconName: "hand.raised", content: TopicContent(
+            overview: "Eczema (atopic dermatitis) is a chronic inflammatory skin condition causing dry, itchy, and inflamed skin. It commonly begins in childhood but can occur at any age. Eczema results from a combination of genetic, immune system, and environmental factors that impair the skin's barrier function, leading to increased sensitivity and moisture loss.",
+            causesIntro: "Eczema develops from a complex interaction of genetic predisposition, immune dysfunction, and environmental triggers.",
+            causes: [
+                "Genetic factors: Filaggrin gene mutation impairs skin barrier function.",
+                "Immune system dysfunction: Overactive immune response triggers inflammation.",
+                "Dry skin: Impaired skin barrier leads to moisture loss and irritant entry.",
+                "Environmental irritants: Soaps, detergents, and fragrances trigger flare-ups.",
+                "Allergens: Pollen, pet dander, dust mites, or mold worsen symptoms.",
+                "Stress: Emotional stress triggers or exacerbates eczema flares.",
+                "Temperature changes: Heat, cold, or humidity changes irritate skin.",
+                "Food allergies: Certain foods like dairy, eggs, or nuts may trigger symptoms."
+            ],
+            symptomsIntro: "Eczema symptoms vary from person to person and may appear anywhere on the body, commonly affecting elbows, knees, and face.",
+            symptoms: [
+                "Dry skin: Persistent skin dryness and scaling.",
+                "Itching: Intense itching, often worse at night.",
+                "Red to brownish-gray patches: Discolored skin patches on hands, feet, ankles, wrists, neck, or eyelids.",
+                "Small raised bumps: Bumps that may leak fluid when scratched.",
+                "Thickened skin: Leather-like patches from chronic scratching (lichenification).",
+                "Cracked skin: Painful cracks that may bleed.",
+                "Raw sensitive skin: Inflamed and tender skin areas.",
+                "Oozing or crusting: Weeping sores from scratched skin."
+            ],
+            diagnosis: "Dermatologists diagnose eczema through comprehensive clinical evaluation. Detailed medical history includes family history of allergies or asthma. Physical examination identifies characteristic skin lesions and distribution. Patch testing may identify specific allergens causing reactions. Skin biopsy may be performed to rule out other conditions. Allergy tests detect triggering substances. Evaluation assesses severity and impact on quality of life. Diagnosis is based on chronic or relapsing itchy dermatitis with characteristic distribution and morphology.",
+            complicationsIntro: "Eczema complications can significantly affect skin health, quality of life, and increase susceptibility to other conditions.",
+            complications: [
+                "Chronic itchy skin: Persistent, severe itching affecting sleep and daily activities.",
+                "Skin infections: Scratching breaks skin allowing bacterial or viral entry.",
+                "Neurodermatitis: Chronic, itchy skin from habitual scratching.",
+                "Sleep problems: Itching interferes with restful sleep.",
+                "Psychological effects: Anxiety, depression, or social withdrawal from appearance.",
+                "Contact dermatitis: Increased sensitivity to substances.",
+                "Asthma and hay fever: Eczema associated with increased allergic condition risk.",
+                "Impaired quality of life: Chronic condition affects emotional well-being and relationships."
+            ]
+        )),
+        Topic(name: "Psoriasis", iconName: "flame", content: TopicContent(
+            overview: "Psoriasis is a chronic autoimmune condition that accelerates skin cell growth, causing thick, scaly patches on the skin's surface. It occurs when the immune system mistakenly attacks healthy skin cells, triggering rapid skin cell production. These excess cells form scales and red patches that can be itchy and painful, significantly impacting quality of life.",
+            causesIntro: "Psoriasis develops from immune system dysfunction combined with genetic and environmental triggers.",
+            causes: [
+                "Immune system dysfunction: T cells attack healthy skin cells by mistake.",
+                "Genetics: Family history significantly increases psoriasis risk.",
+                "Stress: High stress levels trigger or worsen psoriasis flares.",
+                "Infections: Streptococcal throat infections trigger guttate psoriasis.",
+                "Skin injury: Cuts, scrapes, or sunburn can trigger new lesions (Koebner phenomenon).",
+                "Cold weather: Dry, cold conditions worsen psoriasis symptoms.",
+                "Smoking: Tobacco use increases risk and severity of psoriasis.",
+                "Certain medications: Lithium, antimalarials, and beta-blockers can trigger flares."
+            ],
+            symptomsIntro: "Psoriasis symptoms vary depending on the type and can range from mild to severe, affecting any part of the body.",
+            symptoms: [
+                "Red patches: Red skin covered with thick, silvery scales.",
+                "Dry cracked skin: Skin that may bleed when irritated.",
+                "Itching or burning: Sensations ranging from mild to severe.",
+                "Thickened nails: Pitted, ridged, or crumbling nails.",
+                "Swollen joints: Psoriatic arthritis causes joint pain and stiffness.",
+                "Scalp psoriasis: Scaly plaques on the scalp.",
+                "Nail changes: Pitting, discoloration, or separation from nail bed.",
+                "Joint pain: Stiffness, swelling, and reduced range of motion."
+            ],
+            diagnosis: "Dermatologists diagnose psoriasis through clinical examination and medical history. Physical examination identifies characteristic scaly plaques and distribution patterns. Skin biopsy may confirm diagnosis and rule out other conditions. Blood tests assess for psoriatic arthritis markers. Joint evaluation examines for arthritic changes. Family history of psoriasis is reviewed. Nail examination checks for characteristic pitting or separation. Diagnosis is primarily based on appearance of skin lesions, with biopsy or imaging used for confirmation when needed.",
+            complicationsIntro: "Psoriasis complications extend beyond the skin, affecting joints, cardiovascular health, and emotional well-being.",
+            complications: [
+                "Psoriatic arthritis: Joint damage and progressive deformity.",
+                "Eye conditions: Conjunctivitis, blepharitis, or uveitis.",
+                "Cardiovascular disease: Increased risk of heart disease and stroke.",
+                "Metabolic syndrome: Obesity, high blood pressure, and diabetes.",
+                "Mental health: Depression, anxiety, and social isolation.",
+                "Low self-esteem: Visible skin plaques affect confidence.",
+                "Skin cancer: Increased risk from certain psoriasis treatments.",
+                "Reduced quality of life: Chronic condition impacts daily functioning and relationships."
+            ]
+        )),
+        Topic(name: "Skin Cancer", iconName: "sun.max.fill", content: TopicContent(
+            overview: "Skin cancer is the abnormal growth of skin cells, primarily caused by ultraviolet (UV) radiation from the sun or tanning beds. The three main types are basal cell carcinoma, squamous cell carcinoma, and melanoma. While basal and squamous cell cancers are common and highly treatable, melanoma is the most dangerous and can spread to other organs if not detected early.",
+            causesIntro: "Skin cancer develops when DNA damage in skin cells triggers uncontrolled cell growth, primarily from UV radiation exposure.",
+            causes: [
+                "UV radiation exposure: Excessive sun exposure or tanning bed use.",
+                "Fair skin: Less melanin provides less UV protection.",
+                "Sunburns: History of severe, blistering sunburns increases risk.",
+                "Family history: Genetic predisposition to skin cancer.",
+                "Immune suppression: Weakened immune system increases cancer risk.",
+                "Radiation therapy: Previous radiation treatment damages skin DNA.",
+                "Arsenic exposure: Environmental or occupational arsenic exposure.",
+                "Certain moles: Having many moles or abnormal moles (dysplastic nevi)."
+            ],
+            symptomsIntro: "Skin cancer symptoms vary by type but typically involve changes in the appearance of skin, moles, or new growths.",
+            symptoms: [
+                "Basal cell carcinoma: Pearly or waxy bump, often with visible blood vessels.",
+                "Squamous cell carcinoma: Firm red nodule or flat lesion with scaly crust.",
+                "Melanoma: Large brownish spot with darker speckles or changing mole.",
+                "Asymmetry: One half of mole doesn't match the other half.",
+                "Border irregularity: Edges are ragged, notched, or blurred.",
+                "Color changes: Uneven color with shades of brown, black, or pink.",
+                "Diameter: Lesions larger than 6mm (quarter inch) across.",
+                "Evolving: Moles or lesions that change in size, shape, or color over time."
+            ],
+            diagnosis: "Dermatologists diagnose skin cancer through comprehensive skin examination. Visual inspection uses dermoscopy for detailed lesion examination. Skin biopsy removes suspicious tissue for laboratory analysis. Biopsy determines cancer type, depth, and characteristics. For melanoma, sentinel lymph node biopsy may assess spread. Imaging tests like CT or MRI scan for advanced cancer staging. Regular skin checks monitor for new or changing lesions. Early detection is crucial for successful treatment, especially for melanoma.",
+            complicationsIntro: "Untreated or advanced skin cancer can lead to serious complications including spread to other organs and significant tissue damage.",
+            complications: [
+                "Metastasis: Cancer spreads to lymph nodes, bones, or internal organs.",
+                "Tissue destruction: Cancer invades and destroys surrounding healthy tissue.",
+                "Disfigurement: Surgical removal may affect appearance and function.",
+                "Recurrent cancer: Cancer returns after treatment.",
+                "Nerve damage: Tumor growth affects sensory nerves.",
+                "Infection: Ulcerated tumors are prone to secondary infection.",
+                "Psychological impact: Cancer diagnosis causes anxiety and distress.",
+                "Treatment side effects: Surgery, radiation, or chemotherapy cause various complications."
+            ]
+        )),
+        Topic(name: "Dermatitis", iconName: "hand.raised.slash", content: TopicContent(
+            overview: "Dermatitis is a general term for skin inflammation causing red, swollen, and itchy skin. It encompasses various conditions including atopic dermatitis (eczema), contact dermatitis, seborrheic dermatitis, and stasis dermatitis. Different types have different causes but share similar symptoms of inflammation, itching, and skin barrier disruption.",
+            causesIntro: "Dermatitis develops from various internal and external factors that trigger skin inflammation and barrier dysfunction.",
+            causes: [
+                "Contact dermatitis: Direct contact with allergens or irritants like poison ivy or nickel.",
+                "Atopic tendency: Genetic predisposition to allergic conditions and sensitive skin.",
+                "Seborrheic factors: Yeast overgrowth (Malassezia) and excessive oil production.",
+                "Stasis dermatitis: Poor circulation and venous insufficiency in legs.",
+                "Dry skin: Environmental factors and aging reduce skin moisture.",
+                "Immune response: Allergic reactions to foods, pollen, or other allergens.",
+                "Irritants: Soaps, detergents, solvents, or harsh chemicals.",
+                "Stress: Emotional stress exacerbates inflammatory skin responses."
+            ],
+            symptomsIntro: "Dermatitis symptoms vary by type but commonly include redness, itching, and skin lesions that may blister or ooze.",
+            symptoms: [
+                "Redness: Inflamed, reddened skin areas.",
+                "Itching: Pruritus ranging from mild to severe.",
+                "Dryness: Scaly, flaking, or cracked skin.",
+                "Blisters: Fluid-filled blisters that may ooze or crust.",
+                "Swelling: Edema and puffiness in affected areas.",
+                "Thickened skin: Lichenification from chronic scratching.",
+                "Pain or tenderness: Discomfort in inflamed areas.",
+                "Crusting: Yellow or honey-colored crusts from oozing lesions."
+            ],
+            diagnosis: "Dermatologists diagnose dermatitis through clinical evaluation and diagnostic testing. Detailed history includes exposure to potential irritants or allergens. Physical examination identifies lesion characteristics and distribution. Patch testing applies small amounts of allergens to skin to identify contact allergens. Skin biopsy may differentiate from similar conditions. Allergy tests identify triggering substances. Microscopic examination (KOH prep) rules out fungal infections. Blood tests may assess for allergic sensitization. Diagnosis determines specific dermatitis type for targeted treatment.",
+            complicationsIntro: "Chronic or untreated dermatitis can lead to complications affecting skin integrity, quality of life, and overall health.",
+            complications: [
+                "Chronic itching: Persistent pruritus affecting sleep and daily activities.",
+                "Skin infection: Scratching breaks skin allowing bacterial or viral entry.",
+                "Neurodermatitis: Thickened, leathery skin from chronic scratching.",
+                "Scarring: Requent scratching or inflammation causes permanent marks.",
+                "Sleep disruption: Itching interferes with restful sleep patterns.",
+                "Psychological impact: Visible skin condition affects confidence and mental health.",
+                "Contact sensitization: Increased sensitivity to more substances over time.",
+                "Impaired quality of life: Chronic condition affects social interactions and well-being."
+            ]
+        ))
     ]
 
     static let defaultFAQs = [

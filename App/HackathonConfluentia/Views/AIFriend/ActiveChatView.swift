@@ -103,22 +103,14 @@ struct ActiveChatView: View {
                 Circle()
                     .stroke(Color.orange.opacity(0.3), lineWidth: 2)
                     .frame(width: 44, height: 44)
-                
-                // Dynamic Profile Image
-                if chatManager.currentProfile.name == "Isabella" {
-                    Image(systemName: "person.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.gray)
-                } else {
-                    Image(systemName: "figure.stand")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 14, height: 20)
-                        .foregroundColor(.gray)
-                }
-                
+
+                // Dynamic Profile Image from Assets
+                Image(chatManager.currentProfile.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 44, height: 44)
+                    .clipShape(Circle())
+
                 // Online Indicator
                 Circle()
                     .fill(Color.green)

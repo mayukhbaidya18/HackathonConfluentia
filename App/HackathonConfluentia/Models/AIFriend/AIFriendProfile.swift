@@ -20,7 +20,7 @@ struct AIFriendData {
     static let isabella = AIFriendProfile(
         id: "isabella",
         name: "Isabella",
-        imageName: "person.fill.viewfinder", // Placeholder
+        imageName: "Isabella",
         tags: ["Energetic", "Motivational", "Uplifting"],
         description: "Feeling down or lonely? Call your personal hype-woman, Isabella! She's here to remind you how amazing you are, brainstorm fun adventures, and help you shake off the blues. Get ready to rediscover your spark and feel confident again!",
         expertise: ["Self-Confidence & Self-Esteem Building", "Positive Affirmations", "Social Motivation"],
@@ -34,11 +34,11 @@ struct AIFriendData {
         """,
         initialMessage: "Hey, superstar! So good to hear from you. What's been going on with you lately?"
     )
-    
+
     static let alex = AIFriendProfile(
         id: "alex",
         name: "Alex",
-        imageName: "figure.stand", // Placeholder
+        imageName: "Alex",
         tags: ["Supportive", "Goal-oriented", "Encouraging"],
         description: "Feeling overwhelmed? Alex is your pragmatic coach for turning big goals into tiny, achievable steps. As your collaborative partner and cheerleader, Alex helps you build momentum, form healthy habits, and prove to yourself that you can make real change.",
         expertise: ["Health & Lifestyle Advice", "Career Stress & Burnout", "Habit Formation"],

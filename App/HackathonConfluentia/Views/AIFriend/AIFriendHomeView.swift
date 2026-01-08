@@ -147,23 +147,14 @@ struct ProfileImageView: View {
             Circle()
                 .fill(Color.gray.opacity(0.1))
                 .frame(width: 160, height: 160)
-            
-            if profile.name == "Isabella" {
-                // Placeholder for Isabella (Female)
-                Image(systemName: "person.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 80, height: 80)
-                    .foregroundColor(.gray)
-            } else {
-                // Placeholder for Alex (Male)
-                Image(systemName: "figure.stand")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 60, height: 80)
-                    .foregroundColor(.gray)
-            }
-            
+
+            // Profile Image from Assets
+            Image(profile.imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 120, height: 120)
+                .clipShape(Circle())
+
             // Online Indicator
             Circle()
                 .fill(Color.green)

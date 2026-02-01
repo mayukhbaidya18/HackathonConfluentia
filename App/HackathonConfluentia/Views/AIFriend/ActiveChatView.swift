@@ -5,7 +5,8 @@ struct ActiveChatView: View {
     @State private var inputText: String = ""
     @FocusState private var isInputFocused: Bool
     @State private var showEndConfirmation = false
-    
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+
     // Use the Manager for state and logic
     var chatManager: AIFriendChatManager
     @State private var voiceManager = VoiceInputManager()
@@ -20,21 +21,22 @@ struct ActiveChatView: View {
                 ScrollView {
                     LazyVStack(spacing: 16) {
                         Spacer().frame(height: 20)
-                        
+
                         ForEach(chatManager.messages) { message in
                             ChatBubbleView(message: .init(content: message.content, isFromUser: message.isFromUser, timestamp: message.timestamp, messageType: .text)) // Mapping to ChatMessage for reusable view, or update ChatBubbleView to accept AIFriendMessage
                                 .id(message.id)
+                                .padding(.horizontal, horizontalSizeClass == .compact ? 16 : 32)
                         }
-                        
+
                         if chatManager.isThinking {
                             HStack {
                                 TypingIndicatorView()
                                 Spacer()
                             }
-                            .padding(.leading)
+                            .padding(.leading, horizontalSizeClass == .compact ? 16 : 32)
                             .transition(.opacity.combined(with: .scale))
                         }
-                        
+
                         Spacer().frame(height: 20)
                     }
                 }
@@ -200,7 +202,7 @@ struct ActiveChatView: View {
             )
             .shadow(color: Color.black.opacity(0.03), radius: 5, x: 0, y: 2)
         }
-        .padding()
+        .padding(horizontalSizeClass == .compact ? 16 : 32)
         .background(Color.white.opacity(0.8))
         .background(.ultraThinMaterial)
     }

@@ -5,6 +5,7 @@ struct AssessmentData {
     static let questions: [QuizQuestion] = [
         QuizQuestion(
             text: "How many hours do you sleep on average?",
+            subtitle: "Quality sleep is crucial for brain health",
             options: [
                 "Very Short - 4-5 hours (Not enough)",
                 "Short - 5-6 hours (Below recommended)",
@@ -15,6 +16,7 @@ struct AssessmentData {
         ),
         QuizQuestion(
             text: "How many servings of vegetables do you eat daily?",
+            subtitle: "Vegetables provide essential vitamins and minerals",
             options: [
                 "None - I rarely eat vegetables",
                 "Low - 1-2 servings per day",
@@ -25,6 +27,7 @@ struct AssessmentData {
         ),
         QuizQuestion(
             text: "How often do you exercise?",
+            subtitle: "Regular physical activity keeps your body strong",
             options: [
                 "Sedentary - Rarely or never",
                 "Light - 1-2 times a week",
@@ -35,6 +38,7 @@ struct AssessmentData {
         ),
         QuizQuestion(
             text: "How would you rate your daily stress levels?",
+            subtitle: "Managing stress is key to mental wellbeing",
             options: [
                 "Very High - Constantly overwhelmed",
                 "High - Frequently stressed",
@@ -45,6 +49,7 @@ struct AssessmentData {
         ),
         QuizQuestion(
             text: "How much water do you drink daily?",
+            subtitle: "Staying hydrated supports all bodily functions",
             options: [
                 "Very Low - Less than 2 glasses",
                 "Low - 3-4 glasses",
@@ -55,6 +60,7 @@ struct AssessmentData {
         ),
         QuizQuestion(
             text: "Do you smoke or use tobacco products?",
+            subtitle: "Smoking significantly impacts overall health",
             options: [
                 "Yes - Frequently",
                 "Yes - Occasionally",
@@ -65,6 +71,7 @@ struct AssessmentData {
         ),
         QuizQuestion(
             text: "How often do you consume alcohol?",
+            subtitle: "Excessive alcohol can harm your health",
             options: [
                 "Daily - 2+ drinks per day",
                 "Frequent - 3-4 times a week",
@@ -75,6 +82,7 @@ struct AssessmentData {
         ),
         QuizQuestion(
             text: "How often do you engage in social activities?",
+            subtitle: "Social connections are vital for emotional health",
             options: [
                 "Rarely - Mostly isolated",
                 "Occasionally - Once a month",
@@ -84,17 +92,19 @@ struct AssessmentData {
             ]
         ),
         QuizQuestion(
-            text: "How much time do you spend sitting daily?",
+            text: "How often do you have a balanced diet in a week?",
+            subtitle: "A balanced diet includes proteins, carbs, vitamins, and fats",
             options: [
-                "Very High - 10+ hours",
-                "High - 8-10 hours",
-                "Moderate - 6-8 hours",
-                "Low - 4-6 hours",
-                "Minimal - Less than 4 hours"
+                "Rarely - Mostly processed or junk food",
+                "Sometimes - A few balanced meals per week",
+                "Often - Most days are balanced",
+                "Very Often - Almost every day is balanced",
+                "Always - Every meal is nutritionally complete"
             ]
         ),
         QuizQuestion(
             text: "How would you rate your overall happiness?",
+            subtitle: "Emotional wellbeing affects physical health",
             options: [
                 "Very Low - Often unhappy",
                 "Low - Occasionally unhappy",
@@ -172,10 +182,10 @@ struct AssessmentData {
             isReverseScored: false
         ),
 
-        // Question 9: Sitting time (0 = worst, 4 = best) - Less sitting is better
+        // Question 9: Balanced diet (0 = worst, 4 = best) - More balanced meals is better
         QuestionScoring(
             questionIndex: 8,
-            metric: .sedentaryBehavior,
+            metric: .nutrition,
             weights: [0, 25, 50, 75, 100],
             isReverseScored: false
         ),

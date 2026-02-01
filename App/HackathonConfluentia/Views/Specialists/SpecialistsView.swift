@@ -2,27 +2,50 @@ import SwiftUI
 
 struct SpecialistsView: View {
     let specialists = SpecialistData.specialists
-    
-    let columns = [
-        GridItem(.flexible(), spacing: 16),
-        GridItem(.flexible(), spacing: 16)
-    ]
-    
+    @State private var selectedSpecialist: Specialist?
+
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 16) {
-                    ForEach(specialists) { specialist in
-                        NavigationLink(destination: SpecialistDetailView(specialist: specialist)) {
-                            SpecialistCard(specialist: specialist)
-                        }
-                        .buttonStyle(PlainButtonStyle())
+        NavigationSplitView {
+            // Master: List of specialists
+            List(specialists, selection: $selectedSpecialist) { specialist in
+                NavigationLink(value: specialist) {
+                    HStack(spacing: 12) {
+                        Image(systemName: specialist.iconName)
+                            .font(.title2)
+                            .foregroundColor(.blue)
+                            .frame(width: 40)
+
+                        Text(specialist.name)
+                            .font(.body)
                     }
+                    .padding(.vertical, 4)
                 }
-                .padding()
             }
             .navigationTitle("Specialists")
-            .background(Color(UIColor.systemGroupedBackground))
+        } detail: {
+            // Detail: Selected specialist's topics
+            if let selectedSpecialist = selectedSpecialist {
+                SpecialistDetailView(specialist: selectedSpecialist)
+            } else {
+                // Placeholder when no specialist is selected
+                VStack(spacing: 16) {
+                    Image(systemName: "person.3.sequence")
+                        .font(.system(size: 60))
+                        .foregroundColor(.gray)
+
+                    Text("Select a Specialist")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+
+                    Text("Choose a specialist from the list to view available topics and consultations.")
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 40)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color(UIColor.systemGroupedBackground))
+            }
         }
     }
 }

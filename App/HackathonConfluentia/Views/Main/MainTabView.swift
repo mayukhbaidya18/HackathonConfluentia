@@ -15,7 +15,7 @@ struct MainTabView: View {
             FoodAdvisorView()
                 .tabItem {
                     Image(systemName: "waveform.path.ecg")
-                    Text("Dr. Jivi")
+                    Text("Dr. Kea")
                 }
                 .tag(1)
             

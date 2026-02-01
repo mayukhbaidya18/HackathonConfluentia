@@ -25,24 +25,17 @@ struct SpecialistDetailView: View {
                 }
                 
                 Spacer()
-                
+
                 Text(specialist.name)
                     .font(.headline)
                     .fontWeight(.bold)
                     .foregroundColor(.black)
-                
+
                 Spacer()
-                
-                Button(action: {
-                    // Placeholder for help action
-                }) {
-                    Image(systemName: "questionmark")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(.orange)
-                        .frame(width: 40, height: 40)
-                        .background(Color.orange.opacity(0.1))
-                        .clipShape(Circle())
-                }
+
+                // Invisible spacer to balance the header
+                Color.clear
+                    .frame(width: 40, height: 40)
             }
             .padding(.horizontal)
             .padding(.vertical, 8)

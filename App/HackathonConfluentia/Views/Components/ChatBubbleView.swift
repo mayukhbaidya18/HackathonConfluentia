@@ -25,15 +25,14 @@ struct ChatBubbleView: View {
             } else {
                 VStack(alignment: .leading, spacing: 6) {
                     HStack(alignment: .top, spacing: 8) {
-                        // AI Avatar (Dr. Jivi)
+                        // AI Avatar (Dr. Kea)
                         ZStack {
                             Circle()
                                 .stroke(Color.orange.opacity(0.3), lineWidth: 1)
                                 .frame(width: 32, height: 32)
-                            
-                            Image(systemName: "waveform.path.ecg") // Dr. Jivi Icon
-                                .font(.system(size: 14, weight: .semibold))
-                                .foregroundColor(.orange)
+
+                            Text("🧑‍⚕️")
+                                .font(.system(size: 20))
                         }
                         
                         Text(message.content)

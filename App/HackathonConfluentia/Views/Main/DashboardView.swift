@@ -48,6 +48,7 @@ class DashboardViewModel: ObservableObject {
 struct DashboardView: View {
     @Binding var selectedTab: Int
     @StateObject private var viewModel = DashboardViewModel()
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
     init(selectedTab: Binding<Int>) {
         self._selectedTab = selectedTab
@@ -80,7 +81,7 @@ struct DashboardView: View {
                                 .padding(.vertical, 10)
                             
                             // Search Bar
-                            NavigationLink(destination: JiviAssistantView(selectedTab: $selectedTab)) {
+                            NavigationLink(destination: KeaAssistantView(selectedTab: $selectedTab)) {
                                 HStack {
                                     HStack {
                                         Text(viewModel.placeholderTexts[viewModel.placeholderIndex])
@@ -115,9 +116,13 @@ struct DashboardView: View {
                                     Text("Meet Your Personal Health Suite").font(.system(size: 16, weight: .semibold)).foregroundColor(.primary)
                                     Rectangle().fill(Color.orange.opacity(0.3)).frame(width: 40, height: 2)
                                 }
-                                
-                                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                                    DashboardCard(title: "Doctor Jivi", subtitle: "Quick, Accurate Diagnosis", icon: "stethoscope", iconColor: .orange)
+
+                                // Adaptive grid: 2 columns on iPhone (compact), 4 columns on iPad (regular)
+                                LazyVGrid(columns: horizontalSizeClass == .compact ?
+                                    [GridItem(.flexible()), GridItem(.flexible())] :
+                                    [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())],
+                                    spacing: 16) {
+                                    DashboardCard(title: "Doctor Kea", subtitle: "Quick, Accurate Diagnosis", icon: "stethoscope", iconColor: .orange)
                                         .onTapGesture { selectedTab = 1 }
                                     
                                     DashboardCard(title: "Mind Coach", subtitle: "Your Mind Matters", icon: "brain.head.profile", iconColor: .orange)
@@ -129,7 +134,7 @@ struct DashboardView: View {
                                     DashboardCard(title: "Care Plans", subtitle: "Health Start Here", icon: "list.clipboard", iconColor: .orange)
                                         .onTapGesture { selectedTab = 2 }
                                 }
-                                .padding(.horizontal)
+                                .padding(.horizontal, horizontalSizeClass == .compact ? 16 : 32)
                             }
                         }
                         .padding(.bottom, 30)

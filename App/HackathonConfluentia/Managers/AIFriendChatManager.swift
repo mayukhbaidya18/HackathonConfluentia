@@ -95,7 +95,7 @@ final class AIFriendChatManager {
                 
                 // Speak the response if sound is enabled
                 if self.isSoundEnabled {
-                    self.ttsManager.speak(responseContent)
+                    self.ttsManager.speak(responseContent, isFemale: self.currentProfile.isFemale)
                 }
             }
             
@@ -108,7 +108,7 @@ final class AIFriendChatManager {
                 self.isThinking = false
                 
                 if self.isSoundEnabled {
-                    self.ttsManager.speak(errorMessage.content)
+                    self.ttsManager.speak(errorMessage.content, isFemale: self.currentProfile.isFemale)
                 }
             }
         }

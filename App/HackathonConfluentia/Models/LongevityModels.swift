@@ -21,6 +21,7 @@ enum Gender: String, CaseIterable, Codable, Identifiable {
 struct QuizQuestion: Identifiable {
     let id = UUID()
     let text: String
+    let subtitle: String
     let options: [String]
 }
 

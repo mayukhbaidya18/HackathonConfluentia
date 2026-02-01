@@ -3,6 +3,7 @@ import SwiftUI
 struct AIFriendHomeView: View {
     @State private var selectedProfileIndex = 0
     var onStartChat: (AIFriendProfile) -> Void
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
     let profiles = AIFriendData.profiles
     
@@ -104,10 +105,10 @@ struct AIFriendHomeView: View {
                             }
                         }
                     }
-                    .padding(24)
+                    .padding(horizontalSizeClass == .compact ? 24 : 32)
                     .background(Color(UIColor.systemGray6).opacity(0.3))
                     .cornerRadius(16)
-                    .padding(.horizontal)
+                    .padding(.horizontal, horizontalSizeClass == .compact ? 16 : 32)
                     
                     Spacer(minLength: 20)
                 }
@@ -126,12 +127,8 @@ struct AIFriendHomeView: View {
                         .background(Color.orange)
                         .cornerRadius(16)
                 }
-                
-                Text("Free consultation • No commitment")
-                    .font(.caption)
-                    .foregroundColor(.gray)
             }
-            .padding(24)
+            .padding(horizontalSizeClass == .compact ? 24 : 32)
             .background(Color.white)
         }
         .background(Color.white)

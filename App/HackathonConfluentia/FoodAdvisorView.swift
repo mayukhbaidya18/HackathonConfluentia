@@ -112,16 +112,10 @@ struct FoodAdvisorView: View {
                 Circle()
                     .stroke(Color.orange.opacity(0.3), lineWidth: 2)
                     .frame(width: 44, height: 44)
-                
-                Image(systemName: "waveform.path.ecg") // Dr. Jivi Icon
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding(10)
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
-                    .foregroundColor(.orange)
-                    .background(Circle().fill(Color(.systemGray6)))
-                
+
+                Text("🧑‍⚕️")
+                    .font(.system(size: 28))
+
                 // Online Indicator
                 Circle()
                     .fill(Color.green)
@@ -131,7 +125,7 @@ struct FoodAdvisorView: View {
             }
             
             VStack(alignment: .leading, spacing: 2) {
-                Text("Dr. Jivi")
+                Text("Dr. Kea")
                     .font(.headline)
                 Text("Food Advisor")
                     .font(.caption)
@@ -215,7 +209,7 @@ struct FoodAdvisorView: View {
                 }
                 
                 HStack {
-                    TextField("Ask Dr. Jivi about food...", text: $viewModel.inputText, axis: .vertical)
+                    TextField("Ask Dr. Kea about food...", text: $viewModel.inputText, axis: .vertical)
                         .focused($isInputFocused)
                         .lineLimit(1...5)
 

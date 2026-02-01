@@ -16,14 +16,45 @@ struct BasicInfoView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Let's start with the basics")
                     .font(.system(size: 28, weight: .bold, design: .rounded))
-                
-                Text("This helps us personalize your health assessment")
+
+                Text("This helps us personalize your health report")
                     .font(.system(size: 16, design: .rounded))
                     .foregroundColor(.secondary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.top, 24)
-            
+
+            // Description Card
+            HStack(alignment: .top, spacing: 12) {
+                Text("😊")
+                    .font(.system(size: 20))
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Take comprehensive health assessments to understand your body better. Get personalized longevity insights, biological age estimates, and actionable recommendations to improve your overall wellbeing through AI-powered analysis.")
+                        .font(.system(size: 13))
+                        .foregroundColor(.secondary)
+                        .lineSpacing(2)
+                        .lineLimit(nil) // Ensures no limit on lines
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                Spacer()
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
+            .background(
+                LinearGradient(
+                    colors: [Color.orange.opacity(0.1), Color.orange.opacity(0.05)],
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color.orange.opacity(0.2), lineWidth: 1)
+            )
+            .cornerRadius(12)
+
             VStack(spacing: 24) {
                 // Name Input
                 VStack(alignment: .leading, spacing: 8) {
@@ -106,7 +137,7 @@ struct BasicInfoView: View {
                     }
                 }
             }
-            
+
             Spacer()
 
             // Navigation Buttons

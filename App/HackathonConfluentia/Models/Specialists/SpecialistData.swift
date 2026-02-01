@@ -32,7 +32,8 @@ struct SpecialistData {
                 "Arrhythmias: Oxygen deprivation disrupts normal electrical activity of the heart.",
                 "Sudden cardiac arrest: Severe rhythm disturbances can cause sudden collapse.",
                 "Reduced quality of life: Persistent symptoms limit physical activity and daily functioning."
-            ]
+            ],
+            images: ["cad1", "cad2"]
         )),
         Topic(name: "Hypertension", iconName: "waveform.path", content: TopicContent(
             overview: "Hypertension is a chronic condition in which blood pressure in the arteries remains persistently elevated, forcing the heart to work harder. Over time, this excess pressure damages blood vessels and vital organs. Most people with hypertension don't experience symptoms until organ damage occurs.",
@@ -63,7 +64,8 @@ struct SpecialistData {
                 "Heart failure: Heart thickens and weakens due to prolonged overwork.",
                 "Kidney damage: Persistent high BP damages kidney filters, leading to CKD.",
                 "Vision loss: Damage to retinal blood vessels can cause permanent impairment."
-            ]
+            ],
+            images: ["ht1", "ht2"]
         )),
         Topic(name: "Heart Failure", iconName: "drop.fill", content: TopicContent(
             overview: "Heart failure is a chronic condition in which the heart is unable to pump enough blood to meet the body's needs. It does not mean the heart has stopped, but that it is working inefficiently.",
@@ -94,7 +96,8 @@ struct SpecialistData {
                 "Arrhythmias: Electrical instability increases risk of dangerous rhythms.",
                 "Liver damage: Fluid congestion affects liver function.",
                 "Sudden cardiac death: Severe rhythm disturbances may cause sudden heart stoppage."
-            ]
+            ],
+            images: ["hf1", "hf2"]
         )),
         Topic(name: "Arrhythmias", iconName: "heart.slash", content: TopicContent(
             overview: "Arrhythmias are disorders in which the heart beats too fast, too slow, or irregularly due to abnormal electrical activity. These rhythm disturbances can affect how efficiently the heart pumps blood.",
@@ -125,7 +128,8 @@ struct SpecialistData {
                 "Sudden cardiac arrest: Dangerous arrhythmias can abruptly stop heart function.",
                 "Frequent fainting: Reduced cerebral blood flow increases injury risk.",
                 "Reduced quality of life: Ongoing symptoms limit daily activities and physical exertion."
-            ]
+            ],
+            images: ["arrhythmia1", "arrhythmia2"]
         )),
         Topic(name: "Heart Attack", iconName: "heart.circle.fill", content: TopicContent(
             overview: "A heart attack occurs when blood flow to a part of the heart muscle is suddenly blocked, usually due to a clot in a coronary artery. This interruption deprives the heart muscle of oxygen, leading to tissue damage or death.",
@@ -156,7 +160,8 @@ struct SpecialistData {
                 "Cardiogenic shock: Severe heart damage leads to critically low blood pressure and organ failure.",
                 "Recurrent heart attack: Ongoing artery disease increases the risk of future events.",
                 "Sudden cardiac death: Severe rhythm disturbances may cause abrupt heart stoppage."
-            ]
+            ],
+            images: ["ha1", "ha2"]
         ))
     ]
 
@@ -204,7 +209,8 @@ struct SpecialistData {
                 "Tooth loss: Extensive damage may require extraction.",
                 "Gum disease: Infection can spread to surrounding gum tissue.",
                 "Difficulty eating: Pain and sensitivity affect chewing and nutrition."
-            ]
+            ],
+            images: ["td1", "td2"]
         )),
         Topic(name: "Gum Disease", iconName: "heart.text.square", content: TopicContent(
             overview: "Gum disease is an infection and inflammation of the gums caused by bacterial plaque buildup around the teeth. If untreated, it can damage gum tissue and the bone supporting the teeth.",
@@ -235,7 +241,8 @@ struct SpecialistData {
                 "Abscess formation: Pockets of infection may develop in gums.",
                 "Increased heart risk: Gum inflammation is linked to cardiovascular disease.",
                 "Poor blood sugar control: Gum disease worsens diabetes management."
-            ]
+            ],
+            images: ["gd1", "gd2"]
         )),
         Topic(name: "Oral Hygiene", iconName: "sparkles", content: TopicContent(
             overview: "Oral hygiene refers to the practice of keeping the mouth, teeth, and gums clean to prevent dental problems. Good oral hygiene helps maintain healthy teeth, gums, and overall oral health.",
@@ -266,7 +273,8 @@ struct SpecialistData {
                 "Tooth loss: Advanced decay and gum disease weaken tooth support.",
                 "Oral infections: Bacteria may cause abscesses and pain.",
                 "Overall health impact: Poor oral health is linked to heart disease and diabetes."
-            ]
+            ],
+            images: ["oh1", "oh2"]
         )),
         Topic(name: "Dental Implants", iconName: "circle.fill", content: TopicContent(
             overview: "Dental implants are artificial tooth roots made of biocompatible materials that are surgically placed into the jawbone. They provide a strong foundation for fixed or removable replacement teeth.",
@@ -297,7 +305,8 @@ struct SpecialistData {
                 "Nerve injury: Improper placement may cause numbness or discomfort.",
                 "Sinus problems: Upper jaw implants may affect nearby sinus cavities.",
                 "Delayed healing: Smoking or medical conditions can slow recovery."
-            ]
+            ],
+            images: ["di1", "di2"]
         )),
         Topic(name: "Orthodontics", iconName: "exclamationmark.circle", content: TopicContent(
             overview: "Orthodontics is a dental specialty focused on diagnosing and correcting misaligned teeth and jaws. It improves bite function, oral health, and overall facial appearance.",
@@ -328,7 +337,8 @@ struct SpecialistData {
                 "Jaw joint problems: Continuous strain may cause TMJ disorders.",
                 "Speech and chewing problems: Functional difficulties persist or worsen.",
                 "Reduced self-confidence: Smile aesthetics can impact emotional well-being."
-            ]
+            ],
+            images: ["ortho1", "ortho2"]
         ))
     ]
 
@@ -370,7 +380,8 @@ struct SpecialistData {
             ],
             diagnosis: "Diabetes is a long-term condition that requires early diagnosis, regular monitoring, and consistent management. With proper lifestyle changes, medication adherence, and medical supervision, individuals with diabetes can lead healthy and active lives while preventing serious complications.",
             complicationsIntro: nil,
-            complications: nil
+            complications: nil,
+            images: ["diabetes1", "diabetes2"]
         )),
         Topic(name: "Thyroid Disorders", iconName: "cross.case", content: TopicContent(
             overview: "Thyroid disorders are conditions in which the thyroid gland produces an excess or deficiency of thyroid hormones, leading to disruption in metabolism and organ function. These imbalances affect energy levels, weight, heart rate, digestion, mood, and reproductive health.",
@@ -401,7 +412,8 @@ struct SpecialistData {
                 "Radioactive iodine therapy: Used to destroy overactive thyroid tissue when medication is ineffective.",
                 "Surgical treatment: Partial or total thyroid removal may be needed for nodules or cancer.",
                 "Lifestyle and follow-up care: Balanced diet, stress management, and regular testing support long-term control."
-            ]
+            ],
+            images: ["thyroid disorders1", "thyroid disorders2"]
         )),
         Topic(name: "Osteoporosis", iconName: "figure.stand", content: TopicContent(
             overview: "Osteoporosis is a condition in which bones become weak, porous, and fragile due to loss of bone density. This increases the risk of fractures, even with minor falls or routine activities.",
@@ -432,7 +444,8 @@ struct SpecialistData {
                 "Hormonal therapy: Used in selected cases to improve bone density.",
                 "Exercise therapy: Weight-bearing and strength exercises improve bone and muscle strength.",
                 "Lifestyle modification: Avoiding smoking, limiting alcohol, and fall prevention reduce fracture risk."
-            ]
+            ],
+            images: ["osteoporosis1", "osteoporosis2"]
         )),
         Topic(name: "PCOS", iconName: "figure.stand.dress", content: TopicContent(
             overview: "Polycystic Ovary Syndrome is a hormonal disorder affecting women of reproductive age, characterized by irregular periods, excess androgen hormones, and ovarian cysts. It can impact menstrual health, fertility, metabolism, and long-term health if not managed properly.",
@@ -463,7 +476,8 @@ struct SpecialistData {
                 "Fertility treatment: Ovulation-inducing drugs help women trying to conceive.",
                 "Cosmetic management: Treatments address acne and excess hair growth.",
                 "Long-term monitoring: Regular follow-ups prevent diabetes, heart disease, and infertility issues."
-            ]
+            ],
+            images: ["pcos1", "pcos2"]
         )),
         Topic(name: "Adrenal Disorders", iconName: "heart.circle", content: TopicContent(
             overview: "Adrenal disorders are conditions in which the adrenal glands produce too much or too little of essential hormones like cortisol, aldosterone, and adrenaline. These hormones regulate stress response, blood pressure, metabolism, and electrolyte balance, so imbalance can affect the entire body.",
@@ -494,7 +508,8 @@ struct SpecialistData {
                 "Surgical treatment: Removal of adrenal tumors when indicated.",
                 "Gradual steroid tapering: Prevents adrenal suppression in long-term steroid users.",
                 "Regular monitoring: Ongoing follow-up ensures hormone levels remain balanced."
-            ]
+            ],
+            images: ["adrenal disorder1", "adrenal disorder2"]
         ))
     ]
 
@@ -542,7 +557,8 @@ struct SpecialistData {
                 "Posture changes: Avoid lying down immediately after meals and elevate head while sleeping.",
                 "Smoking and alcohol cessation: Reduces irritation and improves sphincter function.",
                 "Surgical treatment: Considered in severe cases not responding to medication."
-            ]
+            ],
+            images: ["gastroenterologist acid reflux", "gastroenterologist acid reflux2"]
         )),
         Topic(name: "Irritable Bowel Syndrome", iconName: "circle.fill", content: TopicContent(
             overview: "Irritable Bowel Syndrome is a chronic functional digestive disorder affecting the large intestine, characterized by abdominal discomfort and altered bowel habits. It does not cause structural damage but significantly impacts quality of life.",
@@ -573,7 +589,8 @@ struct SpecialistData {
                 "Stress management: Relaxation techniques and counseling reduce symptom flare-ups.",
                 "Probiotics: Help restore healthy gut bacteria balance.",
                 "Lifestyle changes: Regular exercise and proper sleep improve gut health."
-            ]
+            ],
+            images: ["irritable bowl syndrome1", "irritable bowl syndrome2"]
         )),
         Topic(name: "Crohn's Disease", iconName: "oval", content: TopicContent(
             overview: "Crohn's disease is a chronic inflammatory bowel disease (IBD) that causes inflammation of the digestive tract, most commonly affecting the small intestine and colon. The inflammation can extend deep into the intestinal layers and leads to recurring flare-ups and remission.",
@@ -604,7 +621,8 @@ struct SpecialistData {
                 "Biologic agents: Target specific immune pathways to reduce inflammation.",
                 "Dietary management: Tailored diets help reduce symptoms and improve nutrition.",
                 "Surgery: Required in severe cases to remove damaged sections of the intestine."
-            ]
+            ],
+            images: ["crohns disease1", "crohns disease2"]
         )),
         Topic(name: "Ulcerative Colitis", iconName: "heart.text.square", content: TopicContent(
             overview: "Ulcerative colitis is a chronic inflammatory bowel disease (IBD) that causes continuous inflammation and ulceration of the inner lining of the colon and rectum. The condition follows a pattern of flare-ups and periods of remission.",
@@ -635,7 +653,8 @@ struct SpecialistData {
                 "Biologic therapies: Target specific immune pathways responsible for inflammation.",
                 "Dietary management: Adjusted diet helps reduce symptoms during flares.",
                 "Surgery: May be required in severe or treatment-resistant cases."
-            ]
+            ],
+            images: ["ulcerative colitis1", "ulcerative colitis2"]
         )),
         Topic(name: "Hepatitis", iconName: "sparkles", content: TopicContent(
             overview: "Hepatitis is a condition characterized by inflammation of the liver, which affects its ability to perform vital functions such as detoxification, digestion, and metabolism. It can be acute or chronic and may lead to serious liver damage if untreated.",
@@ -666,7 +685,8 @@ struct SpecialistData {
                 "Supportive care: Rest, hydration, and nutrition help in acute hepatitis.",
                 "Immunosuppressive therapy: Used in autoimmune hepatitis.",
                 "Vaccination and prevention: Vaccines prevent hepatitis A and B infections."
-            ]
+            ],
+            images: ["hepatitis1", "hepatitis2"]
         ))
     ]
 
@@ -883,7 +903,8 @@ struct SpecialistData {
                 "Treating underlying cause: Managing bleeding or chronic disease improves anemia.",
                 "Blood transfusion: Used in severe or life-threatening anemia.",
                 "Specialized therapy: Genetic or bone marrow disorders require advanced treatment."
-            ]
+            ],
+            images: ["anaemia1", "anaemia2"]
         )),
         Topic(name: "Leukemia", iconName: "circle.fill", content: TopicContent(
             overview: "Leukemia is a type of blood cancer that originates in the bone marrow and affects the production of white blood cells. These abnormal cells multiply uncontrollably, interfering with normal blood cell formation and immune function.",
@@ -914,7 +935,8 @@ struct SpecialistData {
                 "Immunotherapy: Enhances the immune system's ability to fight cancer.",
                 "Stem cell transplant: Replaces diseased bone marrow with healthy cells.",
                 "Supportive care: Transfusions and infection control manage treatment side effects."
-            ]
+            ],
+            images: ["leukemia1", "leukemia2"]
         )),
         Topic(name: "Lymphoma", iconName: "circle.grid.2x2", content: TopicContent(
             overview: "Lymphoma is a type of blood cancer that begins in the lymphatic system, which is part of the body's immune defense. It occurs when lymphocytes (a type of white blood cell) grow uncontrollably and accumulate in lymph nodes and other organs.",
@@ -945,7 +967,8 @@ struct SpecialistData {
                 "Targeted therapy: Attacks specific molecular pathways in lymphoma cells.",
                 "Radiation therapy: Used in localized disease to destroy cancer cells.",
                 "Stem cell transplant: Considered in aggressive or relapsed cases."
-            ]
+            ],
+            images: ["lymphoma1", "lymphoma2"]
         )),
         Topic(name: "Thrombocytopenia", iconName: "heart.text.square", content: TopicContent(
             overview: "Thrombocytopenia is a blood disorder characterized by a low platelet count, which impairs the blood's ability to clot properly. Platelets are essential for stopping bleeding, and reduced levels increase the risk of bruising and hemorrhage.",
@@ -976,7 +999,8 @@ struct SpecialistData {
                 "Platelet transfusion: Used in severe cases or active bleeding.",
                 "Immunotherapy: IV immunoglobulin is used in certain autoimmune cases.",
                 "Lifestyle precautions: Avoiding injury and blood-thinning drugs reduces bleeding risk."
-            ]
+            ],
+            images: ["thrombocytopenia1", "thrombocytopenia2"]
         )),
         Topic(name: "Coagulation Disorders", iconName: "drop.fill", content: TopicContent(
             overview: "Coagulation disorders are conditions in which the blood's ability to clot is impaired or excessive, leading to abnormal bleeding or unwanted clot formation. These disorders occur due to defects in clotting factors, platelets, or regulatory mechanisms of the clotting system.",
@@ -1007,7 +1031,8 @@ struct SpecialistData {
                 "Blood-thinning medications: Used to prevent harmful clot formation in clotting disorders.",
                 "Plasma or blood products: Provide clotting factors during bleeding episodes.",
                 "Preventive care: Avoiding trauma and regular monitoring reduce complications."
-            ]
+            ],
+            images: ["coagulation disorder1", "coagulation disorder2"]
         ))
     ]
 
@@ -1052,7 +1077,8 @@ struct SpecialistData {
                 "Decongestants: Provide short-term relief from nasal blockage.",
                 "Leukotriene inhibitors: Help control allergic inflammation.",
                 "Immunotherapy: Allergy shots or tablets reduce long-term sensitivity."
-            ]
+            ],
+            images: ["allergic rhinitis1", "allergic rhinitis2"]
         )),
         Topic(name: "Asthma", iconName: "circle.fill", content: TopicContent(
             overview: "Asthma is a chronic inflammatory disease of the airways in which the immune system causes airway narrowing, swelling, and excess mucus production. This leads to recurrent breathing difficulty and varies in severity over time.",
@@ -1080,7 +1106,8 @@ struct SpecialistData {
                 "Leukotriene modifiers: Control allergic inflammation.",
                 "Biologic therapy: Used in severe allergic or eosinophilic asthma.",
                 "Asthma action plan: Personalized plan helps manage flare-ups."
-            ]
+            ],
+            images: ["asthma1", "asthma2"]
         )),
         Topic(name: "Food Allergy", iconName: "shield.fill", content: TopicContent(
             overview: "Food allergy is an immune-mediated condition in which the body mistakenly identifies certain foods as harmful and triggers an allergic reaction. This reaction can range from mild symptoms to severe, life-threatening responses such as anaphylaxis.",
@@ -1108,7 +1135,8 @@ struct SpecialistData {
                 "Epinephrine injection: Life-saving treatment for anaphylaxis.",
                 "Emergency action plan: Helps manage accidental exposure.",
                 "Oral immunotherapy: May help build tolerance in selected cases."
-            ]
+            ],
+            images: ["food allergy1", "food allergy2"]
         )),
         Topic(name: "Anaphylaxis", iconName: "cross.case", content: TopicContent(
             overview: "Anaphylaxis is a severe, rapid-onset, life-threatening allergic reaction caused by an extreme immune response to an allergen. It affects multiple organ systems and requires immediate medical treatment.",
@@ -1136,7 +1164,8 @@ struct SpecialistData {
                 "Antihistamines: Help relieve skin and mild allergic symptoms.",
                 "Corticosteroids: Reduce risk of prolonged or delayed reactions.",
                 "Emergency observation: Monitoring is needed to detect biphasic reactions."
-            ]
+            ],
+            images: ["anaphylaxis1", "anaphylaxis2"]
         )),
         Topic(name: "Immunodeficiency Disorders", iconName: "staroflife.fill", content: TopicContent(
             overview: "Immunodeficiency disorders are conditions in which the immune system is weakened or fails to function properly, reducing the body's ability to fight infections. These disorders may be present from birth or acquired later in life.",
@@ -1164,7 +1193,8 @@ struct SpecialistData {
                 "Vaccinations: Special immunization schedules protect against preventable infections.",
                 "Treatment of underlying disease: Managing HIV or chronic illness improves immunity.",
                 "Stem cell transplant: Curative option for some severe inherited disorders."
-            ]
+            ],
+            images: ["immunodeficiency disorders1", "immunodeficiency disorders2"]
         ))
     ]
 
@@ -1212,7 +1242,8 @@ struct SpecialistData {
                 "Medications: Control blood pressure, anemia, and electrolyte imbalance.",
                 "Dialysis: Required in advanced stages when kidneys fail to function.",
                 "Kidney transplant: Best long-term option for end-stage kidney disease."
-            ]
+            ],
+            images: ["chronic kidney disorder1", "chronic kidney disorder2"]
         )),
         Topic(name: "Kidney Stones (Renal Calculi)", iconName: "drop.circle.fill", content: TopicContent(
             overview: "Kidney stones are hard mineral and salt deposits that form inside the kidneys when urine becomes concentrated. These stones can vary in size and may cause severe pain when they move through the urinary tract.",
@@ -1243,7 +1274,8 @@ struct SpecialistData {
                 "Medical expulsive therapy: Drugs help relax ureters to pass stones.",
                 "Shock wave lithotripsy: Breaks stones into smaller fragments.",
                 "Surgical procedures: Required for large or obstructing stones."
-            ]
+            ],
+            images: ["kidney stone1", "kidney stone2"]
         )),
         Topic(name: "Polycystic Kidney Disease (PKD)", iconName: "cross.case", content: TopicContent(
             overview: "Polycystic Kidney Disease is a genetic disorder in which multiple fluid-filled cysts develop in the kidneys, causing them to enlarge and gradually lose function. Over time, PKD can lead to chronic kidney disease and kidney failure.",
@@ -1274,7 +1306,8 @@ struct SpecialistData {
                 "Treatment of infections: Prompt antibiotics for UTIs and kidney infections.",
                 "Disease-modifying therapy: Certain drugs slow cyst growth in selected patients.",
                 "Advanced care: Dialysis or kidney transplant in end-stage disease."
-            ]
+            ],
+            images: ["polycystic kidney disease1", "polycystic kidney disease2"]
         )),
         Topic(name: "Hypertension-Related Kidney Disease", iconName: "waveform.path", content: TopicContent(
             overview: "Hypertension-related kidney disease is a condition in which long-standing high blood pressure damages the blood vessels of the kidneys, reducing their ability to filter waste from the blood. Over time, this damage can lead to chronic kidney disease and kidney failure.",
@@ -1305,7 +1338,8 @@ struct SpecialistData {
                 "Lifestyle changes: Weight control, exercise, and smoking cessation improve outcomes.",
                 "Management of comorbidities: Controlling diabetes and cholesterol slows progression.",
                 "Advanced therapy: Dialysis or transplant may be required in end-stage disease."
-            ]
+            ],
+            images: ["hypertension related kidney disease1", "hypertension related kidney disease2"]
         )),
         Topic(name: "Acute Kidney Injury (AKI)", iconName: "circle.fill", content: TopicContent(
             overview: "Acute Kidney Injury is a sudden decline in kidney function occurring over hours to days, leading to accumulation of waste products and imbalance of fluids and electrolytes. Unlike chronic kidney disease, AKI is often reversible if identified and treated early.",
@@ -1336,7 +1370,8 @@ struct SpecialistData {
                 "Treating underlying cause: Managing infections, shock, or obstruction is essential.",
                 "Electrolyte correction: Balances potassium and acid levels to prevent complications.",
                 "Dialysis: Temporary support in severe cases until kidney recovery."
-            ]
+            ],
+            images: ["acute kidney injury1", "acute kidney injury2"]
         ))
     ]
 
@@ -1384,7 +1419,8 @@ struct SpecialistData {
                 "Migraine-associated vertigo: Severe dizziness and balance problems.",
                 "Depression and anxiety: Chronic pain increases risk of mood disorders.",
                 "Reduced quality of life: Frequent attacks disrupt work, relationships, and daily activities."
-            ]
+            ],
+            images: ["migraine1", "migraine2"]
         )),
         Topic(name: "Stroke", iconName: "exclamationmark.triangle.fill", content: TopicContent(
             overview: "A stroke occurs when blood flow to a part of the brain is interrupted or reduced, depriving brain tissue of oxygen and nutrients. This leads to rapid brain cell damage and is a medical emergency requiring immediate treatment.",
@@ -1416,7 +1452,8 @@ struct SpecialistData {
                 "Depression: Emotional changes due to brain injury and disability.",
                 "Seizures: Increased risk following brain injury.",
                 "Recurrent stroke: Risk of future strokes without prevention."
-            ]
+            ],
+            images: ["stroke1", "stroke2"]
         )),
         Topic(name: "Parkinson's Disease", iconName: "figure.walk", content: TopicContent(
             overview: "Parkinson's disease is a chronic, progressive neurological disorder that affects movement due to degeneration of nerve cells in the brain. It primarily impacts motor function but can also cause cognitive, emotional, and autonomic symptoms.",
@@ -1453,7 +1490,8 @@ struct SpecialistData {
                 "Autonomic dysfunction: Blood pressure instability and urinary issues.",
                 "Falls: Balance problems increase fracture risk.",
                 "Social isolation: Communication difficulties affect relationships."
-            ]
+            ],
+            images: ["parkinson disease1", "parkinson disease2"]
         )),
         Topic(name: "Alzheimer's Disease", iconName: "brain.head.profile", content: TopicContent(
             overview: "Alzheimer's disease is a progressive neurodegenerative disorder and the most common cause of dementia. It leads to gradual decline in memory, thinking, behavior, and the ability to perform daily activities.",
@@ -1490,7 +1528,8 @@ struct SpecialistData {
                 "Complete dependency: Requires full-time care in advanced stages.",
                 "Caregiver burden: Significant emotional and physical strain on family.",
                 "Wandering and safety risks: Patients may get lost or injured."
-            ]
+            ],
+            images: ["alzheimer disease1", "alzheimer disease2"]
         )),
         Topic(name: "Multiple Sclerosis (MS)", iconName: "circle.dashed", content: TopicContent(
             overview: "Multiple sclerosis is a chronic autoimmune neurological disorder in which the immune system attacks the protective myelin sheath covering nerve fibers in the central nervous system. This damage disrupts communication between the brain and the rest of the body, leading to neurological symptoms.",
@@ -1528,7 +1567,8 @@ struct SpecialistData {
                 "Secondary infections: Due to immobility or bladder issues.",
                 "Spasticity: Stiffness and muscle spasms.",
                 "Employment challenges: Symptoms may affect work ability."
-            ]
+            ],
+            images: ["multiple sclerosis1", "multiple sclerosis2"]
         ))
     ]
 
@@ -1576,7 +1616,8 @@ struct SpecialistData {
                 "Driving difficulties: Glare and blurred vision make driving dangerous.",
                 "Surgical complications: Cataract surgery carries small risk of infection or retinal detachment.",
                 "Posterior capsule opacity: Clouding may return after surgery, requiring laser treatment."
-            ]
+            ],
+            images: ["cataract1", "cataract2"]
         )),
         Topic(name: "Glaucoma", iconName: "eye.circle.fill", content: TopicContent(
             overview: "Glaucoma is a group of eye conditions that damage the optic nerve, usually due to increased pressure inside the eye. If left untreated, it can lead to progressive and irreversible vision loss.",
@@ -1608,7 +1649,8 @@ struct SpecialistData {
                 "Reduced quality of life: Vision impairment affects independence and daily activities.",
                 "Side effects of treatment: Eye drops may cause redness, irritation, or systemic side effects.",
                 "Surgical complications: Glaucoma surgery carries risk of infection, bleeding, or vision loss."
-            ]
+            ],
+            images: ["glaucoma1", "glaucoma2"]
         )),
         Topic(name: "Macular Degeneration", iconName: "eye.circle", content: TopicContent(
             overview: "Macular degeneration is an eye disease that affects the macula, the central part of the retina responsible for sharp, detailed vision. It leads to gradual loss of central vision, making tasks like reading and recognizing faces difficult.",
@@ -1639,7 +1681,8 @@ struct SpecialistData {
                 "Depression: Vision loss significantly impacts mental health and independence.",
                 "Falls and injuries: Poor central vision increases accident risk.",
                 "Treatment side effects: Anti-VEGF injections may cause eye pain or rare serious complications."
-            ]
+            ],
+            images: ["macular degeneration1", "macular degeneration2"]
         )),
         Topic(name: "Refractive Errors", iconName: "eyeglasses", content: TopicContent(
             overview: "Refractive errors are vision problems that occur when the eye cannot properly focus light onto the retina. This results in blurred vision and difficulty seeing clearly at near, far, or both distances.",
@@ -1670,7 +1713,8 @@ struct SpecialistData {
                 "Eye strain: Prolonged uncorrected vision causes chronic discomfort and fatigue.",
                 "Headaches: Straining to see causes tension headaches and migraines.",
                 "Surgical risks: LASIK and refractive surgery carry small risk of complications or dissatisfaction."
-            ]
+            ],
+            images: ["refractive error1", "refractive error2"]
         )),
         Topic(name: "Eye Infections", iconName: "eye.slash.fill", content: TopicContent(
             overview: "Eye infections occur when bacteria, viruses, fungi, or parasites infect different parts of the eye such as the conjunctiva, cornea, eyelids, or inner eye structures. They can range from mild irritation to severe vision-threatening conditions if not treated promptly.",
@@ -1701,7 +1745,8 @@ struct SpecialistData {
                 "Spread of infection: Infection can spread from one eye to the other or to deeper eye structures.",
                 "Chronic inflammation: Recurrent infections cause persistent eye problems.",
                 "Contact lens complications: Infections in contact lens wearers may cause more severe disease."
-            ]
+            ],
+            images: ["eye infection1", "eye infection2"]
         ))
     ]
 
@@ -1752,7 +1797,8 @@ struct SpecialistData {
                 "Disability: Advanced disease may require joint replacement surgery.",
                 "Fall risk: Knee or hip osteoarthritis increases risk of falls and fractures.",
                 "Muscle weakness: Joint pain leads to reduced activity and muscle wasting."
-            ]
+            ],
+            images: ["osteo arthritis1", "osteo arthritis2"]
         )),
         Topic(name: "Rheumatoid Arthritis", iconName: "figure.stand", content: TopicContent(
             overview: "Rheumatoid arthritis is an autoimmune disorder where the immune system mistakenly attacks the synovial lining of joints, causing inflammation, pain, and swelling. Unlike osteoarthritis, it often affects joints symmetrically and can involve multiple joints simultaneously.",
@@ -1788,7 +1834,8 @@ struct SpecialistData {
                 "Osteoporosis: RA and corticosteroid use weaken bones.",
                 "Eye complications: Scleritis or dry eyes causing vision problems.",
                 "Cervical spine instability: Joint damage can affect neck vertebrae."
-            ]
+            ],
+            images: ["rheumatoid arthritis1", "rheumatoid arthritis2"]
         )),
         Topic(name: "Sports Injuries", iconName: "figure.run", content: TopicContent(
             overview: "Sports injuries are musculoskeletal injuries that occur during physical activity, exercise, or sports participation. They commonly affect muscles, tendons, ligaments, bones, and joints, ranging from minor sprains to severe fractures.",
@@ -1824,7 +1871,8 @@ struct SpecialistData {
                 "Muscle imbalances: Compensatory movements cause weakness or tightness.",
                 "Reduced performance: Permanent decline in athletic ability.",
                 "Psychological impact: Fear of re-injury affects confidence and participation."
-            ]
+            ],
+            images: ["sports injury1", "sports injury2"]
         )),
         Topic(name: "Fractures", iconName: "figure.stand", content: TopicContent(
             overview: "A fracture is a break or crack in a bone, ranging from hairline fractures to complete breaks. Fractures can occur from trauma, overuse, or underlying bone weakness, and require prompt medical attention to ensure proper healing.",
@@ -1861,7 +1909,8 @@ struct SpecialistData {
                 "Compartment syndrome: Swelling increases pressure, risking tissue death.",
                 "Joint stiffness: Immobilization leads to reduced range of motion.",
                 "Deep vein thrombosis: Immobility increases blood clot risk."
-            ]
+            ],
+            images: ["fracture1", "fracture2"]
         )),
         Topic(name: "Back Pain", iconName: "figure.stand", content: TopicContent(
             overview: "Back pain is a common condition affecting the lower, middle, or upper back. It can result from problems with muscles, ligaments, nerves, discs, or vertebrae. While most back pain improves with self-care, some cases require medical intervention.",
@@ -1898,7 +1947,8 @@ struct SpecialistData {
                 "Weight gain: Reduced activity may lead to unwanted weight gain.",
                 "Medication dependence: Long-term use of pain relievers risks addiction.",
                 "Disability: Severe cases prevent work or normal activities."
-            ]
+            ],
+            images: ["back pain1", "back pain2"]
         ))
     ]
 
@@ -1952,7 +2002,8 @@ struct SpecialistData {
                 "Emotional problems: Anxiety, depression, or poor emotional regulation affecting well-being.",
                 "Academic struggles: Poor performance in school due to cognitive or attentional issues.",
                 "Low self-esteem: Negative self-perception resulting from developmental challenges."
-            ]
+            ],
+            images: ["child development1", "child development2"]
         )),
         Topic(name: "Vaccination", iconName: "cross.case", content: TopicContent(
             overview: "Vaccination is a preventive medical practice that stimulates a child's immune system to develop protection against specific infectious diseases. It helps the body recognize and fight harmful germs without causing the actual illness.",
@@ -1989,7 +2040,8 @@ struct SpecialistData {
                 "Long-term effects: Some diseases can cause chronic health problems if contracted.",
                 "Community spread: Unvaccinated children can transmit infections to others.",
                 "Missed school: Vaccine-preventable illnesses result in significant educational disruption."
-            ]
+            ],
+            images: ["vaccination1", "vaccination2"]
         )),
         Topic(name: "Common Childhood Illnesses", iconName: "cross.case", content: TopicContent(
             overview: "Common childhood illnesses are health conditions frequently seen in infants and young children due to their developing immune systems. While most are mild and self-limiting, timely recognition and care are essential to prevent complications.",
@@ -2026,7 +2078,8 @@ struct SpecialistData {
                 "Chronic lung damage: Conditions like severe pneumonia can cause long-term effects.",
                 "Hearing loss: Recurrent or untreated ear infections may affect hearing.",
                 "Growth delays: Frequent illnesses can affect nutrition and development."
-            ]
+            ],
+            images: ["common childhood illnesses1", "common childhood illnesses2"]
         )),
         Topic(name: "Nutrition and Feeding", iconName: "circle.fill", content: TopicContent(
             overview: "Nutrition and feeding refer to providing age-appropriate, balanced food and feeding practices that support a child's growth, brain development, immunity, and overall health. Proper nutrition from infancy through adolescence is essential for optimal physical and cognitive development.",
@@ -2063,7 +2116,8 @@ struct SpecialistData {
                 "Type 2 diabetes: Poor diet increases risk of metabolic disorders.",
                 "Eating disorders: Unhealthy relationships with food develop in childhood.",
                 "Chronic disease risk: Early nutrition influences adult health outcomes."
-            ]
+            ],
+            images: ["nutrition and feeding1", "nutrition and feeding2"]
         )),
         Topic(name: "Sleep Habits", iconName: "moon.zzz.fill", content: TopicContent(
             overview: "Sleep habits refer to a child's sleep duration, timing, routine, and quality of sleep from infancy through adolescence. Healthy sleep habits are essential for physical growth, brain development, emotional regulation, and overall well-being.",
@@ -2100,7 +2154,8 @@ struct SpecialistData {
                 "Weakened immunity: Poor sleep reduces ability to fight infections.",
                 "Safety concerns: Fatigue increases risk of accidents and injuries.",
                 "Family stress: Child's sleep problems affect parental well-being."
-            ]
+            ],
+            images: ["sleep habits1", "sleep habits2"]
         ))
     ]
 
@@ -2154,7 +2209,8 @@ struct SpecialistData {
                 "Self-harm risk: Increased risk of suicide attempts.",
                 "Physical health decline: Neglect of health and self-care.",
                 "Cognitive impairment: Long-term effects on memory and thinking."
-            ]
+            ],
+            images: ["depression1", "depression2"]
         )),
         Topic(name: "Anxiety Disorders", iconName: "brain.head.profile", content: TopicContent(
             overview: "Anxiety disorders are a group of mental health conditions marked by excessive fear, worry, or nervousness that persists over time. These feelings are often disproportionate to actual situations and interfere with daily functioning, relationships, and quality of life.",
@@ -2191,7 +2247,8 @@ struct SpecialistData {
                 "Sleep disorders: Chronic insomnia affecting overall health.",
                 "Suicide risk: Severe anxiety increases suicidal ideation.",
                 "Quality of life decline: Persistent limitation of daily activities."
-            ]
+            ],
+            images: ["anxiety1", "anxiety2"]
         )),
         Topic(name: "Bipolar Disorder", iconName: "circle.dashed", content: TopicContent(
             overview: "Bipolar disorder is a chronic mental health condition characterized by extreme mood swings that include episodes of elevated mood (mania or hypomania) and episodes of depression. These mood changes affect energy levels, thinking, behavior, and daily functioning.",
@@ -2228,7 +2285,8 @@ struct SpecialistData {
                 "Legal issues: Risky behaviors may lead to legal consequences.",
                 "Physical health decline: Poor self-care during mood episodes.",
                 "Social stigma: Misunderstanding leads to isolation."
-            ]
+            ],
+            images: ["bipolar disorder1", "bipolar disorder2"]
         )),
         Topic(name: "Schizophrenia", iconName: "cross.case", content: TopicContent(
             overview: "Schizophrenia is a chronic and severe mental health disorder that affects how a person thinks, feels, perceives reality, and behaves. It often leads to difficulty distinguishing reality from hallucinations or delusions and significantly impacts daily functioning.",
@@ -2265,7 +2323,8 @@ struct SpecialistData {
                 "Self-harm risk: Increased suicide and self-injury rates.",
                 "Cognitive decline: Progressive impairment in thinking abilities.",
                 "Victimization: Vulnerability to exploitation and abuse."
-            ]
+            ],
+            images: ["schizophrenia1", "schizophrenia2"]
         )),
         Topic(name: "Post-Traumatic Stress Disorder", iconName: "exclamationmark.triangle.fill", content: TopicContent(
             overview: "Post-Traumatic Stress Disorder (PTSD) is a mental health condition that develops after exposure to a traumatic or life-threatening event. It causes persistent psychological distress, intrusive memories, emotional changes, and functional impairment long after the event has passed.",
@@ -2302,7 +2361,8 @@ struct SpecialistData {
                 "Social isolation: Withdrawal from support networks.",
                 "Suicide risk: Increased risk of self-harm behaviors.",
                 "Secondary traumatization: Family members affected by symptoms."
-            ]
+            ],
+            images: ["post traumatic stress disorder1", "post traumatic stress disorder2"]
         ))
     ]
 
@@ -2527,7 +2587,8 @@ struct SpecialistData {
                 "Weakened immunity: Ongoing imbalance reduces ojas (vital energy) and immunity.",
                 "Skin disorders: Eczema, psoriasis, or acne from specific dosha aggravation.",
                 "Quality of life decline: Progressive imbalance affects physical and mental well-being."
-            ]
+            ],
+            images: ["doshas1", "doshas2"]
         )),
         Topic(name: "Herbs", iconName: "leaf.fill", content: TopicContent(
             overview: "Ayurvedic herbs are natural medicinal plants used for thousands of years to promote health, prevent disease, and treat various conditions. These herbs work by balancing the doshas, strengthening digestion (agni), and eliminating toxins (ama) from the body. Popular herbs include Ashwagandha for stress, Tulsi for immunity, Triphala for digestion, and Brahmi for cognitive function.",
@@ -2564,7 +2625,8 @@ struct SpecialistData {
                 "Pregnancy risks: Some herbs are contraindicated during pregnancy.",
                 "Kidney or liver stress: Excessive or prolonged use may affect organ function.",
                 "Misdiagnosis delay: Relying solely on herbs may delay needed medical treatment."
-            ]
+            ],
+            images: ["herbs1", "herbs2"]
         )),
         Topic(name: "Lifestyle", iconName: "figure.walk", content: TopicContent(
             overview: "Ayurvedic lifestyle (Dinacharya) focuses on daily and seasonal routines that align with natural rhythms to maintain health and prevent disease. It includes practices such as oil massage (abhyanga), tongue scraping, nasal cleansing (nasya), and mindful eating. These practices help balance the doshas, strengthen digestion, eliminate toxins, and promote overall well-being.",
@@ -2601,7 +2663,8 @@ struct SpecialistData {
                 "Autoimmune conditions: Chronic inflammation may trigger immune dysfunction.",
                 "Premature aging: Accelerated aging from toxin accumulation and stress.",
                 "Reduced quality of life: Overall health deterioration affecting daily functioning."
-            ]
+            ],
+            images: ["lifestyle1", "lifestyle2"]
         )),
         Topic(name: "Wellness", iconName: "heart.fill", content: TopicContent(
             overview: "Ayurvedic wellness is a holistic approach to health that focuses on prevention and promotion of well-being through personalized practices. It emphasizes maintaining harmony between body, mind, and spirit through proper diet, lifestyle, herbs, yoga, meditation, and detoxification. The goal is to preserve health, prevent disease, and achieve optimal vitality and longevity.",
@@ -2638,7 +2701,8 @@ struct SpecialistData {
                 "Reduced longevity: Accelerated aging and shortened lifespan.",
                 "Poor quality of life: Gradual deterioration affects daily functioning.",
                 "Increased healthcare costs: Preventable conditions require expensive treatment."
-            ]
+            ],
+            images: ["wellness1", "wellness2"]
         )),
         Topic(name: "Balance", iconName: "staroflife.fill", content: TopicContent(
             overview: "Balance in Ayurveda refers to the harmonious state of the three doshas (Vata, Pitta, Kapha), proper digestion (agni), healthy tissues (dhatus), and proper elimination (malas). When these elements are balanced, the individual experiences health, vitality, and clarity. Ayurveda provides personalized guidelines for diet, lifestyle, and seasonal routines to maintain this unique equilibrium for each person.",
@@ -2675,7 +2739,8 @@ struct SpecialistData {
                 "Respiratory conditions: Asthma, allergies, or chronic bronchitis.",
                 "Severe fatigue: Chronic exhaustion and depleted energy reserves.",
                 "Quality of life decline: Progressive deterioration affecting all life aspects."
-            ]
+            ],
+            images: ["balance1", "balance2"]
         ))
     ]
 
@@ -2729,7 +2794,8 @@ struct SpecialistData {
                 "Infection: Picking at acne can introduce bacteria causing secondary infection.",
                 "Emotional distress: Acne significantly impacts mental health and well-being.",
                 "Permanent skin damage: Severe nodulocystic acne causes lasting skin changes."
-            ]
+            ],
+            images: ["acne1", "acne2"]
         )),
         Topic(name: "Eczema", iconName: "hand.raised", content: TopicContent(
             overview: "Eczema (atopic dermatitis) is a chronic inflammatory skin condition causing dry, itchy, and inflamed skin. It commonly begins in childhood but can occur at any age. Eczema results from a combination of genetic, immune system, and environmental factors that impair the skin's barrier function, leading to increased sensitivity and moisture loss.",
@@ -2766,7 +2832,8 @@ struct SpecialistData {
                 "Contact dermatitis: Increased sensitivity to substances.",
                 "Asthma and hay fever: Eczema associated with increased allergic condition risk.",
                 "Impaired quality of life: Chronic condition affects emotional well-being and relationships."
-            ]
+            ],
+            images: ["eczema1", "eczema2"]
         )),
         Topic(name: "Psoriasis", iconName: "flame", content: TopicContent(
             overview: "Psoriasis is a chronic autoimmune condition that accelerates skin cell growth, causing thick, scaly patches on the skin's surface. It occurs when the immune system mistakenly attacks healthy skin cells, triggering rapid skin cell production. These excess cells form scales and red patches that can be itchy and painful, significantly impacting quality of life.",
@@ -2803,7 +2870,8 @@ struct SpecialistData {
                 "Low self-esteem: Visible skin plaques affect confidence.",
                 "Skin cancer: Increased risk from certain psoriasis treatments.",
                 "Reduced quality of life: Chronic condition impacts daily functioning and relationships."
-            ]
+            ],
+            images: ["psoriasis1", "psoriasis2"]
         )),
         Topic(name: "Skin Cancer", iconName: "sun.max.fill", content: TopicContent(
             overview: "Skin cancer is the abnormal growth of skin cells, primarily caused by ultraviolet (UV) radiation from the sun or tanning beds. The three main types are basal cell carcinoma, squamous cell carcinoma, and melanoma. While basal and squamous cell cancers are common and highly treatable, melanoma is the most dangerous and can spread to other organs if not detected early.",
@@ -2840,7 +2908,8 @@ struct SpecialistData {
                 "Infection: Ulcerated tumors are prone to secondary infection.",
                 "Psychological impact: Cancer diagnosis causes anxiety and distress.",
                 "Treatment side effects: Surgery, radiation, or chemotherapy cause various complications."
-            ]
+            ],
+            images: ["sc1", "sc2"]
         )),
         Topic(name: "Dermatitis", iconName: "hand.raised.slash", content: TopicContent(
             overview: "Dermatitis is a general term for skin inflammation causing red, swollen, and itchy skin. It encompasses various conditions including atopic dermatitis (eczema), contact dermatitis, seborrheic dermatitis, and stasis dermatitis. Different types have different causes but share similar symptoms of inflammation, itching, and skin barrier disruption.",
@@ -2877,7 +2946,8 @@ struct SpecialistData {
                 "Psychological impact: Visible skin condition affects confidence and mental health.",
                 "Contact sensitization: Increased sensitivity to more substances over time.",
                 "Impaired quality of life: Chronic condition affects social interactions and well-being."
-            ]
+            ],
+            images: ["dermatitis1", "dermatitis2"]
         ))
     ]
 

@@ -156,13 +156,6 @@ struct LongevityResultsView: View {
                 }
             }
             .padding(.top, 20)
-            
-            // Legend
-            HStack(spacing: 16) {
-                LegendItem(color: .orange, text: "Overall")
-                LegendItem(color: .cyan, text: "Brain")
-                LegendItem(color: .purple, text: "Body")
-            }
         }
         .padding()
         .background(Color.white)
@@ -171,10 +164,6 @@ struct LongevityResultsView: View {
     }
     
     private func ageCardsSection(_ result: LongevityResult) -> some View {
-        // Calculate percentiles based on mental and physical scores
-        let brainPercentile = calculatePercentile(score: result.mentalScore)
-        let bodyPercentile = calculatePercentile(score: result.physicalScore)
-
         return HStack(spacing: 16) {
             // Brain Age Card
             AgeCard(
@@ -182,9 +171,7 @@ struct LongevityResultsView: View {
                 iconGradient: [.purple, .pink],
                 title: "Brain Age",
                 age: result.brainAge,
-                difference: result.brainAgeDifference,
-                percentile: brainPercentile,
-                percentileColor: .purple
+                difference: result.brainAgeDifference
             )
 
             // Body Age Card
@@ -193,9 +180,7 @@ struct LongevityResultsView: View {
                 iconGradient: [.blue, .cyan],
                 title: "Body Age",
                 age: result.bodyAge,
-                difference: result.bodyAgeDifference,
-                percentile: bodyPercentile,
-                percentileColor: .blue
+                difference: result.bodyAgeDifference
             )
         }
         .padding(.horizontal)
@@ -711,9 +696,7 @@ struct AgeCard: View {
     let title: String
     let age: Int
     let difference: Int
-    let percentile: Int
-    let percentileColor: Color
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
@@ -748,18 +731,6 @@ struct AgeCard: View {
                 .foregroundColor(difference > 0 ? .red : .green)
                 .fontWeight(.medium)
             }
-            
-            HStack {
-                Text("Percentile")
-                    .font(.caption2)
-                    .foregroundColor(.secondary)
-                Spacer()
-                Text("\(percentile)th")
-                    .font(.caption)
-                    .fontWeight(.bold)
-                    .foregroundColor(percentileColor)
-            }
-            .padding(.top, 8)
         }
         .padding()
         .background(Color.white)

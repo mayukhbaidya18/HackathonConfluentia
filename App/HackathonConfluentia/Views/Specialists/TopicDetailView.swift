@@ -40,17 +40,19 @@ struct TopicDetailView: View {
                 if let content = topic.content {
                     VStack(alignment: .leading, spacing: 24) {
 
-                        // Images Section (Placeholder)
-                        HStack(spacing: 12) {
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(Color.gray.opacity(0.2))
-                                .frame(height: 180)
-                                .overlay(Text("Image 1").foregroundColor(.gray))
-
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(Color.gray.opacity(0.2))
-                                .frame(height: 180)
-                                .overlay(Text("Image 2").foregroundColor(.gray))
+                        // Images Section (if available)
+                        if let images = content.images, !images.isEmpty {
+                            HStack(spacing: 12) {
+                                ForEach(images, id: \.self) { imageName in
+                                    Image(imageName)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: (UIScreen.main.bounds.width - 72) / 2, height: 180)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+                                }
+                            }
+                            .padding(.horizontal, 16)
                         }
 
                         // Overview Section

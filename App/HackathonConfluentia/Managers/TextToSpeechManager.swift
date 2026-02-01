@@ -19,26 +19,33 @@ final class TextToSpeechManager: NSObject, AVSpeechSynthesizerDelegate {
         }
     }
     
-    func speak(_ text: String) {
+    func speak(_ text: String, isFemale: Bool = false) {
         // Stop any current speech immediately
         stopSpeaking()
-        
+
         // Clean text to remove emojis
         let cleanText = removeEmojis(from: text)
         guard !cleanText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
-        
+
         let utterance = AVSpeechUtterance(string: cleanText)
-        
-        // Configure voice
-        // Prefer a high-quality female voice if available (e.g., Samantha, Ava)
-        if let voice = AVSpeechSynthesisVoice(language: "en-US") {
-            utterance.voice = voice
+
+        // Configure voice based on gender
+        if isFemale {
+            // Female voice for Isabella
+            utterance.voice = AVSpeechSynthesisVoice(identifier: "com.apple.ttsbundle.Samantha-compact")
+        } else {
+            // Male voice for Alex
+            utterance.voice = AVSpeechSynthesisVoice(identifier: "com.apple.ttsbundle.Thomas-compact")
         }
-        
-        utterance.rate = 0.5 // Natural conversational rate
-        utterance.pitchMultiplier = 1.1 // Slightly higher pitch for a friendly tone
+
+        // Fallback to default if specific voice not available
+        if utterance.voice == nil {
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        }
+
+        utterance.rate = 0.5
         utterance.volume = 1.0
-        
+
         synthesizer.speak(utterance)
         isSpeaking = true
     }
